@@ -13,4 +13,8 @@ During this project we want to apply a sample use case using the following struc
 
 ### Data
 
-### 
+### Delta Lake
+
+Using Delta Lake you can build a lakehouse architecture. A lakehouse can be used to build a platform that combines Data Warehousing and Advanced Analytics. As this [paper](http://cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf) says: "the data warehouse architecture as we know
+it today will wither in the coming years and be replaced by a new
+architectural pattern, the Lakehouse,". 
