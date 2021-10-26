@@ -18,3 +18,8 @@ During this project we want to apply a sample use case using the following struc
 Using Delta Lake you can build a lakehouse architecture. A lakehouse can be used to build a platform that combines Data Warehousing and Advanced Analytics. As this [paper](http://cidrdb.org/cidr2021/papers/cidr2021_paper17.pdf) says: "the data warehouse architecture as we know
 it today will wither in the coming years and be replaced by a new
 architectural pattern, the Lakehouse,". 
+
+#### What is Apache Spark (and PySpark)
+
+PySpark is a Python API that can be used to access Apache Spark. There are other Libraries available for other programming languages like Java for example. 
+
