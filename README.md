@@ -7,4 +7,4 @@ git subtree pull --prefix kirenz-unterlagen kirenz-unterlagen main --squash
 
 ## Documentation
 
-Documentation can be found [over here](https://drive.google.com/drive/folders/1V1m9ZACeljwLK8TWFsrJl77mSku63rcm?usp=sharing)
+MLOPs info https://github.com/visenger/awesome-mlops
