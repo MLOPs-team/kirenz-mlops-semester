@@ -1,8 +1,4 @@
 ## Data Architecture & MLOps
-test1234
-
-[a relative link](test.md)
-
 
 This is the documentation for our project. At the moment there is only one index.md file that will be expanded. Later on we want to introduce different pages. 
 
@@ -13,7 +9,7 @@ During this project we want to apply a sample use case using the following struc
 
 ### Our example use case
 
-
+[- Jupyter Book](test.md)
 
 ### Data
 
