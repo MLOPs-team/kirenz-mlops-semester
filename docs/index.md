@@ -21,5 +21,10 @@ architectural pattern, the Lakehouse,".
 
 #### What is Apache Spark (and PySpark)
 
+Apache Spark is an In-Memory Analytics Platform for Big Data Processing, Data Streaming, SQL, Machine Learning and Graph Processing (https://datasolut.com/was-ist-spark/). 
+
 PySpark is a Python API that can be used to access Apache Spark. There are other Libraries available for other programming languages like Java for example. 
 
+Making Apache Spark™ Better with Delta Lake
+
+https://www.youtube.com/watch?v=LJtShrQqYZY
