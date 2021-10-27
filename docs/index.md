@@ -9,7 +9,7 @@ During this project we want to apply a sample use case using the following struc
 
 ### Our example use case
 
-
+[- Jupyter Book](notebooks.html)
 
 ### Data
 
