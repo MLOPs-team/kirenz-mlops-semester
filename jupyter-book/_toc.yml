@@ -7,6 +7,7 @@ parts:
   - caption: Learning diary
     chapters:
     - file: docs/learningDiary/dataLake
+    - file: docs/learningDiary/jupyterBook
   - caption: Technical documentation
     chapters:
     - file: docs/technicalDocumentation/dataLake
