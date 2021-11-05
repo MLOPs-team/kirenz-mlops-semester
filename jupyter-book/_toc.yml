@@ -3,6 +3,10 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: markdown
-- file: notebooks
+parts:
+  - caption: Learning diary
+    chapters:
+    - file: docs/learningDiary/dataLake
+  - caption: Technical documentation
+    chapters:
+    - file: docs/technicalDocumentation/dataLake
