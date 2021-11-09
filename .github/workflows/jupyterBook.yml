@@ -4,7 +4,7 @@ name: deploy-jupyter-book
 on:
   push:
     branches:
-    - master
+    - main
     # If your git repository has the Jupyter Book within some-subfolder next to
     # unrelated files, you can make this run only if a file within that specific
     # folder has been modified.
@@ -26,12 +26,12 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install -r requirements.txt
+        pip install -r jupyter-book/requirements.txt
 
     # Build the book
     - name: Build the book
       run: |
-        jupyter-book build .
+        jupyter-book build --all jupyter-book/
 
     # Push the book's HTML to github-pages
     - name: GitHub Pages action
