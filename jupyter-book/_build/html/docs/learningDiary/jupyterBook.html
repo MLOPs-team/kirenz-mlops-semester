@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Testseite &#8212; MLOPS</title>
+    <title>Jupyter-Book good to know &#8212; MLOPS</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,7 +51,8 @@
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Notes: Questions for lecture on 17.11" href="../learningDiary/requiredTheoryKirenz/questionsCollection.html" />
+    <link rel="next" title="Notes: Required reading Kirenz" href="requiredTheoryKirenz/theoryKirenz.html" />
+    <link rel="prev" title="Delta Lake" href="dataLake.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -97,19 +98,19 @@
   Learning diary
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../learningDiary/dataLake.html">
+  <a class="reference internal" href="dataLake.html">
    Delta Lake
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../learningDiary/jupyterBook.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Jupyter-Book good to know
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../learningDiary/requiredTheoryKirenz/theoryKirenz.html">
+  <a class="reference internal" href="requiredTheoryKirenz/theoryKirenz.html">
    Notes: Required reading Kirenz
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -119,12 +120,12 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../learningDiary/requiredTheoryKirenz/requiredQuestions.html">
+    <a class="reference internal" href="requiredTheoryKirenz/requiredQuestions.html">
      Notes: Required questions - theory Kirenz
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../learningDiary/requiredTheoryKirenz/questionsCollection.html">
+    <a class="reference internal" href="requiredTheoryKirenz/questionsCollection.html">
      Notes: Questions for lecture on 17.11
     </a>
    </li>
@@ -136,9 +137,9 @@
   Technical documentation
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../technicalDocumentation/dataLake.html">
    Testseite
   </a>
  </li>
@@ -183,7 +184,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/docs/technicalDocumentation/dataLake.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/docs/learningDiary/jupyterBook.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Quelldatei herunterladen" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -203,7 +204,7 @@
                 data-toggle="tooltip" data-placement="left" title="Quell-Repository"><i
                     class="fab fa-github"></i>Repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/technicalDocumentation/dataLake.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/learningDiary/jupyterBook.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Öffnen Sie ein Problem"><i class="fas fa-lightbulb"></i>offenes Thema</button></a>
         
@@ -224,7 +225,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/technicalDocumentation/dataLake.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/learningDiary/jupyterBook.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Starten Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -247,9 +248,28 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#das-ist-ein-untertitel">
-   Das ist ein Untertitel
+  <a class="reference internal nav-link" href="#general-information">
+   General Information
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sections-in-a-file">
+   Sections in a file
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table-of-content">
+     Table of Content
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#how-to-build-the-jupyter-book">
+       How to build the Jupyter-Book
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -262,10 +282,54 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="testseite">
-<h1>Testseite<a class="headerlink" href="#testseite" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="das-ist-ein-untertitel">
-<h2>Das ist ein Untertitel<a class="headerlink" href="#das-ist-ein-untertitel" title="Permalink to this headline">¶</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="jupyter-book-good-to-know">
+<h1>Jupyter-Book good to know<a class="headerlink" href="#jupyter-book-good-to-know" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="general-information">
+<h2>General Information<a class="headerlink" href="#general-information" title="Permalink to this headline">¶</a></h2>
+<p>All files are in the folder docs.</p>
+</div>
+<div class="section" id="sections-in-a-file">
+<h2>Sections in a file<a class="headerlink" href="#sections-in-a-file" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Chapter 1 title</span>
+
+<span class="c1">## Chapter 1 second header</span>
+
+<span class="c1">### Chapter 1 third header</span>
+
+<span class="c1">#### Chapter 1 section title</span>
+
+<span class="c1">##### Chapter 1 section second header</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="table-of-content">
+<h3>Table of Content<a class="headerlink" href="#table-of-content" title="Permalink to this headline">¶</a></h3>
+<p>The title ‘# Chapter 1 Title’ of the file is listed in the table of contents (see on the left)</p>
+<p>The second, third…. header ist listed in the table of comtents on the top right hand corner</p>
+<p>If you added a new file in the learning diary or technical documentation, you also need to update the _toc.yml.
+You just need to add the added file in the expecting chapter.</p>
+<div class="section" id="how-to-build-the-jupyter-book">
+<h4>How to build the Jupyter-Book<a class="headerlink" href="#how-to-build-the-jupyter-book" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">book</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;C:\Users\Pasca\AppData\Local\Temp/ipykernel_2556/3553495748.py&quot;</span><span class="gt">, line </span><span class="mi">1</span>
+    <span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">book</span><span class="o">/</span>
+                 <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -282,7 +346,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs\technicalDocumentation"
+            path: "./docs\learningDiary"
         },
         predefinedOutput: true
     }
@@ -299,14 +363,23 @@
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="../learningDiary/requiredTheoryKirenz/questionsCollection.html" title="previous page">
+        <a class="left-prev" href="dataLake.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Notes: Questions for lecture on 17.11</p>
+                <p class="prevnext-title">Delta Lake</p>
             </div>
         </a>
     </div>
+     <div id="next">
+        <a class="right-next" href="requiredTheoryKirenz/theoryKirenz.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Notes: Required reading Kirenz</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         

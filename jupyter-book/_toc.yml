@@ -8,6 +8,10 @@ parts:
     chapters:
     - file: docs/learningDiary/dataLake
     - file: docs/learningDiary/jupyterBook
+    - file: docs/learningDiary/requiredTheoryKirenz/theoryKirenz
+      sections:
+      - file: docs/learningDiary/requiredTheoryKirenz/requiredQuestions
+      - file: docs/learningDiary/requiredTheoryKirenz/questionsCollection
   - caption: Technical documentation
     chapters:
     - file: docs/technicalDocumentation/dataLake
