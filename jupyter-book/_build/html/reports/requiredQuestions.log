@@ -17,13 +17,17 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-jupyter-book build jupyter-book/
+## Data-centric AI
+
+Notes to the video from AI pioneer Andrew Ng:"A Chat with Andrew on MLOps: From Model-centric to Data-centric AI".
+
+HTML('<iframe width="560" height="315" src="https://youtu.be/06-AZXmwHjo" frameborder="0" allowfullscreen></iframe>')
 ------------------
 
-[1;36m  File [1;32m"C:\Users\Pasca\AppData\Local\Temp/ipykernel_3148/3553495748.py"[1;36m, line [1;32m1[0m
-[1;33m    jupyter-book build jupyter-book/[0m
-[1;37m                 ^[0m
+[1;36m  File [1;32m"C:\Users\Pasca\AppData\Local\Temp/ipykernel_20348/3586363980.py"[1;36m, line [1;32m3[0m
+[1;33m    Notes to the video from AI pioneer Andrew Ng:"A Chat with Andrew on MLOps: From Model-centric to Data-centric AI".[0m
+[1;37m          ^[0m
 [1;31mSyntaxError[0m[1;31m:[0m invalid syntax
 
-SyntaxError: invalid syntax (Temp/ipykernel_3148/3553495748.py, line 1)
+SyntaxError: invalid syntax (Temp/ipykernel_20348/3586363980.py, line 3)
 

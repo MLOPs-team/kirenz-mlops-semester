@@ -242,6 +242,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Inhalt
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-centric-ai">
+   Data-centric AI
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -252,6 +265,65 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="notes-required-questions-theory-kirenz">
 <h1>Notes: Required questions - theory Kirenz<a class="headerlink" href="#notes-required-questions-theory-kirenz" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="data-centric-ai">
+<h2>Data-centric AI<a class="headerlink" href="#data-centric-ai" title="Permalink to this headline">¶</a></h2>
+<p>Notes to the video from AI pioneer Andrew Ng:”A Chat with Andrew on MLOps: From Model-centric to Data-centric AI”.</p>
+<iframe width="560" height="315" src="https://youtu.be/06-AZXmwHjo" frameborder="0" allowfullscreen></iframe>  
+<ul class="simple">
+<li><p><strong>AI-System</strong> = Code (model/algorithm) + Data</p></li>
+<li><p>Data is food for AI</p></li>
+</ul>
+<p><img alt="image" src="../../../_images/dataIsFood.png" /></p>
+<ul class="simple">
+<li><p>It’s very important especially for small data sets that the labels are consistencly</p></li>
+</ul>
+<p><img alt="image" src="../../../_images/smallDataAndLabelConsistency.png" /></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- **Noisy Dataset**: data that contains a large amount of additional meaningless information. E.g. corrupted data...all data that cannot be understood and interpreted  by a user system.
+
+- **Noisy labels**: labels that were set incorrectly or inconsitently  
+</pre></div>
+</div>
+<ul>
+<li><p><strong>Theory: Clean vs. noisy Data</strong><br />
+You have 500 Examples and 12% of the examples are noisy (incorrectly or inconsitently labeld)</p>
+<p>The following are about equally effective:
+- Clean up the noise =&gt; 60 examples
+- Collect annother 500 new examples (double the training set)</p>
+<p>With a data centric view, there is significant of room for improvment in problems &lt;10.000 examples</p>
+</li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Required questions</p>
+<ul class="simple">
+<li><p><strong>Describe the lifecycle of an ML project</strong></p></li>
+</ul>
+<hr class="docutils" />
+<ul>
+<li><p><strong>What is the difference between a model-centric vs data-centric view</strong></p>
+<p><strong>Model-centric view</strong><br />
+Collect what data you can, and develop a model good enough to deal with the noise in the data.</p>
+<p>Hold the data fixed and iteratively improve the code/model.</p>
+<p><strong>Data-centric view</strong><br />
+The consistency of the data is paramount. Use tools to improve the data quality; this will allow multiple models to do well.</p>
+<p>Hold the code fixed and iteratively improve the data..</p>
+</li>
+</ul>
+<hr class="docutils" />
+<ul>
+<li><p><strong>Describe MLOps’ most important task</strong></p>
+<p>Ensure consistently high-quality data in all phases oft he ML project lifecycle<br />
+What is good Data?</p>
+<ul class="simple">
+<li><p>Defined consistently (definition of labels y is unambiguous)</p></li>
+<li><p>Cover of important cases (good coverage of inputs x)</p></li>
+<li><p>Enough data – for example enough data of speech with car noise in background</p></li>
+<li><p>Has timely feedback from production data (distribution covers data drift and concept drift)</p></li>
+<li><p>Sized appropriately</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
