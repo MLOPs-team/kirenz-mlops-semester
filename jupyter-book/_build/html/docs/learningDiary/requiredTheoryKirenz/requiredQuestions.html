@@ -252,6 +252,11 @@
    Data-centric AI
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#common-mlops-related-challenges">
+   Common MLOps related challenges
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -267,23 +272,19 @@
 <h1>Notes: Required questions - theory Kirenz<a class="headerlink" href="#notes-required-questions-theory-kirenz" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="data-centric-ai">
 <h2>Data-centric AI<a class="headerlink" href="#data-centric-ai" title="Permalink to this headline">¶</a></h2>
-<p>Notes to the video from AI pioneer Andrew Ng:”A Chat with Andrew on MLOps: From Model-centric to Data-centric AI”.</p>
-<iframe width="560" height="315" src="https://youtu.be/06-AZXmwHjo" frameborder="0" allowfullscreen></iframe>  
-<ul class="simple">
-<li><p><strong>AI-System</strong> = Code (model/algorithm) + Data</p></li>
-<li><p>Data is food for AI</p></li>
-</ul>
-<p><img alt="image" src="../../../_images/dataIsFood.png" /></p>
-<ul class="simple">
-<li><p>It’s very important especially for small data sets that the labels are consistencly</p></li>
-</ul>
-<p><img alt="image" src="../../../_images/smallDataAndLabelConsistency.png" /></p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- **Noisy Dataset**: data that contains a large amount of additional meaningless information. E.g. corrupted data...all data that cannot be understood and interpreted  by a user system.
-
-- **Noisy labels**: labels that were set incorrectly or inconsitently  
-</pre></div>
-</div>
+<p>Notes on the video of AI pioneer Andrew Ng:”A Chat with Andrew on MLOps: From Model-centric to Data-centric AI”.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/06-AZXmwHjo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <ul>
+<li><p><strong>AI-System</strong> = Code (model/algorithm) + Data</p></li>
+<li><p>Data is food for AI<br />
+<img alt="image" src="../../../_images/dataIsFood.png" /></p></li>
+<li><p>It’s very important especially for small data sets that the labels are consistencly<br />
+<img alt="image" src="../../../_images/smallDataAndLabelConsistency.png" /></p>
+<ul class="simple">
+<li><p><strong>Noisy Dataset</strong>: data that contains a large amount of additional meaningless information. E.g. corrupted data…all data that cannot be understood and interpreted  by a user system.</p></li>
+<li><p><strong>Noisy labels</strong>: labels that were set incorrectly or inconsitently</p></li>
+</ul>
+</li>
 <li><p><strong>Theory: Clean vs. noisy Data</strong><br />
 You have 500 Examples and 12% of the examples are noisy (incorrectly or inconsitently labeld)</p>
 <p>The following are about equally effective:
@@ -320,6 +321,36 @@ What is good Data?</p>
 <li><p>Has timely feedback from production data (distribution covers data drift and concept drift)</p></li>
 <li><p>Sized appropriately</p></li>
 </ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="common-mlops-related-challenges">
+<h2>Common MLOps related challenges<a class="headerlink" href="#common-mlops-related-challenges" title="Permalink to this headline">¶</a></h2>
+<p>Notes on the video of Nayur Khan, global head of technical delivery at McKinsey</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/M1F0FDJGu0Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="tip admonition">
+<p class="admonition-title">Required questions</p>
+<ul>
+<li><p><strong>Describe 4 typical challenges when creating machine learning products.</strong></p>
+<p>What we typically find is that a couple of teams sitting in the same ofice or somethines geographically separateda and many problems result….</p>
+<ul class="simple">
+<li><p><em>Lack of collaboration</em> or sharing of components/libaries betwenn the teams but even within the same team.</p></li>
+<li><p><em>Inconsistency</em>: Different approachtes to solving same problem, or using inonsistent data or algortihms</p></li>
+<li><p><em>Duplicaton</em>: reinveting the wheel. Teams sitting next to each other and try to solve the same problem.</p></li>
+<li><p><em>Tech Debt</em>: Large codebases and tech debt. you don’t know how to maintain your code</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Reusability concerns within a codebase: Explain a common way to look at what code is doing in a typical ML project.</strong></p></li>
+</ul>
+<hr class="docutils" />
+<ul>
+<li><p><strong>What kind of problems does the open-source framework Kedro solve and where does Kedro fit in the MLOps ecosystem?</strong></p>
+<p>Kedro solved to problem of maintability.</p>
+<p>Kedro is not for the deployment. Kedro focuses on how you work while writing standardized, modular, maintabile and reproducible data sience code an does not focus on how you would like to run it in production. The responsibility of „What time will this pipeline run? And How will i know i fit failed? Is left to tools called orchestrators like Apache Airflow, Luigi, Dagster and Perfect. Orchestrators do not focus on the process of producing something that could be deployed, which is what Kedro does.</p>
 </li>
 </ul>
 </div>
