@@ -251,10 +251,22 @@
   <a class="reference internal nav-link" href="#data-centric-ai">
    Data-centric AI
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#admonition-required-questions">
+     ```{admonition} Required questions
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#common-mlops-related-challenges">
    Common MLOps related challenges
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#components">
+   Components
   </a>
  </li>
 </ul>
@@ -293,8 +305,9 @@ You have 500 Examples and 12% of the examples are noisy (incorrectly or inconsit
 <p>With a data centric view, there is significant of room for improvment in problems &lt;10.000 examples</p>
 </li>
 </ul>
-<div class="tip admonition">
-<p class="admonition-title">Required questions</p>
+<div class="section" id="admonition-required-questions">
+<h3>```{admonition} Required questions<a class="headerlink" href="#admonition-required-questions" title="Permalink to this headline">¶</a></h3>
+<p>:class: tip</p>
 <ul class="simple">
 <li><p><strong>Describe the lifecycle of an ML project</strong></p></li>
 </ul>
@@ -323,6 +336,9 @@ What is good Data?</p>
 </ul>
 </li>
 </ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="common-mlops-related-challenges">
@@ -333,12 +349,12 @@ What is good Data?</p>
 <p class="admonition-title">Required questions</p>
 <ul>
 <li><p><strong>Describe 4 typical challenges when creating machine learning products.</strong></p>
-<p>What we typically find is that a couple of teams sitting in the same ofice or somethines geographically separateda and many problems result….</p>
+<p>What we typically find is that a couple of teams sitting in the same office or sometimes geographically separated and many problems result….</p>
 <ul class="simple">
 <li><p><em>Lack of collaboration</em> or sharing of components/libaries betwenn the teams but even within the same team.</p></li>
 <li><p><em>Inconsistency</em>: Different approachtes to solving same problem, or using inonsistent data or algortihms</p></li>
-<li><p><em>Duplicaton</em>: reinveting the wheel. Teams sitting next to each other and try to solve the same problem.</p></li>
-<li><p><em>Tech Debt</em>: Large codebases and tech debt. you don’t know how to maintain your code</p></li>
+<li><p><em>Duplicaton</em>: Reinveting the wheel. Teams sitting next to each other and try to solve the same problem.</p></li>
+<li><p><em>Tech Debt</em>: Large codebases and tech debt. You don’t know how to maintain your code</p></li>
 </ul>
 </li>
 </ul>
@@ -350,8 +366,27 @@ What is good Data?</p>
 <ul>
 <li><p><strong>What kind of problems does the open-source framework Kedro solve and where does Kedro fit in the MLOps ecosystem?</strong></p>
 <p>Kedro solved to problem of maintability.</p>
-<p>Kedro is not for the deployment. Kedro focuses on how you work while writing standardized, modular, maintabile and reproducible data sience code an does not focus on how you would like to run it in production. The responsibility of „What time will this pipeline run? And How will i know i fit failed? Is left to tools called orchestrators like Apache Airflow, Luigi, Dagster and Perfect. Orchestrators do not focus on the process of producing something that could be deployed, which is what Kedro does.</p>
+<p>Kedro is not for the deployment. Kedro focuses on how you work while writing standardized, modular, maintaible and reproducible data sience code and does not focus on how you would like to run it in production. The responsibility of „What time will this pipeline run?” and “How will i know if it failed?” is left to tools called orchestrators like Apache Airflow, Luigi, Dagster and Perfect. Orchestrators do not focus on the process of producing something that could be deployed, which is what Kedro does.</p>
 </li>
+</ul>
+</div>
+</div>
+<div class="section" id="components">
+<h2>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<p>Next, you’ll get an overview about some of the primary components of MLOps. “An introduction to MLOps on Google Cloud” by Nate Keating:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6gdrwFMaEZ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="tip admonition">
+<p class="admonition-title">Required questions</p>
+<ul class="simple">
+<li><p><strong>Describe the challenges of current ML systems (where are teams today)?</strong></p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>What are the components of the ML solution lifecycle?</strong></p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Explain the steps in an automated E2E pipeline.</strong></p></li>
 </ul>
 </div>
 </div>

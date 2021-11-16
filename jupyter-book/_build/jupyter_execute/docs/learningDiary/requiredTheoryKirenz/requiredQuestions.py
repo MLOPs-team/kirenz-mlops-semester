@@ -33,7 +33,7 @@
 #     
 #     With a data centric view, there is significant of room for improvment in problems <10.000 examples
 # 
-# ```{admonition} Required questions
+# ### ```{admonition} Required questions
 # :class: tip
 # - **Describe the lifecycle of an ML project**
 # 
@@ -74,12 +74,12 @@
 # :class: tip
 # - **Describe 4 typical challenges when creating machine learning products.**  
 #     
-#     What we typically find is that a couple of teams sitting in the same ofice or somethines geographically separateda and many problems result….  
+#     What we typically find is that a couple of teams sitting in the same office or sometimes geographically separated and many problems result….  
 #     
 #     - *Lack of collaboration* or sharing of components/libaries betwenn the teams but even within the same team. 
 #     - *Inconsistency*: Different approachtes to solving same problem, or using inonsistent data or algortihms
-#     - *Duplicaton*: reinveting the wheel. Teams sitting next to each other and try to solve the same problem. 
-#     - *Tech Debt*: Large codebases and tech debt. you don't know how to maintain your code
+#     - *Duplicaton*: Reinveting the wheel. Teams sitting next to each other and try to solve the same problem. 
+#     - *Tech Debt*: Large codebases and tech debt. You don't know how to maintain your code
 # 
 # 
 # ____________________________
@@ -92,9 +92,30 @@
 #   
 #     Kedro solved to problem of maintability.   
 # 
-#     Kedro is not for the deployment. Kedro focuses on how you work while writing standardized, modular, maintabile and reproducible data sience code an does not focus on how you would like to run it in production. The responsibility of „What time will this pipeline run? And How will i know i fit failed? Is left to tools called orchestrators like Apache Airflow, Luigi, Dagster and Perfect. Orchestrators do not focus on the process of producing something that could be deployed, which is what Kedro does. 
+#     Kedro is not for the deployment. Kedro focuses on how you work while writing standardized, modular, maintaible and reproducible data sience code and does not focus on how you would like to run it in production. The responsibility of „What time will this pipeline run?" and "How will i know if it failed?" is left to tools called orchestrators like Apache Airflow, Luigi, Dagster and Perfect. Orchestrators do not focus on the process of producing something that could be deployed, which is what Kedro does. 
 # 
 # 
 # ```
 # 
 # 
+
+# ## Components 
+# 
+# Next, you’ll get an overview about some of the primary components of MLOps. “An introduction to MLOps on Google Cloud” by Nate Keating:
+# 
+# <iframe width="560" height="315" src="https://www.youtube.com/embed/6gdrwFMaEZ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+# 
+# ```{admonition} Required questions
+# :class: tip
+# - **Describe the challenges of current ML systems (where are teams today)?**  
+#     
+# ____________________________
+# 
+# - **What are the components of the ML solution lifecycle?**  
+#   
+# ____________________________
+# 
+# - **Explain the steps in an automated E2E pipeline.**  
+# 
+# 
+# ```

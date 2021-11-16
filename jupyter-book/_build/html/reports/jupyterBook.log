@@ -20,10 +20,10 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 jupyter-book build jupyter-book/
 ------------------
 
-[1;36m  File [1;32m"C:\Users\Pasca\AppData\Local\Temp/ipykernel_12640/3553495748.py"[1;36m, line [1;32m1[0m
+[1;36m  File [1;32m"C:\Users\Pasca\AppData\Local\Temp/ipykernel_20736/3553495748.py"[1;36m, line [1;32m1[0m
 [1;33m    jupyter-book build jupyter-book/[0m
 [1;37m                 ^[0m
 [1;31mSyntaxError[0m[1;31m:[0m invalid syntax
 
-SyntaxError: invalid syntax (Temp/ipykernel_12640/3553495748.py, line 1)
+SyntaxError: invalid syntax (Temp/ipykernel_20736/3553495748.py, line 1)
 
