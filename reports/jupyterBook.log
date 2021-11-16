@@ -20,7 +20,7 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 jupyter-book build jupyter-book/
 ------------------
 
-[0;36m  File [0;32m"/tmp/ipykernel_1704/3553495748.py"[0;36m, line [0;32m1[0m
+[0;36m  File [0;32m"/tmp/ipykernel_1583/3553495748.py"[0;36m, line [0;32m1[0m
 [0;31m    jupyter-book build jupyter-book/[0m
 [0m                     ^[0m
 [0;31mSyntaxError[0m[0;31m:[0m invalid syntax

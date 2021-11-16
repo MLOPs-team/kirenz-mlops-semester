@@ -265,6 +265,11 @@
    Components
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#framework">
+   Framework
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -379,6 +384,68 @@ What is good Data?</p>
 <hr class="docutils" />
 <ul class="simple">
 <li><p><strong>Explain the steps in an automated E2E pipeline.</strong></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="framework">
+<h2>Framework<a class="headerlink" href="#framework" title="Permalink to this headline">¶</a></h2>
+<div class="tip admonition">
+<p class="admonition-title">Required questions</p>
+<ul class="simple">
+<li><p><strong>Describe the difference betweeen DevOps versus MLOps</strong><br />
+DevOps is a popular practice in developing and operating large-scale software systems. This practice provides benefits such as shortening the development cycles, increasing deployment velocity, and dependable releases. To achieve these benefits, you introduce two concepts in the software system development:</p>
+<ul>
+<li><p><em>Continuous Integration (CI)</em></p></li>
+<li><p><em>Continuous Delivery (CD)</em></p></li>
+</ul>
+</li>
+<li><p>An ML system is a software system, so similar practices apply to help guarantee that you can reliably build and operate ML systems at scale.
+However, ML systems differ from other software systems in the following ways:**</p>
+<ul>
+<li><p>Team skills : In an ML project, the team usually includes data scientists or ML researchers, who focus on exploratory data analysis, model development, and experimentation. These members might not be experienced software engineers who can build production-class services.</p></li>
+<li><p>Development: ML is experimental in nature. You should try different features, algorithms, modeling techniques, and parameter configurations to find what works best for the problem as quickly as possible. The challenge is tracking what worked and what didn’t, and maintaining reproducibility while maximizing code reusability.*</p></li>
+<li><p>Testing: Testing an ML system is more involved than testing other software systems. In addition to typical unit and integration tests, you need data validation, trained model quality evaluation, and model validation.</p></li>
+<li><p>Deployment: In ML systems, deployment isn’t as simple as deploying an offline-trained ML model as a prediction service. ML systems can require you to deploy a multi-step pipeline to automatically retrain and deploy model. This pipeline adds complexity and requires you to automate steps that are manually done before deployment by data scientists to train and validate new models.</p></li>
+<li><p>Production: ML models can have reduced performance not only due to suboptimal coding, but also due to constantly evolving data profiles. In other words, models can decay in more ways than conventional software systems, and you need to consider this degradation. Therefore, you need to track summary statistics of your data and monitor the online performance of your model to send notifications or roll back when values deviate from your expectations.</p></li>
+</ul>
+</li>
+<li><p>ML and other software systems are similar in continuous integration of source control, unit testing, integration testing, and continuous delivery of the software module or the package. However, in ML, there are a few notable differences:</p>
+<ul>
+<li><p>CI is no longer only about testing and validating code and components, but also testing and validating data, data schemas, and models.</p></li>
+<li><p>CD is no longer about a single software package or a service, but a system (an ML training pipeline) that should automatically deploy another service (model prediction service).</p></li>
+<li><p>CT is a new property, unique to ML systems, that’s concerned with automatically retraining and serving the models</p></li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Name and explain the steps for developing ML models</strong></p></li>
+</ul>
+<ol class="simple">
+<li><p>Data extraction: You select and integrate the relevant data from various data sources for the ML task.</p></li>
+<li><p>Data analysis: You perform exploratory data analysis (EDA) to understand the available data for building the ML model. This process leads to the following:</p>
+<ul class="simple">
+<li><p>Understanding the data schema and characteristics that are expected by the model.</p></li>
+<li><p>Identifying the data preparation and feature engineering that are needed for the model.</p></li>
+</ul>
+</li>
+<li><p>Data preparation: The data is prepared for the ML task. This preparation involves data cleaning, where you split the data into training, validation, and test sets. You also apply data transformations and feature engineering to the model that solves the target task. The output of this step are the data splits in the prepared format.</p></li>
+<li><p>Model training: The data scientist implements different algorithms with the prepared data to train various ML models. In addition, you subject the implemented algorithms to hyperparameter tuning to get the best performing ML model. The output of this step is a trained model.</p></li>
+<li><p>Model evaluation: The model is evaluated on a holdout test set to evaluate the model quality. The output of this step is a set of metrics to assess the quality of the model.</p></li>
+<li><p>Model validation: The model is confirmed to be adequate for deployment—that its predictive performance is better than a certain baseline.</p></li>
+<li><p>Model serving: The validated model is deployed to a target environment to serve predictions. This deployment can be one of the following:</p>
+<ul class="simple">
+<li><p>Microservices with a REST API to serve online predictions.</p></li>
+<li><p>An embedded model to an edge or mobile device.</p></li>
+<li><p>Part of a batch prediction system.</p></li>
+</ul>
+</li>
+<li><p>Model monitoring: The model predictive performance is monitored to potentially invoke a new iteration in the ML process.</p></li>
+</ol>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Explain the steps in an automated E2E pipeline.</strong><br />
+tbd.</p></li>
 </ul>
 </div>
 </div>
