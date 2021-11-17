@@ -416,30 +416,22 @@ What is good Data?</p>
 <h2>Framework<a class="headerlink" href="#framework" title="Permalink to this headline">¶</a></h2>
 <div class="tip admonition">
 <p class="admonition-title">Required questions</p>
-<ul class="simple">
+<ul>
 <li><p><strong>Describe the difference betweeen DevOps versus MLOps</strong><br />
-DevOps is a popular practice in developing and operating large-scale software systems. This practice provides benefits such as shortening the development cycles, increasing deployment velocity, and dependable releases. To achieve these benefits, you introduce two concepts in the software system development:</p>
-<ul>
-<li><p><em>Continuous Integration (CI)</em></p></li>
-<li><p><em>Continuous Delivery (CD)</em></p></li>
-</ul>
-</li>
-<li><p>An ML system is a software system, so similar practices apply to help guarantee that you can reliably build and operate ML systems at scale.
-However, ML systems differ from other software systems in the following ways:**</p>
-<ul>
-<li><p>Team skills : In an ML project, the team usually includes data scientists or ML researchers, who focus on exploratory data analysis, model development, and experimentation. These members might not be experienced software engineers who can build production-class services.</p></li>
-<li><p>Development: ML is experimental in nature. You should try different features, algorithms, modeling techniques, and parameter configurations to find what works best for the problem as quickly as possible. The challenge is tracking what worked and what didn’t, and maintaining reproducibility while maximizing code reusability.*</p></li>
-<li><p>Testing: Testing an ML system is more involved than testing other software systems. In addition to typical unit and integration tests, you need data validation, trained model quality evaluation, and model validation.</p></li>
-<li><p>Deployment: In ML systems, deployment isn’t as simple as deploying an offline-trained ML model as a prediction service. ML systems can require you to deploy a multi-step pipeline to automatically retrain and deploy model. This pipeline adds complexity and requires you to automate steps that are manually done before deployment by data scientists to train and validate new models.</p></li>
-<li><p>Production: ML models can have reduced performance not only due to suboptimal coding, but also due to constantly evolving data profiles. In other words, models can decay in more ways than conventional software systems, and you need to consider this degradation. Therefore, you need to track summary statistics of your data and monitor the online performance of your model to send notifications or roll back when values deviate from your expectations.</p></li>
-</ul>
-</li>
-<li><p>ML and other software systems are similar in continuous integration of source control, unit testing, integration testing, and continuous delivery of the software module or the package. However, in ML, there are a few notable differences:</p>
-<ul>
-<li><p>CI is no longer only about testing and validating code and components, but also testing and validating data, data schemas, and models.</p></li>
-<li><p>CD is no longer about a single software package or a service, but a system (an ML training pipeline) that should automatically deploy another service (model prediction service).</p></li>
-<li><p>CT is a new property, unique to ML systems, that’s concerned with automatically retraining and serving the models</p></li>
-</ul>
+DevOps is a popular practice in developing and operating large-scale software systems. This practice provides benefits such as shortening the development cycles, increasing deployment velocity, and dependable releases. To achieve these benefits, you introduce two concepts in the software system development:
+- <em>Continuous Integration (CI)</em>
+- <em>Continuous Delivery (CD)</em></p>
+<p>An ML system is a software system, so similar practices apply to help guarantee that you can reliably build and operate ML systems at scale.
+However, ML systems differ from other software systems in the following ways:**
+- Team skills : In an ML project, the team usually includes data scientists or ML researchers, who focus on exploratory data analysis, model development, and experimentation. These members might not be experienced software engineers who can build production-class services.
+- Development: ML is experimental in nature. You should try different features, algorithms, modeling techniques, and parameter configurations to find what works best for the problem as quickly as possible. The challenge is tracking what worked and what didn’t, and maintaining reproducibility while maximizing code reusability.*
+- Testing: Testing an ML system is more involved than testing other software systems. In addition to typical unit and integration tests, you need data validation, trained model quality evaluation, and model validation.
+- Deployment: In ML systems, deployment isn’t as simple as deploying an offline-trained ML model as a prediction service. ML systems can require you to deploy a multi-step pipeline to automatically retrain and deploy model. This pipeline adds complexity and requires you to automate steps that are manually done before deployment by data scientists to train and validate new models.
+- Production: ML models can have reduced performance not only due to suboptimal coding, but also due to constantly evolving data profiles. In other words, models can decay in more ways than conventional software systems, and you need to consider this degradation. Therefore, you need to track summary statistics of your data and monitor the online performance of your model to send notifications or roll back when values deviate from your expectations.</p>
+<p>ML and other software systems are similar in continuous integration of source control, unit testing, integration testing, and continuous delivery of the software module or the package. However, in ML, there are a few notable differences:
+- CI is no longer only about testing and validating code and components, but also testing and validating data, data schemas, and models.
+- CD is no longer about a single software package or a service, but a system (an ML training pipeline) that should automatically deploy another service (model prediction service).
+- CT is a new property, unique to ML systems, that’s concerned with automatically retraining and serving the models</p>
 </li>
 </ul>
 <hr class="docutils" />
