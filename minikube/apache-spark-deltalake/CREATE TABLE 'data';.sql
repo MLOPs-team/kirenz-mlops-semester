@@ -1,1 +1,0 @@
-CREATE TABLE data.test(etl_time timestamp, population numeric(18,2);

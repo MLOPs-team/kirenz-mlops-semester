@@ -1,0 +1,47 @@
+version: '3.5'
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres
+    user: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - PGDATA=/data/postgres
+      - POSTGRES_DB=police-data
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+       - postgres:/data/postgres
+       - ./SQL/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - postgres
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  #delta-lake:
+  #  container_name: delta-lake
+  #  build: .
+  #  environment:
+  #    - POSTGRES_USER=postgres
+  #    - POSTGRES_PASSWORD=postgres
+  #    - POSTGRES_HOST=host.docker.internal
+  #    - POSTGRES_PORT=5432
+  #    - POSTGRES_DB_NAME=police-data
+  #    - TABLE_NAME=test
+  #  depends_on:
+  #    postgres:
+  #      condition: service_healthy
+  #  networks:
+  #    - postgres
+networks:
+    postgres: 
+      driver: bridge
+volumes:
+    postgres:
+    delta-lake:

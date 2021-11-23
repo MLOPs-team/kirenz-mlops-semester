@@ -6,6 +6,7 @@ from pyspark.sql.dataframe import DataFrame
 from pyspark.sql.types import *
 from pyspark.sql.functions import explode, split, col, sum, lit
 from pyspark.sql import SparkSession
+from pyspark.sql import functions as F
 
 #can be ignored for the moment
 def apply_transforms(df: DataFrame) -> DataFrame:
@@ -18,6 +19,10 @@ def apply_transforms(df: DataFrame) -> DataFrame:
             .groupBy("country") \
             .agg(col("country"), sum("population")).select(col("country"), col("sum(population)") \
             .alias("population"))
+
+def remove_html_tags(df: DataFrame) -> DataFrame:
+        df = df.withColumn('address', F.trim(F.col('description')))
+        return df 
 
 #Helper Function to turn JSON into Line delimited JSON, as neede by PySpark: https://spark.apache.org/docs/latest/sql-data-sources-json.html
 def dump_jsonl(data, output_path, append=False):
@@ -44,9 +49,23 @@ if __name__ == "__main__":
     df = spark.read.json("data.json")
     df.printSchema()
 
-    df.createOrReplaceTempView("police-data")
-    df.show()
+    #Save data as Delta Table
+    df.write.format("delta").save("/tmp/delta-table")
 
+    df.show()
+    df.describe()
+
+    #Apply Transformations
+
+    #Build Koalas DF
+
+    #SQL Metadata
+    properties = {"user": os.environ['POSTGRES_USER'],"password": os.environ['POSTGRES_PASSWORD'],"driver": "org.postgresql.Driver"}
+    url = f"jdbc:postgresql://{os.environ['POSTGRES_HOST']}:{os.environ['POSTGRES_PORT']}/{os.environ['POSTGRES_DB_NAME']}"
+    #url = f"jdbc:postgresql://host.docker.internal:5432/police-data"
+    
+    #Write to Postgres DB
+    df.write.jdbc(url=url, table='data', mode="overwrite", properties=properties)
     """
    
 
