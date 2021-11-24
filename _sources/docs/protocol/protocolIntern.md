@@ -1,4 +1,4 @@
-# Protocol - Intern
+# Protokoll - Intern
 
 ## Grupptenmeeting 05.10.2021
 
