@@ -1,0 +1,616 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Protokoll - Sprechstunde Kirenz &#8212; MLOPS</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Das ist ein Test" href="../learningDiary/deltaLake.html" />
+    <link rel="prev" title="Protocol - Intern" href="protocolIntern.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MLOPS</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome!
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Protocol
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ideasPresentation.html">
+   Ideen für die Präsentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="protocolIntern.html">
+   Protocol - Intern
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Protokoll - Sprechstunde Kirenz
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Learning diary
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../learningDiary/deltaLake.html">
+   Das ist ein Test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../learningDiary/jupyterBook.html">
+   Jupyter-Book good to know
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../learningDiary/requiredTheoryKirenz/theoryKirenz.html">
+   Notes: Required reading Kirenz
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../learningDiary/requiredTheoryKirenz/requiredQuestions.html">
+     Notes: Required questions - theory Kirenz
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../learningDiary/requiredTheoryKirenz/questionsCollection.html">
+     Notes: Questions for lecture on 17.11
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Technical documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../technicalDocumentation/deltaLake.html">
+   Testseite
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/docs/protocol/protocolKirenz.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/protocol/protocolKirenz.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kickoff-termin-am-23-09-2021">
+   Kickoff Termin am 23.09.2021
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-aufgabe">
+     Die Aufgabe:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weitere-informationen">
+     Weitere Informationen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#feedback-zu-unseren-ideen">
+     Feedback zu unseren Ideen
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#borsendaten">
+       Börsendaten
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#wetterdaten">
+       Wetterdaten
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bewerbungen">
+       Bewerbungen
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lose-gedanken">
+       Lose Gedanken
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#was-kirenz-noch-von-uns-wissen-mochte">
+       Was Kirenz noch von uns Wissen möchte
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#besprechung-der-gruppe">
+       Besprechung der Gruppe
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#meeting-06-10-2021">
+   Meeting 06.10.2021
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#empfohlenes-vorgehen">
+     Empfohlenes Vorgehen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#delta-lake">
+     Delta Lake
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sonstiges">
+     Sonstiges
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#meeting-20-10-2021">
+   Meeting 20.10.2021
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#meeting-24-11-2021">
+   Meeting 24.11.2021
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-exploration-datenveredelung">
+     Data exploration (Datenveredelung)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#termin-mit-bosch">
+     Termin mit Bosch
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nachste-schritte">
+     Nächste Schritte
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nutzliche-links">
+     Nützliche Links
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="protokoll-sprechstunde-kirenz">
+<h1>Protokoll - Sprechstunde Kirenz<a class="headerlink" href="#protokoll-sprechstunde-kirenz" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="kickoff-termin-am-23-09-2021">
+<h2>Kickoff Termin am 23.09.2021<a class="headerlink" href="#kickoff-termin-am-23-09-2021" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="die-aufgabe">
+<h3>Die Aufgabe:<a class="headerlink" href="#die-aufgabe" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Unsere Aufgabe ist es genau einen Use Case abzubilden der vorher fest definiert ist. Dieser Use Case soll möglichst den ganzen Prozess durchlaufen, alles was von dem Use Case nicht abgedeckt wird soll trotzdem implementierbar sein</p></li>
+<li><p>Das zu entwickelnde Framework sollte unabhängig vom Use Case möglichst generisch und skalierbar sein. Der Use Case sollte also vom Framework abgedeckt werden können, das Framework soll aber auch möglichst alle anderen Use Cases abdecken, sprich: Die Möglichkeit anhand des zugrundeliegenden Konzepts das wir uns ausgedacht haben sollte bestehen. Beispiel: In unserem Use Case werden nur Streaming-Daten verwendet. Es sollte allerdings möglich sein Batch-Daten auch zu nutzen im Rahmen unserer entwickelten Lösung.</p></li>
+<li><p>Man sollte versuchen in einem ganzheitlichen System zu denken. Die von uns entwickelte Gesamtlösung sollte dem MLOPs-Gedanken entsprechen.</p></li>
+<li><p>Die Lösung soll skalierbar sein!! -&gt; sehr oft erwähnt</p></li>
+<li><p>Der Use Case sollte am besten noch Besonderheiten haben die andere Use Cases nicht haben. Er sollte anhand des vorgestellten Life Cycles umsetzbar sein.</p></li>
+<li><p>Eine Implementierung der skizzierten Lösung ist auf jeden Fall zwingend notwendig und Teil der Aufgabe. Bosch ist auch an den eingesetzten Technologiekomponenten interessiert.</p></li>
+<li><p>Das Deployment der implementierten Lösung ist zu überlegen wie tiefgreifend wir das umsetzen wollen. Auch hier können wir Schwerpunkte setzen.</p></li>
+<li><p>MLOPs ist ein generalisiertes System, mit dem man ein großes Feld (im Idealfall alle Use Cases) ausführen kann im Rahmen eines generalisierten Frameworks</p></li>
+<li><p>Wir sollen recherchieren was es an Best Practice Ansätzen gibt.</p></li>
+</ul>
+<p>Zusammenfassung:</p>
+<ul class="simple">
+<li><p>Schwerpunkte können gesetzt werden, aber man sollte die Möglichkeit haben alles weiter benötigte hinzuzufügen (siehe Beispiel Streaming/Batch-Daten)</p></li>
+</ul>
+</div>
+<div class="section" id="weitere-informationen">
+<h3>Weitere Informationen<a class="headerlink" href="#weitere-informationen" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Beim Modell kann man sich eins aussuchen. Das war ihm nicht so wichtig. Wir sollen eher schauen welche Modelle sich am besten implementieren lassen und ressourcenschonend sind. Das ist wichtiger als die reine Performance der Modelle (also ob ein Modell jetzt 1% genauer als das andere ist). Der Prozess soll möglichst praxisrelevant sein.</p></li>
+<li><p>Wir sollen uns TFX von Tensorflow (Google) anschauen, das gibt es seit diesem Mai und ist so der Favorit der Szene und gerade State of the Art. Kann sehr leicht implementiert werden.</p></li>
+<li><p>Wir sollen uns die Apply Konferenz ansehen. Da stellen Unternehmen ihre Best Practice Lösungen in dem Bereich vor.</p></li>
+</ul>
+</div>
+<div class="section" id="feedback-zu-unseren-ideen">
+<h3>Feedback zu unseren Ideen<a class="headerlink" href="#feedback-zu-unseren-ideen" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="borsendaten">
+<h4>Börsendaten<a class="headerlink" href="#borsendaten" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Er ist skeptisch ob das wirklich funktioniert, da es schwer ist da allgemeine Trends auszuwerten. Das ist allerdings auch nicht der Fokus des Kurses, deshalb fände er es auch nicht schlimm wenn wir das als Use Case verwenden und schlechte Ergebnisse hätten. Merke: Es spielt keine Rolle ob das Modell eine schlechte Performance hat.</p></li>
+<li><p>Was ihm gefallen hat war das wir da leicht an Daten kommen könnten, wir müssten diese nicht von Hand generieren. Die Frage wäre da dann hauptsächlich wie wir die Daten ablegen.</p></li>
+<li><p>Ihm gefällt der Vorschlag mit den Börsendaten am besten (hauptsächlich wegen den Streaming-Daten). Es wäre cool wenn wir einen anderen Use Case in der Richtung finden, der nicht unbedingt Aktienkurse mit einbezieht, da es wie gesagt schwer ist das vorherzusagen.</p></li>
+</ul>
+</div>
+<div class="section" id="wetterdaten">
+<h4>Wetterdaten<a class="headerlink" href="#wetterdaten" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Kann man kombinieren mit der Idee zu den Börsendaten. Dann könnte man auch noch andere Datenquellen mit reinnehmen: z.B. Nachrichten etc.</p></li>
+</ul>
+</div>
+<div class="section" id="bewerbungen">
+<h4>Bewerbungen<a class="headerlink" href="#bewerbungen" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Die Idee fand er auch interessant, findet es aber schwierig das man keine vorher definierten Label hat (wie haben keine abhängige Variable, wir müssten fiktive Daten für erfolgreiche und nicht erfolgreiche Matches erstellen). Es ist also schwierig zu bewerten ob der Bewerber passend ist.</p></li>
+<li><p>Bei LinkedIn wäre zusätzlich noch das Problem, dass man nur die Daten aus seinem eigenen Netzwerk sehen kann.</p></li>
+</ul>
+</div>
+<div class="section" id="lose-gedanken">
+<h4>Lose Gedanken<a class="headerlink" href="#lose-gedanken" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Am besten sollten wir uns einen Use Case raussuchen bei dem man gut an Daten gelangt. Er ist nicht so der Fan davon Daten selber zu generieren.</p></li>
+<li><p>Für Dashboards sollen wir uns mal Frameworks von React anschauen. Das sollten wir eher ergänzend zu unseren Ideen nutzen</p></li>
+<li><p>Das folgende hab ich notiert aber weiß nichtmehr was ich damit gemeint habe: Herkunft der Daten: Würde sehr gut passen. Data Mesh anschauen, da geht es auch darum dass man die Herkunft der Daten kennt.</p></li>
+<li><p>Es muss Möglichkeiten geben, die Daten zu bereinigen. Es wäre cool wenn es eine Art Transform-Einheit gäbe, aber das müssten wir nicht unbedingt selbst implementieren, sondern kann auch Mock-Mäßig eingebunden sein. Es kommt darauf an wie wir die Schwerpunkte setzen.</p></li>
+</ul>
+</div>
+<div class="section" id="was-kirenz-noch-von-uns-wissen-mochte">
+<h4>Was Kirenz noch von uns Wissen möchte<a class="headerlink" href="#was-kirenz-noch-von-uns-wissen-mochte" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Er würde würde Workshops zu Schwerpunktthemen geben, da müssen wir ihm sagen wo wir noch Unterstützung/Input brauchen</p></li>
+<li><p>Bis zum Termin am 6. Oktober sollte man sich auf einen konkreten Vorschlag eines Use Cases festlegen.</p></li>
+<li><p>Man soll festlegen was die Schwerpunkte sind und wer sich innerhalb der Gruppe mit was beschäftigt (trotzdem soll sich jeder in der Gruppe mit dem Gesamtsystem auskennen). Das ist hauptsächlich für die Bewertung für ihn geschickt.</p></li>
+</ul>
+</div>
+<div class="section" id="besprechung-der-gruppe">
+<h4>Besprechung der Gruppe<a class="headerlink" href="#besprechung-der-gruppe" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Die Gruppe trifft sich am 4. Oktober abends nochmal zwecks möglicher Themen etc. Bis dahin sollte jeder einen groben Plan haben in welche Richtung es gehen soll.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="meeting-06-10-2021">
+<h2>Meeting 06.10.2021<a class="headerlink" href="#meeting-06-10-2021" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Bosch interessiert vor allem auch die Frage: “Wie kann man mit den Daten systematisch umgehen?”, z.B. Metadatenmanagement</p></li>
+</ul>
+<div class="section" id="empfohlenes-vorgehen">
+<h3>Empfohlenes Vorgehen<a class="headerlink" href="#empfohlenes-vorgehen" title="Permalink to this headline">¶</a></h3>
+<p>Prinzipiell sollen wir am besten Delta Lake nutzen. Dort gibt es eine Schritt-Für-Schritt-Anleitung für den ganzen Prozess</p>
+</div>
+<div class="section" id="delta-lake">
+<h3>Delta Lake<a class="headerlink" href="#delta-lake" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Ist Open Source</p></li>
+<li><p>State of the Art bei MLOPs</p></li>
+</ul>
+<p>Vorgehen:</p>
+<ul class="simple">
+<li><p>In Erfahrung bringen welche Daten wir nutzen können</p></li>
+<li><p>Daten als batch abziehen und dann eine Technologie nutzen um daraus bewegte Daten zu simulieren (Apache Airflow/Nifi)</p></li>
+<li><p>In welcher Form speichere ich die Daten ab (Lakehouse -&gt; Apache HBase anschauen, das ist eine Open Source Alternative zu BigQuery)</p></li>
+<li><p>Wie gestalte ich das Metadatenmanagement</p></li>
+<li><p>Wie werden die Daten bereit gestellt</p></li>
+</ul>
+<p>Das gesamte Vorgehen ist von Delta Lake abgebildet. Deshalb hat er das auf jeden Fall empfohlen. Wenn man Delta Lake nicht nutzt muss man das alles selber implementieren/entwickeln</p>
+</div>
+<div class="section" id="sonstiges">
+<h3>Sonstiges<a class="headerlink" href="#sonstiges" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Modell muss nicht nutzbar für 10 verschiedene Use Cases sein. Es geht darum, eine Systemarchitektur aufzubauen in der man einzelne Bausteine austauschen kann. Die Pipeline selbst soll dabei weitestgehend automatisiert sein.</p></li>
+<li><p>Wir sollen am besten eine Datenquelle mit Kriminalitätsdaten aus Deutschland finden!!</p></li>
+<li><p>Zum Deployment: Am besten TFX (von Google) anschauen. Dort gibt es mehrere Optionen für das Deployment. Kubeflow kann auch den gesamten Prozess abbilden, das ist auch schon mit Kubernetes verbunden und deshalb beliebig skalierbar</p></li>
+<li><p>Für die Dashboards sollen wir Plotly (auf React-Basis) nutzen. Das ist HTML basiert und deshalb besser als matplotlib</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="meeting-20-10-2021">
+<h2>Meeting 20.10.2021<a class="headerlink" href="#meeting-20-10-2021" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Dokumentation auf englisch ist okay</p></li>
+<li><p>Jupyter Books für Dokumentation verwenden</p></li>
+<li><p>Argo ist eher für Deployment, kann in Kombination mit Apache Airflow verwendet werden</p></li>
+</ul>
+</div>
+<div class="section" id="meeting-24-11-2021">
+<h2>Meeting 24.11.2021<a class="headerlink" href="#meeting-24-11-2021" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-exploration-datenveredelung">
+<h3>Data exploration (Datenveredelung)<a class="headerlink" href="#data-exploration-datenveredelung" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Broze: Saubere Daten</p></li>
+<li><p>Gold: Gold sind Daten die bereits aufbereitet wurdem:</p>
+<ul>
+<li><p>Durchschnitte wurden gebildet</p></li>
+<li><p>Cluster etc.</p></li>
+</ul>
+</li>
+<li><p>Um Daten besser labeln zu können, kann der smote Algorithmus verwendet werden –&gt; mal anschauen!</p></li>
+<li><p>Nützliche Links</p>
+<ul>
+<li><p><a class="reference external" href="https://kirenz.github.io/pandas/pandas-intro-short.html">First steps in pandas — Introduction to pandas</a></p></li>
+</ul>
+</li>
+<li><p>Für die grpahische Darstellung eignet sich sehr gut maps api, um die locations usw. zu bestimmen. Daten nach Orte zu untersuchen</p>
+<ul>
+<li><p>Cluster mit Stadt, District etc. kann so gebildet werden</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="termin-mit-bosch">
+<h3>Termin mit Bosch<a class="headerlink" href="#termin-mit-bosch" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Ist in erster Linie damit wir offene Fragen klären können</p>
+<ul>
+<li><p>Architekturfragen</p></li>
+<li><p>Datenhaltungsfragen</p></li>
+</ul>
+</li>
+<li><p>Termin ist eher als Feedback gedacht</p></li>
+<li><p>Können hier bereits Sachen vorstellen müssen dies aber nicht tun</p></li>
+<li><p>Allg. Fragen zur Implementierung können gestellt werden</p></li>
+<li><p>Wichtig! Theorie sollte zu diesem Termin sitzen</p></li>
+</ul>
+</div>
+<div class="section" id="nachste-schritte">
+<h3>Nächste Schritte<a class="headerlink" href="#nachste-schritte" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Modell mit Tensorflow erstellen</p></li>
+<li><p>Dash können wir erstmal ausklammern. Wichtiger ist das MLOPS Prozess steht und wir inhatlich alles verstanden haben</p></li>
+</ul>
+</div>
+<div class="section" id="nutzliche-links">
+<h3>Nützliche Links<a class="headerlink" href="#nutzliche-links" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.feat.engineering/">http://www.feat.engineering/</a></p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/protocol"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="protocolIntern.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Protocol - Intern</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../learningDiary/deltaLake.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Das ist ein Test</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By HdM Group 1<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

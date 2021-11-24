@@ -51,7 +51,7 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Testseite" href="../../technicalDocumentation/dataLake.html" />
+    <link rel="next" title="Testseite" href="../../technicalDocumentation/deltaLake.html" />
     <link rel="prev" title="Notes: Required questions - theory Kirenz" href="requiredQuestions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -98,13 +98,35 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
+  Protocol
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../protocol/ideasPresentation.html">
+   Ideen für die Präsentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../protocol/protocolIntern.html">
+   Protocol - Intern
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../protocol/protocolKirenz.html">
+   Protokoll - Sprechstunde Kirenz
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
   Learning diary
  </span>
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../dataLake.html">
-   Delta Lake
+  <a class="reference internal" href="../deltaLake.html">
+   Das ist ein Test
   </a>
  </li>
  <li class="toctree-l1">
@@ -142,7 +164,7 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../technicalDocumentation/dataLake.html">
+  <a class="reference internal" href="../../technicalDocumentation/deltaLake.html">
    Testseite
   </a>
  </li>
@@ -185,11 +207,14 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/docs/learningDiary/requiredTheoryKirenz/questionsCollection.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+        <a class="dropdown-buttons"
+            href="../../../_sources/docs/learningDiary/requiredTheoryKirenz/questionsCollection.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/docs/learningDiary/requiredTheoryKirenz/questionsCollection.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -228,7 +253,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/learningDiary/requiredTheoryKirenz/questionsCollection.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/learningDiary/requiredTheoryKirenz/questionsCollection.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../../_static/images/logo_binder.svg"
@@ -250,20 +275,39 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-centric-ai">
-   Data-centric AI
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Notes: Questions for lecture on 17.11
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-centric-ai">
+     Data-centric AI
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#common-mlops-realted-challenges">
+     Common MLOps realted challenges
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#frameworks">
+     Frameworks
+    </a>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#common-mlops-realted-challenges">
-   Common MLOps realted challenges
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#asdijasdon">
+   asdijasdon
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#frameworks">
-   Frameworks
-  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#njasnjnd">
+     njasnjnd
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -309,6 +353,12 @@
 <p>in devops projekten hat man nicht die problematik mit daten. Datensichtugn, Datensammlung, Datenveredelung spielt bei devops kein Thema. Aber gerade das ist der Schwerpunkt von MLOPs. Weil Daten so wichtig sind ist das der zentrale Unterschied bei DEVops. Datensammlung, Datensicherung usw. spielt hier die zentrale Rolle und nimmt auch einen großen Raum im Prozess ein.</p>
 </div>
 </div>
+<div class="tex2jax_ignore mathjax_ignore section" id="asdijasdon">
+<h1>asdijasdon<a class="headerlink" href="#asdijasdon" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="njasnjnd">
+<h2>njasnjnd<a class="headerlink" href="#njasnjnd" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -342,7 +392,7 @@
             <p class="prev-next-title">Notes: Required questions - theory Kirenz</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../../technicalDocumentation/dataLake.html" title="next page">
+    <a class='right-next' id="next-link" href="../../technicalDocumentation/deltaLake.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Testseite</p>
