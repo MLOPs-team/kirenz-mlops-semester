@@ -7,6 +7,8 @@ from pyspark.sql.types import *
 from pyspark.sql.functions import explode, split, col, sum, lit
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
+from delta import *
+from delta.tables import *
 
 #can be ignored for the moment
 def apply_transforms(df: DataFrame) -> DataFrame:
@@ -38,9 +40,10 @@ def dump_jsonl(data, output_path, append=False):
 
 if __name__ == "__main__":
      # build spark session and enable sql extension & load sample data
-    spark = SparkSession.builder.appName("MyApp")\
+    builder = SparkSession.builder.appName("MyApp")\
     .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension") \
-    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog").getOrCreate()
+    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog") 
+    spark = spark = configure_spark_with_delta_pip(builder).getOrCreate()
 
     #Load Data from UK Police API
     r = requests.get('https://data.police.uk/api/leicestershire/NC04/events')
@@ -66,6 +69,14 @@ if __name__ == "__main__":
     
     #Write to Postgres DB
     df.write.jdbc(url=url, table='data', mode="overwrite", properties=properties)
+
+    #Read out History of Table
+    deltaTable = DeltaTable.forPath(spark,"/tmp/delta-table")
+
+    fullHistoryDF = deltaTable.history()    # get the full history of the table
+    print(fullHistoryDF)
+    lastOperationDF = deltaTable.history(1) # get the last operation
+    print(lastOperationDF)
     """
    
 

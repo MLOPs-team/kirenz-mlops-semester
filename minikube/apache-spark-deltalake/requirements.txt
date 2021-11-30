@@ -1,1 +1,2 @@
 koalas==1.8.2
+delta-spark==1.0.0
