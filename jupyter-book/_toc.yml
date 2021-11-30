@@ -4,9 +4,14 @@
 format: jb-book
 root: intro
 parts:
+  - caption: Protocol
+    chapters:
+    - file: docs/protocol/ideasPresentation
+    - file: docs/protocol/protocolIntern
+    - file: docs/protocol/protocolKirenz
   - caption: Learning diary
     chapters:
-    - file: docs/learningDiary/dataLake
+    - file: docs/learningDiary/deltaLake
     - file: docs/learningDiary/jupyterBook
     - file: docs/learningDiary/test
     - file: docs/learningDiary/requiredTheoryKirenz/theoryKirenz
@@ -15,4 +20,4 @@ parts:
       - file: docs/learningDiary/requiredTheoryKirenz/questionsCollection
   - caption: Technical documentation
     chapters:
-    - file: docs/technicalDocumentation/dataLake
+    - file: docs/technicalDocumentation/deltaLake
