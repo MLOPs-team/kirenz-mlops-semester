@@ -13,7 +13,8 @@ run:
     docker run --mount type=bind,source="$(pwd)",target=/opt/application \
         -e POSTGRES_USER={{postgres_user}} -e POSTGRES_PASSWORD={{postgres_password}} -e POSTGRES_HOST={{postgres_host}} \
         -e POSTGRES_PORT={{postgres_port}} -e POSTGRES_DB_NAME={{postgres_db_name}} -e TABLE_NAME={{table_name}} \
-        {{image_name}} driver local:///opt/application/main.py 
+        {{image_name}} driver local:///opt/application/main.py \
+        --add-host=host.docker.internal:host-gateway
 
 shell:
     docker run -it \
