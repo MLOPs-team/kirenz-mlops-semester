@@ -1,7 +1,8 @@
 import json, requests
 import os, datetime
+import pyspark
 
-from databricks import koalas as ks
+#from databricks import koalas as ks
 from pyspark.sql.dataframe import DataFrame
 from pyspark.sql.types import *
 from pyspark.sql.functions import explode, split, col, sum, lit
@@ -9,6 +10,9 @@ from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 from delta import *
 from delta.tables import *
+
+#blablab
+sparkClassPath = os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages org.postgresql:postgresql:42.1.1 pyspark-shell io.delta:delta-core_2.12:1.1.0 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"'
 
 #can be ignored for the moment
 def apply_transforms(df: DataFrame) -> DataFrame:
@@ -40,10 +44,12 @@ def dump_jsonl(data, output_path, append=False):
 
 if __name__ == "__main__":
      # build spark session and enable sql extension & load sample data
-    builder = SparkSession.builder.appName("MyApp")\
+    builder = SparkSession.builder.appName("MyApp") \
     .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension") \
-    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog") 
-    spark = spark = configure_spark_with_delta_pip(builder).getOrCreate()
+    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog")  \
+    .config("spark.driver.extraClassPath", sparkClassPath)
+    
+    spark = configure_spark_with_delta_pip(builder).getOrCreate()
 
     #Load Data from UK Police API
     r = requests.get('https://data.police.uk/api/leicestershire/NC04/events')
@@ -53,7 +59,7 @@ if __name__ == "__main__":
     df.printSchema()
 
     #Save data as Delta Table
-    df.write.format("delta").save("/tmp/delta-table")
+    df.write.format("delta").save("delta-table")
 
     df.show()
     df.describe()
@@ -63,20 +69,24 @@ if __name__ == "__main__":
     #Build Koalas DF
 
     #SQL Metadata
-    properties = {"user": os.environ['POSTGRES_USER'],"password": os.environ['POSTGRES_PASSWORD'],"driver": "org.postgresql.Driver"}
-    url = f"jdbc:postgresql://{os.environ['POSTGRES_HOST']}:{os.environ['POSTGRES_PORT']}/{os.environ['POSTGRES_DB_NAME']}"
-    #url = f"jdbc:postgresql://host.docker.internal:5432/police-data"
+    properties = {"user": 'postgres',"password": 'postgres',"driver": "org.postgresql.Driver"}
+    #url = f"jdbc:postgresql://{os.environ['POSTGRES_HOST']}:{os.environ['POSTGRES_PORT']}/{os.environ['POSTGRES_DB_NAME']}"
+    print("****************")
+    #print(url)
+    url = f"jdbc:postgresql://localhost:5432/police-data"
     
     #Write to Postgres DB
     df.write.jdbc(url=url, table='data', mode="overwrite", properties=properties)
 
     #Read out History of Table
-    deltaTable = DeltaTable.forPath(spark,"/tmp/delta-table")
+    deltaTable = DeltaTable.forPath(spark,"delta-table")
 
     fullHistoryDF = deltaTable.history()    # get the full history of the table
     print(fullHistoryDF)
     lastOperationDF = deltaTable.history(1) # get the last operation
     print(lastOperationDF)
+
+    spark.stop()
     """
    
 

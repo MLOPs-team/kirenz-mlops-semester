@@ -1,20 +1,21 @@
 image_name := 'delta-lake'
 postgres_user := 'postgres'
 postgres_password := 'postgres'
-postgres_host := 'host.docker.internal'
+postgres_host := 'postgres'
 postgres_port := '5432'
 postgres_db_name := 'police-data'
-table_name := 'test'
+table_name := 'data'
 
 build:
     docker build -t {{image_name}} .
+
 
 run:
     docker run --mount type=bind,source="$(pwd)",target=/opt/application \
         -e POSTGRES_USER={{postgres_user}} -e POSTGRES_PASSWORD={{postgres_password}} -e POSTGRES_HOST={{postgres_host}} \
         -e POSTGRES_PORT={{postgres_port}} -e POSTGRES_DB_NAME={{postgres_db_name}} -e TABLE_NAME={{table_name}} \
         {{image_name}} driver local:///opt/application/main.py \
-        --add-host=host.docker.internal:host-gateway
+        --network=apache-spark-deltalake_deltalake --name=pyspark
 
 shell:
     docker run -it \

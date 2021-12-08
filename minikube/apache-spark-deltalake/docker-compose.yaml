@@ -17,31 +17,52 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - postgres
+      - deltalake
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "pg_isready"]
       interval: 10s
       timeout: 5s
       retries: 5
-  #delta-lake:
-  #  container_name: delta-lake
-  #  build: .
-  #  environment:
-  #    - POSTGRES_USER=postgres
-  #    - POSTGRES_PASSWORD=postgres
-  #    - POSTGRES_HOST=host.docker.internal
-  #    - POSTGRES_PORT=5432
-  #    - POSTGRES_DB_NAME=police-data
-  #    - TABLE_NAME=test
-  #  depends_on:
-  #    postgres:
-  #      condition: service_healthy
-  #  networks:
-  #    - postgres
+  spark:
+    container_name: spark
+    image: docker.io/bitnami/spark:3
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    ports:
+      - '8080:8080'
+      - '7077:7077'
+    networks:
+      - deltalake
+  spark-worker:
+    image: docker.io/bitnami/spark:3
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark:7077
+      - SPARK_WORKER_MEMORY=1G
+      - SPARK_WORKER_CORES=1
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    networks:
+      - deltalake
+  spark-submit:
+      build: .
+      container_name: spark-app
+      environment:
+          - ENABLE_INIT_DAEMON=false
+          - PYSPARK_PYTHON=python3 
+      image: spark-app   
+      networks:
+        - deltalake  
 networks:
-    postgres: 
-      driver: bridge
+    deltalake: 
+      driver: bridge  
 volumes:
     postgres:
-    delta-lake:
+    
