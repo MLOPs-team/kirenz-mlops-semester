@@ -26,7 +26,7 @@ services:
       retries: 5
   spark:
     container_name: spark
-    image: docker.io/bitnami/spark:3
+    image: docker.io/bitnami/spark:3.1.1
     environment:
       - SPARK_MODE=master
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
@@ -38,8 +38,12 @@ services:
       - '7077:7077'
     networks:
       - deltalake
+    depends_on:
+      - postgres
   spark-worker:
-    image: docker.io/bitnami/spark:3
+    build:
+      context: ./spark-worker
+    container_name: spark-worker
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark:7077
@@ -51,15 +55,20 @@ services:
       - SPARK_SSL_ENABLED=no
     networks:
       - deltalake
+    depends_on:
+      - spark 
   spark-submit:
-      build: .
-      container_name: spark-app
+      build:  
+        context: ./spark-submit
+      container_name: spark-submit
       environment:
           - ENABLE_INIT_DAEMON=false
           - PYSPARK_PYTHON=python3 
-      image: spark-app   
+      image: spark-app
+      depends_on:
+        - spark-worker   
       networks:
-        - deltalake  
+        - deltalake   
 networks:
     deltalake: 
       driver: bridge  
