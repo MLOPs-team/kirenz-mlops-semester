@@ -21,3 +21,10 @@ parts:
   - caption: Technical documentation
     chapters:
     - file: docs/technicalDocumentation/deltaLake
+    - file: docs/technicalDocumentation/tfx/tfx
+      sections:
+      - file: docs/technicalDocumentation/tfx/dataPreprocessing/pandas/data
+      - file: docs/technicalDocumentation/tfx/dataPreprocessing/pandas/pandas
+    - file: docs/technicalDocumentation/tfx/windows/startWindows
+      sections:
+      - file: docs/technicalDocumentation/tfx/windows/tfxPipeline
