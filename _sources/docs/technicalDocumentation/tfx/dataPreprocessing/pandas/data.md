@@ -9,8 +9,6 @@ Our Dataset ist from the Police UK. The API of the Police UK provides a rich dat
 
 Out focuse is on the street-level crime and outcome data. So we use the data of stop an searches in different locations. The stop and searches returned in the API, like the crimes, are only an approximation of where the actual stop and searches occurred, they are **not** the exact locations. See [the about page](https://data.police.uk/about/#location-anonymisation) for more information about location anonymisation.
 
-
-
 The Dataset ist divided in different forces. Each force is a country of the UK. Here a short overview of the forces: 
 
 - metropolitan         
@@ -98,9 +96,3 @@ The Dataset ist divided in different forces. Each force is a country of the UK. 
 - gloucestershire       
 
 - wiltshire          
-  
-  
-
-
-
-

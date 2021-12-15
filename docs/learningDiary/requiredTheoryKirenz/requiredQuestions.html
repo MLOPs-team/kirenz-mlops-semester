@@ -168,6 +168,45 @@
    Testseite
   </a>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../technicalDocumentation/tfx/tfx.html">
+   TensorFlow Extended
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../technicalDocumentation/tfx/dataPreprocessing/pandas/data.html">
+     Our Dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../technicalDocumentation/tfx/dataPreprocessing/pandas/pandas.html">
+     Data Preprocessing with pandas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../technicalDocumentation/tfx/windows/startWindows.html">
+   Documentation of the problems with tfx on windows
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../technicalDocumentation/tfx/windows/tfxPipeline.html">
+     TensorFlow extended on windows
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </div>
@@ -315,9 +354,9 @@
 <ul>
 <li><p><strong>AI-System</strong> = Code (model/algorithm) + Data</p></li>
 <li><p>Data is food for AI<br />
-<img alt="image" src="../../../_images/dataIsFood.png" /></p></li>
+<img alt="image" src="assets/img/dataIsFood.png" /></p></li>
 <li><p>It’s very important especially for small data sets that the labels are consistencly<br />
-<img alt="image" src="../../../_images/smallDataAndLabelConsistency.png" /></p>
+<img alt="image" src="assets/img/smallDataAndLabelConsistency.png" /></p>
 <ul class="simple">
 <li><p><strong>Noisy Dataset</strong>: data that contains a large amount of additional meaningless information. E.g. corrupted data…all data that cannot be understood and interpreted  by a user system.</p></li>
 <li><p><strong>Noisy labels</strong>: labels that were set incorrectly or inconsitently</p></li>
@@ -335,11 +374,11 @@ You have 500 Examples and 12% of the examples are noisy (incorrectly or inconsit
 <p class="admonition-title">Required questions</p>
 <ul>
 <li><p><strong>Describe the lifecycle of an ML project</strong></p>
-<p><img alt="image" src="../../../_images/LifecycleMlProject.png" /></p>
+<p><img alt="image" src="assets/img/LifecycleMlProject.png" /></p>
 <ul>
 <li><p><strong>Collect data</strong>
 Define and collect the data. It’s important that the data is labeled consistently.</p>
-<p><img alt="image" src="../../../_images/iguanaDetection.png" /></p>
+<p><img alt="image" src="assets/img/iguanaDetection.png" /></p>
 <p>All 3 options are fine, but we should label the whole dataset in one way. For example…we label all the data as in the first picture</p>
 <p>Ho can we make data quality systematic in MLOps?</p>
 <ul class="simple">

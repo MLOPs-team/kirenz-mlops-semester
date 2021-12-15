@@ -51,6 +51,8 @@
     <script async="async" src="../../../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
+    <link rel="next" title="Documentation of the problems with tfx on windows" href="../../windows/startWindows.html" />
+    <link rel="prev" title="Our Dataset" href="data.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -160,11 +162,50 @@
   Technical documentation
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../../deltaLake.html">
    Testseite
   </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../tfx.html">
+   TensorFlow Extended
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="data.html">
+     Our Dataset
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Data Preprocessing with pandas
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../windows/startWindows.html">
+   Documentation of the problems with tfx on windows
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../windows/tfxPipeline.html">
+     TensorFlow extended on windows
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -248,6 +289,29 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-data-from-api">
+   Get Data from API
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-json-and-understanding-of-dataset">
+   Read json and understanding of dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cleaning-of-the-dataset">
+   Cleaning of the dataset
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -262,6 +326,154 @@
 <p>Install pandas with the following command :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install pandas
 </pre></div>
+</div>
+<div class="section" id="get-data-from-api">
+<h2>Get Data from API<a class="headerlink" href="#get-data-from-api" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="read-json-and-understanding-of-dataset">
+<h2>Read json and understanding of dataset<a class="headerlink" href="#read-json-and-understanding-of-dataset" title="Permalink to this headline">¶</a></h2>
+<p>First of all we read the json with pandas in a jupyter notebook</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="c1"># Read json stop and searches</span>
+<span class="c1"># https://data.police.uk/docs/method/stops-force/</span>
+
+<span class="n">filePath</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\Users\Pasca\OneDrive\Desktop\tensorflow\delateExploration\dataPreprocessing\dataByForce.json&#39;</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>After that, we took a first look at the dataset with the following command</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-36-11-image.png" /></p>
+<hr class="docutils" />
+<p>To have a look how much columns and rows the dataset has, run the following commmand</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+<p>Output: (422520, 17)</p>
+<p>Our Dataset has 422520 rows and 17 columns</p>
+<hr class="docutils" />
+<p>We then took a closer look at the dataset using <a class="reference external" href="http://df.info">df.info</a>(). Here we could see well which columns there are in the dataset and of which data type they are. Furthermore we can get an overview how many non-null values there are per column in the dataset.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Info about the dataframe</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-36-26-image.png" /></p>
+<hr class="docutils" />
+<p>It’t also possible to get the columns an there type with the following command</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># types of the dataset</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+</div>
+<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-36-38-image.png" /></p>
+<hr class="docutils" />
+<p>After that we checked if there are any null values in each column</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-36-54-image.png" /></p>
+<p>If it’s True the column has null values</p>
+<hr class="docutils" />
+<p>In the command above, we saw that the data set contains null values. For this reason we have examined how many values in each column are null</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># number of null values in each column</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-37-06-image.png" /></p>
+<hr class="docutils" />
+<p>The data set contains a number of null values. To get a better sense of how much there is, let’s check what percentage of the data has null values per column</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shows how much % of the data per column is null</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-50-35-image.png" /></p>
+<p>The outcome_linked_to_object_of_search has 70% null values. However, this is not further relevant, since the outcome is listed in the column outcome. Although the dataset has some null values, we still have enough after deleting the null values contained in the dataset</p>
+<hr class="docutils" />
+<p>Get the Columns of the Dataset with the following comand:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># columns of the dataset </span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-55-01-image.png" /></p>
+<hr class="docutils" />
+<p>In the next step we check how much In the next step we look at how the gender distribution is in the data set</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># distribution of gender</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-56-12-image.png" /></p>
+<p>As can already be seen in the statistics, significantly more men than women have been stopped.</p>
+<hr class="docutils" />
+<p>After that we checked what the distribution of age_range is in the dataset</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># age range </span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;age_range&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-59-53-image.png" /></p>
+<p>As the statistics show, most of the people stopped are between 18 and 24 years old. Only 208 people under the age of 10 were checked. Whether these are relevant for our evaluation must be checked in the next steps.</p>
+<hr class="docutils" />
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ethnic categories =&gt; The self-defined ethnicity of the person stopped</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;self_defined_ethnicity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-18-03-32-image.png" /></p>
+<hr class="docutils" />
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ethnic categories =&gt; The officer-defined ethnicity of the person stopped</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">officer_defined_ethnicity</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-18-04-20-image.png" /></p>
+<hr class="docutils" />
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;outcome&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-18-04-53-image.png" /></p>
+<hr class="docutils" />
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># How much % is null =&gt; only 1,5%</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">outcome</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> <span class="o">/</span> <span class="n">df</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-18-06-30-image.png" /></p>
+<hr class="docutils" />
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;object_of_search&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-18-07-21-image.png" /></p>
+<hr class="docutils" />
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># shows the forces in the dataframe</span>
+<span class="c1"># force = county</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;force&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-18-07-55-image.png" /></p>
+</div>
+<hr class="docutils" />
+<div class="section" id="cleaning-of-the-dataset">
+<h2>Cleaning of the dataset<a class="headerlink" href="#cleaning-of-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p>After we have examined the dataset we will clean the dataset in the next step</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Cleanup of the DataFrame. All null values in the columns are deleted</span>
+
+<span class="n">df_cleared</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">age_range</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">df</span><span class="o">.</span><span class="n">gender</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> 
+<span class="n">df</span><span class="o">.</span><span class="n">officer_defined_ethnicity</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">df</span><span class="o">.</span><span class="n">self_defined_ethnicity</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+ <span class="o">&amp;</span> <span class="n">df</span><span class="o">.</span><span class="n">object_of_search</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">df</span><span class="o">.</span><span class="n">location</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span> <span class="o">&amp;</span> 
+<span class="n">df</span><span class="o">.</span><span class="n">legislation</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -289,7 +501,21 @@
               
         
             <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="data.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Our Dataset</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../../windows/startWindows.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Documentation of the problems with tfx on windows</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
