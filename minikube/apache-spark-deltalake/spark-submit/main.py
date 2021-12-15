@@ -1,6 +1,7 @@
 import json, requests
 import os, datetime
 import pyspark
+#import pandas as pd
 
 #from databricks import koalas as ks
 from pyspark.sql.dataframe import DataFrame
@@ -12,13 +13,16 @@ from delta import *
 from delta.tables import *
 
 #blablab
-sparkClassPath = os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages org.postgresql:postgresql:42.1.1 pyspark-shell io.delta:delta-core_2.12:1.1.0 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"'
+sparkClassPath = os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages io.delta:delta-core_2.12:1.0.0 pyspark-shell org.postgresql:postgresql:42.1.1 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog" '
+#org.postgresql:postgresql:42.1.1,pyspark-shell,
+
 
 #can be ignored for the moment
 def apply_transforms(df: DataFrame) -> DataFrame:
     # split _c0 column as it is a string and we want the population data from it
     split_col = split(df['_c0'], '\t')
 
+    
     # add population column, group by country, sum population
     return df \
             .withColumn("population", split_col.getItem(2).cast('float')) \
@@ -30,44 +34,45 @@ def remove_html_tags(df: DataFrame) -> DataFrame:
         df = df.withColumn('address', F.trim(F.col('description')))
         return df 
 
-#Helper Function to turn JSON into Line delimited JSON, as neede by PySpark: https://spark.apache.org/docs/latest/sql-data-sources-json.html
-def dump_jsonl(data, output_path, append=False):
-    """
-    Write list of objects to a JSON lines file.
-    """
-    mode = 'a+' if append else 'w'
-    with open(output_path, mode, encoding='utf-8') as f:
-        for line in data:
-            json_record = json.dumps(line, ensure_ascii=False)
-            f.write(json_record + '\n')
-    print('Wrote {} records to {}'.format(len(data), output_path))
+def request(url):
+    response_API = requests.get(url)
+    return json.loads(response_API.text)    
 
 if __name__ == "__main__":
      # build spark session and enable sql extension & load sample data
-    builder = SparkSession.builder.appName("MyApp") \
+    builder = pyspark.sql.SparkSession.builder.appName("NiklasTest") \
+    .config("spark.driver.extraClassPath", sparkClassPath) \
     .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension") \
-    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog")  \
-    .config("spark.driver.extraClassPath", sparkClassPath)
+    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog")
+    spark = spark = configure_spark_with_delta_pip(builder).getOrCreate()
+    sc = spark.sparkContext
+
+    #Load Data from UK Police API - Niklas
+    response = requests.get('https://data.police.uk/api/leicestershire/NC04/events')
+    data = response.json()
+
+    json_rdd = sc.parallelize([data])
+   
+    #data_df= pd.read_json(r.json(), lines=True)
+    #print(data_df)
     
-    spark = configure_spark_with_delta_pip(builder).getOrCreate()
-
-    #Load Data from UK Police API
-    r = requests.get('https://data.police.uk/api/leicestershire/NC04/events')
-    dump_jsonl(r.json(),"data.json")
     #create df from JSON Content of UK Police API
-    df = spark.read.json("data.json")
+    df = spark.read.json(json_rdd)
+    df.show()
     df.printSchema()
-
-    #Save data as Delta Table
-    df.write.format("delta").save("delta-table")
-
     df.show()
     df.describe()
+    
+    
+    #Save data as Delta Table
+    df.write.format("delta").save("delta-table")
+    
+   
 
     #Apply Transformations
 
     #Build Koalas DF
-
+    
     #SQL Metadata
     properties = {"user": 'postgres',"password": 'postgres',"driver": "org.postgresql.Driver"}
     #url = f"jdbc:postgresql://{os.environ['POSTGRES_HOST']}:{os.environ['POSTGRES_PORT']}/{os.environ['POSTGRES_DB_NAME']}"
@@ -77,6 +82,7 @@ if __name__ == "__main__":
     
     #Write to Postgres DB
     df.write.jdbc(url=url, table='data', mode="overwrite", properties=properties)
+    
 
     #Read out History of Table
     deltaTable = DeltaTable.forPath(spark,"delta-table")
@@ -85,11 +91,11 @@ if __name__ == "__main__":
     print(fullHistoryDF)
     lastOperationDF = deltaTable.history(1) # get the last operation
     print(lastOperationDF)
+    
 
     spark.stop()
+    
     """
-   
-
     data = spark.range(0, 5)
     data.write.format("delta").save("/tmp/delta-table")
 
@@ -99,8 +105,8 @@ if __name__ == "__main__":
     data = spark.range(5, 10)
     data.write.format("delta").mode("overwrite").save("/tmp/delta-table")
     df.show()
-    """
-    """
+    
+    
     # read data from publc bucket into Spark DF
     data_path = "s3a://dataforgood-fb-data/csv/" 
     df = spark.read.csv(data_path)
