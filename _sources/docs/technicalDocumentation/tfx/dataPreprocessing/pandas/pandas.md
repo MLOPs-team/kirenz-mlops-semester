@@ -21,7 +21,7 @@ import json
 # Read json stop and searches
 # https://data.police.uk/docs/method/stops-force/
 
-filePath = r'C:\Users\Pasca\OneDrive\Desktop\tensorflow\delateExploration\dataPreprocessing\dataByForce.json'
+filePath = r'C:/Users/Pasca/OneDrive/Desktop/tensorflow/delateExploration/dataPreprocessing/dataByForce.json'
 
 df = pd.read_json(filePath, orient='columns')
 ```
@@ -36,7 +36,7 @@ After that, we took a first look at the dataset with the following command
 df
 ```
 
-![](..\..\..\..\..\assets\img\2021-12-14-17-36-11-image.png)
+![](../../../../../assets/img/2021-12-14-17-36-11-image.png)
 
 ---
 
@@ -64,7 +64,7 @@ We then took a closer look at the dataset using df.info(). Here we could see wel
 df.info()
 ```
 
-![](..\..\..\..\..\assets\img\2021-12-14-17-36-26-image.png)
+![](../../../../../assets/img/2021-12-14-17-36-26-image.png)
 
 ---
 
@@ -78,7 +78,7 @@ It't also possible to get the columns an there type with the following command
 df.dtypes
 ```
 
-![](..\..\..\..\..\assets\img\2021-12-14-17-36-38-image.png)
+![](../../../../../assets/img/2021-12-14-17-36-38-image.png)
 
 ---
 
@@ -90,7 +90,7 @@ After that we checked if there are any null values in each column
 df.isnull().any()
 ```
 
-![](..\..\..\..\..\assets\img\2021-12-14-17-36-54-image.png)
+![](../../../../../assets/img/2021-12-14-17-36-54-image.png)
 
 If it's True the column has null values
 
@@ -106,7 +106,7 @@ In the command above, we saw that the data set contains null values. For this re
 df.isnull().sum()
 ```
 
-![](..\..\..\..\..\assets\img\2021-12-14-17-37-06-image.png)
+![](../../../../../assets/img/2021-12-14-17-37-06-image.png)
 
 ---
 
@@ -120,7 +120,7 @@ The data set contains a number of null values. To get a better sense of how much
 df.isnull().sum() / df.shape[0]
 ```
 
-![](..\..\..\..\..\assets\img\2021-12-14-17-50-35-image.png)
+![](../../../../../assets/img/2021-12-14-17-50-35-image.png)
 
 The outcome_linked_to_object_of_search has 70% null values. However, this is not further relevant, since the outcome is listed in the column outcome. Although the dataset has some null values, we still have enough after deleting the null values contained in the dataset
 
@@ -136,7 +136,7 @@ Get the Columns of the Dataset with the following comand:
 df.columns
 ```
 
-![](..\..\..\..\..\assets\img\2021-12-14-17-55-01-image.png)
+![](../../../../../assets/img/2021-12-14-17-55-01-image.png)
 
 ---
 
@@ -149,7 +149,7 @@ In the next step we check how much In the next step we look at how the gender di
 df['gender'].value_counts()
 ```
 
-![](..\..\..\..\..\assets\img\2021-12-14-17-56-12-image.png)
+![](../../../../../assets/img/2021-12-14-17-56-12-image.png)
 
 As can already be seen in the statistics, significantly more men than women have been stopped. 
 
@@ -165,7 +165,7 @@ After that we checked what the distribution of age_range is in the dataset
 df['age_range'].value_counts()
 ```
 
-![](..\..\..\..\..\assets\img\2021-12-14-17-59-53-image.png)
+![](../../../../../assets/img/2021-12-14-17-59-53-image.png)
 
 As the statistics show, most of the people stopped are between 18 and 24 years old. Only 208 people under the age of 10 were checked. Whether these are relevant for our evaluation must be checked in the next steps.
 
@@ -181,7 +181,7 @@ As the statistics show, most of the people stopped are between 18 and 24 years o
 df['self_defined_ethnicity'].value_counts()
 ```
 
-![](..\..\..\..\..\assets\img\2021-12-14-18-03-32-image.png)
+![](../../../../../assets/img/2021-12-14-18-03-32-image.png)
 
 ---
 
@@ -193,7 +193,7 @@ df['self_defined_ethnicity'].value_counts()
 df.officer_defined_ethnicity.value_counts()
 ```
 
-![](..\..\..\..\..\assets\img\2021-12-14-18-04-20-image.png)
+![](../../../../../assets/img/2021-12-14-18-04-20-image.png)
 
 ---
 
@@ -203,7 +203,7 @@ df.officer_defined_ethnicity.value_counts()
 df['outcome'].value_counts()
 ```
 
-![](..\..\..\..\..\assets\img\2021-12-14-18-04-53-image.png)
+![](../../../../../assets/img/2021-12-14-18-04-53-image.png)
 
 ---
 
@@ -215,7 +215,7 @@ df['outcome'].value_counts()
 df.outcome.value_counts() / df.type.notnull().sum()
 ```
 
-![](..\..\..\..\..\assets\img\2021-12-14-18-06-30-image.png)
+![](../../../../../assets/img/2021-12-14-18-06-30-image.png)
 
 ---
 
@@ -225,7 +225,7 @@ df.outcome.value_counts() / df.type.notnull().sum()
 df['object_of_search'].value_counts()
 ```
 
-![](..\..\..\..\..\assets\img\2021-12-14-18-07-21-image.png)
+![](../../../../../assets/img/2021-12-14-18-07-21-image.png)
 
 ---
 
@@ -238,7 +238,7 @@ df['object_of_search'].value_counts()
 df['force'].value_counts()
 ```
 
-![](..\..\..\..\..\assets\img\2021-12-14-18-07-55-image.png)
+![](../../../../../assets/img/2021-12-14-18-07-55-image.png)
 
 ---
 

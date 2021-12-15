@@ -339,7 +339,7 @@
 <span class="c1"># Read json stop and searches</span>
 <span class="c1"># https://data.police.uk/docs/method/stops-force/</span>
 
-<span class="n">filePath</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:\Users\Pasca\OneDrive\Desktop\tensorflow\delateExploration\dataPreprocessing\dataByForce.json&#39;</span>
+<span class="n">filePath</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C:/Users/Pasca/OneDrive/Desktop/tensorflow/delateExploration/dataPreprocessing/dataByForce.json&#39;</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">filePath</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
 </pre></div>
@@ -349,7 +349,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
 </pre></div>
 </div>
-<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-36-11-image.png" /></p>
+<p><img alt="" src="../../../../../_images/2021-12-14-17-36-11-image.png" /></p>
 <hr class="docutils" />
 <p>To have a look how much columns and rows the dataset has, run the following commmand</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
@@ -364,7 +364,7 @@
 <span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-36-26-image.png" /></p>
+<p><img alt="" src="../../../../../_images/2021-12-14-17-36-26-image.png" /></p>
 <hr class="docutils" />
 <p>It’t also possible to get the columns an there type with the following command</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># types of the dataset</span>
@@ -372,13 +372,13 @@
 <span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
-<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-36-38-image.png" /></p>
+<p><img alt="" src="../../../../../_images/2021-12-14-17-36-38-image.png" /></p>
 <hr class="docutils" />
 <p>After that we checked if there are any null values in each column</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-36-54-image.png" /></p>
+<p><img alt="" src="../../../../../_images/2021-12-14-17-36-54-image.png" /></p>
 <p>If it’s True the column has null values</p>
 <hr class="docutils" />
 <p>In the command above, we saw that the data set contains null values. For this reason we have examined how many values in each column are null</p>
@@ -387,7 +387,7 @@
 <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-37-06-image.png" /></p>
+<p><img alt="" src="../../../../../_images/2021-12-14-17-37-06-image.png" /></p>
 <hr class="docutils" />
 <p>The data set contains a number of null values. To get a better sense of how much there is, let’s check what percentage of the data has null values per column</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shows how much % of the data per column is null</span>
@@ -395,7 +395,7 @@
 <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
-<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-50-35-image.png" /></p>
+<p><img alt="" src="../../../../../_images/2021-12-14-17-50-35-image.png" /></p>
 <p>The outcome_linked_to_object_of_search has 70% null values. However, this is not further relevant, since the outcome is listed in the column outcome. Although the dataset has some null values, we still have enough after deleting the null values contained in the dataset</p>
 <hr class="docutils" />
 <p>Get the Columns of the Dataset with the following comand:</p>
@@ -404,14 +404,14 @@
 <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
-<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-55-01-image.png" /></p>
+<p><img alt="" src="../../../../../_images/2021-12-14-17-55-01-image.png" /></p>
 <hr class="docutils" />
 <p>In the next step we check how much In the next step we look at how the gender distribution is in the data set</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># distribution of gender</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;gender&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-56-12-image.png" /></p>
+<p><img alt="" src="../../../../../_images/2021-12-14-17-56-12-image.png" /></p>
 <p>As can already be seen in the statistics, significantly more men than women have been stopped.</p>
 <hr class="docutils" />
 <p>After that we checked what the distribution of age_range is in the dataset</p>
@@ -420,7 +420,7 @@
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;age_range&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-17-59-53-image.png" /></p>
+<p><img alt="" src="../../../../../_images/2021-12-14-17-59-53-image.png" /></p>
 <p>As the statistics show, most of the people stopped are between 18 and 24 years old. Only 208 people under the age of 10 were checked. Whether these are relevant for our evaluation must be checked in the next steps.</p>
 <hr class="docutils" />
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ethnic categories =&gt; The self-defined ethnicity of the person stopped</span>
@@ -428,31 +428,31 @@
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;self_defined_ethnicity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-18-03-32-image.png" /></p>
+<p><img alt="" src="../../../../../_images/2021-12-14-18-03-32-image.png" /></p>
 <hr class="docutils" />
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ethnic categories =&gt; The officer-defined ethnicity of the person stopped</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">officer_defined_ethnicity</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-18-04-20-image.png" /></p>
+<p><img alt="" src="../../../../../_images/2021-12-14-18-04-20-image.png" /></p>
 <hr class="docutils" />
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;outcome&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-18-04-53-image.png" /></p>
+<p><img alt="" src="../../../../../_images/2021-12-14-18-04-53-image.png" /></p>
 <hr class="docutils" />
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># How much % is null =&gt; only 1,5%</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">outcome</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> <span class="o">/</span> <span class="n">df</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">notnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-18-06-30-image.png" /></p>
+<p><img alt="" src="../../../../../_images/2021-12-14-18-06-30-image.png" /></p>
 <hr class="docutils" />
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;object_of_search&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-18-07-21-image.png" /></p>
+<p><img alt="" src="../../../../../_images/2021-12-14-18-07-21-image.png" /></p>
 <hr class="docutils" />
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># shows the forces in the dataframe</span>
 <span class="c1"># force = county</span>
@@ -460,7 +460,7 @@
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;force&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="" src="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/..........%5Cassets%5Cimg%5C2021-12-14-18-07-55-image.png" /></p>
+<p><img alt="" src="../../../../../_images/2021-12-14-18-07-55-image.png" /></p>
 </div>
 <hr class="docutils" />
 <div class="section" id="cleaning-of-the-dataset">
