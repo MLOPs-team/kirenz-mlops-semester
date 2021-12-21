@@ -1,13 +1,12 @@
-version: '3.5'
+version: '3.6'
 
 services:
   postgres:
     container_name: postgres
-    image: postgres
-    user: postgres
+    image: postgres:latest
     environment:
-      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
       - PGDATA=/data/postgres
       - POSTGRES_DB=police-data
       - POSTGRES_HOST_AUTH_METHOD=trust
