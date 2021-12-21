@@ -4,7 +4,7 @@ import json
 from pyspark.sql.functions import udf, col, explode
 from pyspark.sql.types import StructType, StructField, IntegerType, StringType, ArrayType, BooleanType
 from pyspark.sql import Row
-from pyspark.sql.functions import randn, rand
+from pyspark.sql.functions import randn, rand, explode
 
 
 #
@@ -41,53 +41,29 @@ def executeRestApi(verb, url, headers, body):
 spark = SparkSession.builder.appName("UDF REST Demo").getOrCreate()
 
 jsonSchema = spark.read.json('response.json').schema
-print(jsonSchema)
 
 udf_executeRestApi = udf(executeRestApi, jsonSchema)
 
 #Get initial list of forces
 reqForces = requests.get('https://data.police.uk/api/crimes-street-dates')
-
 jsonForces = reqForces.json()
 
-df_1 =  spark.createDataFrame([
-        (1, 1.0), 
-        (1, 2.0), 
-        (2, 3.0), 
-        (2, 5.0), 
-        (2, 10.0)
-    ])
-
-df_2 = spark.createDataFrame([
-        (2, 1.0, 3), 
-        (2, 2.0, 3), 
-        (3, 3.0, 3), 
-        (4, 5.0, 3), 
-        (5, 10.0, 3)
-    ])
-
-df_3 = spark.createDataFrame([
-        (3, 1.0, 3, 4), 
-        (4, 2.0, 3, 4), 
-        (5, 3.0, 3, 4), 
-        (5, 5.0, 3, 4), 
-        (6, 10.0, 3, 4)
-    ])    
-
-res1and2=df_1.unionByName(df_2, allowMissingColumns=True)
-res1and2.show()
-resand3=res1and2.unionByName(df_3, allowMissingColumns=True).show()
+overall_request_df =  spark.createDataFrame([], StructType([]))
+#overall_request_df.printSchema()
 
 #Requests
 RestApiRequest = Row("verb", "url", "headers", "body")
 for month in jsonForces:
-    if str(month['date']) > '2020-12':
+    if str(month['date']) > '2021-09':
             print(month['date'])
             for force in month['stop-and-search']:
-                request_df = spark.createDataFrame([RestApiRequest("get", 'https://data.police.uk/api/stops-force?force=' + str(force) + '&date=' + str(month['date']), headers, body)
+                print(force)
+                newdf = spark.createDataFrame([RestApiRequest("get", 'https://data.police.uk/api/stops-force?force=' + str(force) + '&date=' + str(month['date']), headers, body)
                 ])\
                 .withColumn("execute", udf_executeRestApi(col("verb"), col("url"), col("headers"), col("body")))
-                print(request_df)
+                overall_request_df = overall_request_df.unionByName(newdf, allowMissingColumns=True)
+                overall_request_df.select(col("execute")).show(truncate=False)
+                
 
-            request_df.select("execute").show()
+            
 spark.stop()
