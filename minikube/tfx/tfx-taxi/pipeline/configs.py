@@ -21,7 +21,7 @@ import os  # pylint: disable=unused-import
 # TODO(b/149347293): Move more TFX CLI flags into python configuration.
 
 # Pipeline name will be used to identify this pipeline.
-PIPELINE_NAME = 'pipeline-taxi'
+PIPELINE_NAME = 'pipeline-taxi-2'
 
 # GCP related configs.
 

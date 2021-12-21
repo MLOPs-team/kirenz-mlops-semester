@@ -58,20 +58,20 @@ def create_pipeline(
   statistics_gen = tfx.components.StatisticsGen(
       examples=example_gen.outputs['examples'])
   # TODO(step 5): Uncomment here to add StatisticsGen to the pipeline.
-  components.append(statistics_gen)
+  # components.append(statistics_gen)
 
   if schema_path is None:
     # Generates schema based on statistics files.
     schema_gen = tfx.components.SchemaGen(
         statistics=statistics_gen.outputs['statistics'])
     # TODO(step 5): Uncomment here to add SchemaGen to the pipeline.
-    components.append(schema_gen)
+    # components.append(schema_gen)
   else:
     # Import user provided schema into the pipeline.
     schema_gen = tfx.components.ImportSchemaGen(schema_file=schema_path)
     # TODO(step 5): (Optional) Uncomment here to add ImportSchemaGen to the
     #               pipeline.
-    components.append(schema_gen)
+    # components.append(schema_gen)
 
     # Performs anomaly detection based on statistics and data schema.
     example_validator = tfx.components.ExampleValidator(  # pylint: disable=unused-variable
@@ -79,7 +79,7 @@ def create_pipeline(
         schema=schema_gen.outputs['schema'])
     # TODO(step 5): (Optional) Uncomment here to add ExampleValidator to the
     #               pipeline.
-    components.append(example_validator)
+    # components.append(example_validator)
 
   # Performs transformations and feature engineering in training and serving.
   transform = tfx.components.Transform(
@@ -87,7 +87,7 @@ def create_pipeline(
       schema=schema_gen.outputs['schema'],
       preprocessing_fn=preprocessing_fn)
   # TODO(step 6): Uncomment here to add Transform to the pipeline.
-  components.append(transform)
+  # components.append(transform)
 
   # Uses user-provided Python function that implements a model.
   trainer_args = {
