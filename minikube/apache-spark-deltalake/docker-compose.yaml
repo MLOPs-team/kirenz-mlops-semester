@@ -3,15 +3,10 @@ version: '3.6'
 services:
   postgres:
     container_name: postgres
-<<<<<<< HEAD
-    image: postgres
- #   user: postgres
-=======
     image: postgres:latest
->>>>>>> 00a3a8db09a7add2330291dd549b1f3142260041
     environment:
-      - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
       - PGDATA=/data/postgres
       - POSTGRES_DB=police-data
       - POSTGRES_HOST_AUTH_METHOD=trust
