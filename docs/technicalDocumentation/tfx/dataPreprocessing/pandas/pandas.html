@@ -295,14 +295,26 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#get-data-from-api">
-   Get Data from API
+  <a class="reference internal nav-link" href="#how-to-get-data-from-api">
+   How to get data from api?
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#read-json-and-understanding-of-dataset">
-   Read json and understanding of dataset
+  <a class="reference internal nav-link" href="#first-exploration-of-the-dataset">
+   First exploration of the dataset
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#convert-json-into-a-pandas-dataframe">
+     Convert json into a pandas dataframe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#understanding-the-dataset">
+     Understanding the dataset
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cleaning-of-the-dataset">
@@ -322,16 +334,62 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="data-preprocessing-with-pandas">
 <h1>Data Preprocessing with pandas<a class="headerlink" href="#data-preprocessing-with-pandas" title="Permalink to this headline">¶</a></h1>
-<p>To examine the data set we used pandas. You can find more detailed information about pandas at this link: <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/install.html">Installation — pandas 1.3.5 documentation</a></p>
+<p>To examine the data set we used pandas. The following steps helped us a lot to better understand our dataset and to identify the important variables of the dataset for our machine learning model. You can find more detailed information about pandas at this link: <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/install.html">Installation — pandas 1.3.5 documentation</a></p>
 <p>Install pandas with the following command :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install pandas
 </pre></div>
 </div>
-<div class="section" id="get-data-from-api">
-<h2>Get Data from API<a class="headerlink" href="#get-data-from-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="how-to-get-data-from-api">
+<h2>How to get data from api?<a class="headerlink" href="#how-to-get-data-from-api" title="Permalink to this headline">¶</a></h2>
+<p>First of all we would like to fetch the data from the police uk api. The following packages must be imported for this:</p>
+<ul class="simple">
+<li><p>[requests](<a class="reference external" href="https://docs.python-requests.org/en/latest/">Requests: HTTP for Humans™ — Requests 2.26.0 documentation</a>)</p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/">pandas</a></p></li>
+<li><p>[json](<a class="reference external" href="https://docs.python.org/3/library/json.html">json — JSON encoder and decoder — Python 3.10.1 documentation</a></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://data.police.uk/api/crimes-street-dates&#39;</span><span class="p">)</span>
+
+<span class="n">jsonForces</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</pre></div>
 </div>
-<div class="section" id="read-json-and-understanding-of-dataset">
-<h2>Read json and understanding of dataset<a class="headerlink" href="#read-json-and-understanding-of-dataset" title="Permalink to this headline">¶</a></h2>
+<hr class="docutils" />
+<p>If you would like to have a look on the json, run the following command</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">jsonForces</span>
+</pre></div>
+</div>
+<p><img alt="" src="assets%5Cimg%5C2021-12-15-16-51-52-image.png" /></p>
+<hr class="docutils" />
+<p><mark>Beschreibung fehlt noch</mark></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataJson</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">month</span> <span class="ow">in</span> <span class="n">jsonForces</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="s1">&#39;2019-10&#39;</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">force</span> <span class="ow">in</span> <span class="n">month</span><span class="p">[</span><span class="s1">&#39;stop-and-search&#39;</span><span class="p">]:</span>
+            <span class="n">reqStopAndSearch</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://data.police.uk/api/stops-force?force=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">force</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&amp;date=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]))</span>
+            <span class="k">if</span> <span class="n">reqStopAndSearch</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+                <span class="n">jsonStopAndSearch</span> <span class="o">=</span> <span class="n">reqStopAndSearch</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">jsonStopAndSearch</span><span class="p">:</span>
+                    <span class="n">item</span><span class="p">[</span><span class="s1">&#39;force&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">force</span>
+                    <span class="n">dataJson</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>In the next step we put the json on the drive so we can use it in the next script</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;dataSetForces.json&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">dataJson</span><span class="p">,</span> <span class="n">outfile</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="first-exploration-of-the-dataset">
+<h2>First exploration of the dataset<a class="headerlink" href="#first-exploration-of-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p>To get an better undestanding of the given dataset we ran through the following steps:</p>
+<div class="section" id="convert-json-into-a-pandas-dataframe">
+<h3>Convert json into a pandas dataframe<a class="headerlink" href="#convert-json-into-a-pandas-dataframe" title="Permalink to this headline">¶</a></h3>
 <p>First of all we read the json with pandas in a jupyter notebook</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">json</span>
@@ -350,7 +408,10 @@
 </pre></div>
 </div>
 <p><img alt="" src="../../../../../_images/2021-12-14-17-36-11-image.png" /></p>
+</div>
 <hr class="docutils" />
+<div class="section" id="understanding-the-dataset">
+<h3>Understanding the dataset<a class="headerlink" href="#understanding-the-dataset" title="Permalink to this headline">¶</a></h3>
 <p>To have a look how much columns and rows the dataset has, run the following commmand</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
@@ -461,6 +522,7 @@
 </pre></div>
 </div>
 <p><img alt="" src="../../../../../_images/2021-12-14-18-07-55-image.png" /></p>
+</div>
 </div>
 <hr class="docutils" />
 <div class="section" id="cleaning-of-the-dataset">

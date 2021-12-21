@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>General Information about TFX &#8212; MLOPS</title>
+    <title>General information about TFX &#8212; MLOPS</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -287,6 +287,34 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#artefakte">
+   Artefakte
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ml-metadaten">
+   ML-Metadaten
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parameter">
+   Parameter
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#komponente">
+   Komponente
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -296,7 +324,35 @@
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="general-information-about-tfx">
-<h1>General Information about TFX<a class="headerlink" href="#general-information-about-tfx" title="Permalink to this headline">¶</a></h1>
+<h1>General information about TFX<a class="headerlink" href="#general-information-about-tfx" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.tensorflow.org/tfx/guide/understanding_tfx_pipelines">Understanding TFX Pipelines  |  TensorFlow</a></p>
+<div class="section" id="artefakte">
+<h2>Artefakte<a class="headerlink" href="#artefakte" title="Permalink to this headline">¶</a></h2>
+<p>Aufgabe nach jedem Schritt in einer tfx-pipeline wird als Artefakt bezeichnet. Nachfolgende Schritte können die Artefakte dann als Eingabe verwenden. So können Daten zwischen den einzelnen Schritten in der Pipeline übetragen werden.</p>
+<p>z.B. Example Gen –&gt; Statistic Gen</p>
+</div>
+<div class="section" id="ml-metadaten">
+<h2>ML-Metadaten<a class="headerlink" href="#ml-metadaten" title="Permalink to this headline">¶</a></h2>
+<p>In jedem Lauf werden Metadtan erzeugt. Vergleichbar mit einem Logfile in der Softwareentwicklung. Fehler, unterwartetes Verhalten etc. wird hierin protokolliert.</p>
+<p>MLMD hilft Ihnen, alle miteinander verbundenen Teile Ihrer ML-Pipeline zu verstehen und zu analysieren, anstatt sie isoliert zu analysieren, und kann Ihnen helfen, Fragen zu Ihrer ML-Pipeline zu beantworten, wie zum Beispiel:</p>
+<ul class="simple">
+<li><p>Auf welchem ​​Datensatz wurde das Modell trainiert?</p></li>
+<li><p>Welche Hyperparameter wurden zum Trainieren des Modells verwendet?</p></li>
+<li><p>Welcher Pipelinelauf hat das Modell erstellt?</p></li>
+<li><p>Welcher Trainingslauf führte zu diesem Modell?</p></li>
+<li><p>Welche Version von TensorFlow hat dieses Modell erstellt?</p></li>
+<li><p>Wann wurde das gescheiterte Modell gepusht?</p></li>
+</ul>
+<p><a class="reference external" href="https://www.tensorflow.org/tfx/guide/mlmd#concepts">ML Metadata  |  TFX  |  TensorFlow</a></p>
+</div>
+<div class="section" id="parameter">
+<h2>Parameter<a class="headerlink" href="#parameter" title="Permalink to this headline">¶</a></h2>
+<p>Parameter sind Eingaben in Pipelines die vor der Ausführung bekannt sind.</p>
+<p>Parameter können Verhalten der Pipeline verändern ohne das man Code anpassen muss. Sie können beispielsweise Parameter verwenden, um eine Pipeline mit verschiedenen Hyperparametersätzen auszuführen, ohne den Code der Pipeline zu ändern.</p>
+</div>
+<div class="section" id="komponente">
+<h2>Komponente<a class="headerlink" href="#komponente" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
     <script type="text/x-thebe-config">

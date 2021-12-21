@@ -332,29 +332,38 @@
 <div class="section" id="step-6-create-a-pipeline">
 <h3>Step 6 - create a pipeline<a class="headerlink" href="#step-6-create-a-pipeline" title="Permalink to this headline">¶</a></h3>
 <p>All the steps before worked without any problems.</p>
-<ol>
-<li><p>**OUTPUT_DIR and DATA_PATH **</p>
-<p>In this step, there were small deviations from the documentation that have to be taken into account in Windows so that this step works</p>
-<p>The paths musst be written with double backslash</p>
-</li>
+<p>After the following command was executed an error message appeared</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tfx</span> <span class="n">pipeline</span> <span class="n">create</span> <span class="o">--</span><span class="n">pipeline_path</span><span class="o">=</span><span class="n">your</span><span class="o">-</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">txf</span><span class="o">-</span><span class="n">taxi</span><span class="o">/</span><span class="n">local_runner</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p><strong>KeyError: ‘Home’ occured</strong></p></li>
 </ol>
+<img title="" src="\\wsl$\Ubuntu-20.04\home\pascal\dev\kirenz-mlops-semester\jupyter-book\assets\img\2021-12-15-17-54-05-image.png" alt="" data-align="inline">
+<p>This error occurs because Windows does not have Home. After some research we found a post on stackoverflow where we recommended to adjust the path in base_handler.py</p>
+<p>**Folder: ** C:\Users\anaconda3\envs\tf\Lib\site-packages\tfx\tools\cli\handler\base_handler.py</p>
+<p>In this file we changes the os.environ[‘HOME’] to os.path.expanduser(‘~’)</p>
+<p>After that we run the above command again.</p>
+<ol class="simple">
+<li><p>**SyntaxError: (unicode error) ‘unicodescape codec can’t decode bytes in position 2-3: truncated \UXXXXXXXX escape **</p></li>
+</ol>
+<p><img alt="" src="docs/technicalDocumentation/tfx/windows/%5Cwsl%24%5CUbuntu-20.04%5Chome%5Cpascal%5Cdev%5Ckirenz-mlops-semester%5Cjupyter-book%5Cassets%5Cimg%5C2021-12-15-18-02-53-image.png" /></p>
+<p>The paths musst be written with double backslash</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Example</span><span class="p">:</span> 
 
 <span class="n">OUTPUT_DIR</span> <span class="o">=</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Users</span><span class="se">\\</span><span class="s1">Name</span><span class="se">\\</span><span class="s1">MLOPS</span><span class="se">\\</span><span class="s1">\kirenz-mlops-semester</span><span class="se">\\</span><span class="s1">minikube</span><span class="se">\\</span><span class="s1">tensorflow</span><span class="se">\\</span>
 <span class="n">dataPreProcessing</span>\\<span class="n">tfxPipeline</span>\\<span class="n">tfx</span><span class="o">-</span><span class="n">taxi</span>\\<span class="n">output</span><span class="s1">&#39;</span>
-
 </pre></div>
 </div>
-<ol class="simple">
-<li></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tfx pipeline create --pipeline_path<span class="o">=</span>your-path-to-txf-taxi/local_runner.py
+<p>After we fixed the above problems, it was possible to create the pipeline</p>
+<hr class="docutils" />
+<p>In the next step we tried to run the pipeline</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tfx</span> <span class="n">run</span> <span class="n">create</span> <span class="o">--</span><span class="n">pipeline_name</span><span class="o">=</span><span class="n">pipeline</span><span class="o">-</span><span class="n">taxi</span>
 </pre></div>
 </div>
-<p>I performed the following steps so that the pipeline could be created:</p>
-<ul class="simple">
-<li></li>
-</ul>
+<p>The following error occured:</p>
+<p><img alt="" src="docs/technicalDocumentation/tfx/windows/%5Cwsl%24%5CUbuntu-20.04%5Chome%5Cpascal%5Cdev%5Ckirenz-mlops-semester%5Cjupyter-book%5Cassets%5Cimg%5C2021-12-15-18-07-00-image.png" /></p>
+<p><img alt="" src="docs/technicalDocumentation/tfx/windows/%5Cwsl%24%5CUbuntu-20.04%5Chome%5Cpascal%5Cdev%5Ckirenz-mlops-semester%5Cjupyter-book%5Cassets%5Cimg%5C2021-12-15-18-07-13-image.png" /></p>
 </div>
 </div>
 </div>
