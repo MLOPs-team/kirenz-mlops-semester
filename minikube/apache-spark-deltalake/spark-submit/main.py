@@ -65,10 +65,8 @@ if __name__ == "__main__":
     
     
     #Save data as Delta Table
-    df.write.format("delta").save("delta-table")
+    #df.write.format("delta").save("delta-table")
     
-   
-
     #Apply Transformations
 
     #Build Koalas DF
@@ -78,19 +76,19 @@ if __name__ == "__main__":
     #url = f"jdbc:postgresql://{os.environ['POSTGRES_HOST']}:{os.environ['POSTGRES_PORT']}/{os.environ['POSTGRES_DB_NAME']}"
     print("****************")
     #print(url)
-    url = f"jdbc:postgresql://localhost:5432/police-data"
+    url = f"jdbc:postgresql://postgres:5432/police-data"
     
     #Write to Postgres DB
     df.write.jdbc(url=url, table='data', mode="overwrite", properties=properties)
     
 
     #Read out History of Table
-    deltaTable = DeltaTable.forPath(spark,"delta-table")
+    #deltaTable = DeltaTable.forPath(spark,"delta-table")
 
-    fullHistoryDF = deltaTable.history()    # get the full history of the table
-    print(fullHistoryDF)
-    lastOperationDF = deltaTable.history(1) # get the last operation
-    print(lastOperationDF)
+    #fullHistoryDF = deltaTable.history()    # get the full history of the table
+    #print(fullHistoryDF)
+    #lastOperationDF = deltaTable.history(1) # get the last operation
+    #print(lastOperationDF)
     
 
     spark.stop()

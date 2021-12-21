@@ -34,7 +34,8 @@ COPY main.py .
 ENV SPARK_MASTER_NAME "spark"
 ENV SPARK_APPLICATION_PYTHON_LOCATION /main.py
 ENV SPARK_APPLICATION_ARGS "/spark/README.md"
-ENV SPARK_SUBMIT_ARGS "--packages io.delta:delta-core_2.12:1.0.0"
+ENV SPARK_SUBMIT_ARGS "--packages io.delta:delta-core_2.12:1.0.0,org.postgresql:postgresql:42.1.1"
+#pyspark-shell org.postgresql:postgresql:42.1.1
 ENV PYSPARK_PYTHON python3
 #CMD ["/bin/bash", "/template.sh"]
 
