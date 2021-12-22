@@ -141,3 +141,24 @@ Das gesamte Vorgehen ist von Delta Lake abgebildet. Deshalb hat er das auf jeden
 ### Nützliche Links
 
 - http://www.feat.engineering/
+
+
+
+## Meeting 22.12.2021
+
+- Delta Lake = realtive pfade können nicht gelesen werden
+
+- Lösung wie wir es gemacht haben gut aber zu zeitintesiv das jetzt noch in das richtige Format zu bekommen. Könnten nur nochmal probieren, ob es funktioniert wenn wir es nicht in ein dataframe sondern in eine json schreiben. 
+  Ansonsten:
+  
+  - Daten von API fetchen und lokal in json ablegen
+  
+  - Json dann in DataFrame in Spark einlesen
+
+
+
+### Schnittstelle DeltaLake/TFX
+
+Schnittstelle schwierig da nur bestimmte Dateiformate von TFX unterstützt werden. 
+
+**Lösung: ** CSV exportieren aus dem DeltaLake und lokal bereitstellen. Diese dann einfach in TFX einlesen und so weiterarbeiten. Harter Cut zwischen den zwei Technologien so i.O.
