@@ -62,8 +62,8 @@ for month in jsonForces:
                 ])\
                 .withColumn("execute", udf_executeRestApi(col("verb"), col("url"), col("headers"), col("body")))
                 overall_request_df = overall_request_df.unionByName(newdf, allowMissingColumns=True)
-                overall_request_df.select(col("execute")).show(truncate=False)
+                #overall_request_df.select(col("execute")).show(truncate=False)
+                overall_request_df.select(overall_request_df.execute, explode(overall_request_df.execute.legislation))
                 
-
             
 spark.stop()

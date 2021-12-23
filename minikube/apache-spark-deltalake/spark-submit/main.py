@@ -57,6 +57,7 @@ if __name__ == "__main__":
 
     jsonForces = reqForces.json()
 
+    """
     #Load Data from UK Police API - Pascal
     dataJson = []
     for month in jsonForces:
@@ -70,22 +71,22 @@ if __name__ == "__main__":
                     for item in djson:
                         item['force'] = force
                         dataJson.append(item)
-    
-    json_rdd = sc.parallelize([dataJson])          
-   
+    """
+    #json_rdd = sc.parallelize([dataJson])          
+    json_rdd = sc.parallelize([jsonForces])
+
     #data_df= pd.read_json(r.json(), lines=True)
     #print(data_df)
     
     #create df from JSON Content of UK Police API
     df = spark.read.json(json_rdd)
-    df.show()
     df.printSchema()
     df.show()
     df.describe()
     
     
     #Save data as Delta Table
-    #df.write.format("delta").save("./delta-table")
+    df.write.format("delta").save("s3a://delta-lake-mlops/data")
     
     #Apply Transformations
 
