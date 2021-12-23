@@ -25,7 +25,7 @@ from pipeline import pipeline
 # NOTE: It is recommended to have a separated OUTPUT_DIR which is *outside* of
 #       the source code structure. Please change OUTPUT_DIR to other location
 #       where we can store outputs of the pipeline.
-OUTPUT_DIR = '/home/pascal/dev/kirenz-mlops-semester/minikube/tensorflow/dataExploration/tfx-taxi/output'
+OUTPUT_DIR = '/home/pascal/dev/kirenz-mlops-semester/minikube/tfx/tfx-taxi/output'
 
 # TFX produces two types of outputs, files and metadata.
 # - Files will be created under PIPELINE_ROOT directory.
@@ -46,7 +46,7 @@ SERVING_MODEL_DIR = os.path.join(PIPELINE_ROOT, 'serving_model')
 #       Kubeflow), you can use a path starting "gs://YOUR_BUCKET_NAME/path" for
 #       DATA_PATH. For example,
 #       DATA_PATH = 'gs://bucket/chicago_taxi_trips/csv/'.
-DATA_PATH = '/home/pascal/dev/kirenz-mlops-semester/minikube/tensorflow/dataExploration/tfx-taxi/data/'
+DATA_PATH = '/home/pascal/dev/kirenz-mlops-semester/minikube/tfx/tfx-taxi/data'
 
 
 def run():
