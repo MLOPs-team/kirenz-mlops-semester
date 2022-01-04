@@ -6,15 +6,16 @@ import pyspark
 #from databricks import koalas as ks
 from pyspark.sql.dataframe import DataFrame
 from pyspark.sql.types import *
-from pyspark.sql.functions import explode, split, col, sum, lit
-from pyspark.sql import SparkSession
+from pyspark.sql.functions import explode, split, col, sum, lit, udf
+from pyspark.sql import SparkSession, Row
 from pyspark.sql import functions as F
 from delta import *
 from delta.tables import *
+from pyspark.sql.types import StructType, StructField, IntegerType, StringType, ArrayType
+
 
 #blablab
 sparkClassPath = os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages io.delta:delta-core_2.12:1.0.0 pyspark-shell org.postgresql:postgresql:42.1.1 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog" '
-#org.postgresql:postgresql:42.1.1,pyspark-shell,
 
 
 #can be ignored for the moment
@@ -34,6 +35,7 @@ def remove_html_tags(df: DataFrame) -> DataFrame:
         df = df.withColumn('address', F.trim(F.col('description')))
         return df 
 
+
 def request(url):
     response_API = requests.get(url)
     return json.loads(response_API.text)    
@@ -48,6 +50,7 @@ if __name__ == "__main__":
     sc = spark.sparkContext
 
     #Load Data from UK Police API - Niklas
+<<<<<<< HEAD
     reqForces = requests.get('https://data.police.uk/api/crimes-street-dates')
     jsonForces = reqForces.json()
 
@@ -57,11 +60,30 @@ if __name__ == "__main__":
             print(month['date'])
             for force in month['stop-and-search']:
                 reqStopandSearch = requests.get('https://data.police.uk/api/stops-force?force=' + str(force) + '&date=' + str(month['date']))
+=======
+    #response = requests.get('https://data.police.uk/api/leicestershire/NC04/events')
+    #data = response.json()
+    #   
+    reqForces = requests.get('https://data.police.uk/api/crimes-street-dates')
+
+    jsonForces = reqForces.json()
+
+    """
+    #Load Data from UK Police API - Pascal
+    dataJson = []
+    for month in jsonForces:
+        if str(month['date']) > '2021-05':
+            print(month['date'])
+            for force in month['stop-and-search']:
+                reqStopandSearch = requests.get('https://data.police.uk/api/stops-force?force=' + str(force) + '&date=' + str(month['date']))
+                print('https://data.police.uk/api/stops-force?force=' + str(force) + '&date=' + str(month['date']))
+>>>>>>> 36ae99d8d2beda4881357e4cc05d6b54b2394d56
                 if reqStopandSearch.status_code == 200:
                     djson = reqStopandSearch.json()
                     for item in djson:
                         item['force'] = force
                         dataJson.append(item)
+<<<<<<< HEAD
                 print('ok')
 
     print(dataJson)
@@ -70,22 +92,25 @@ if __name__ == "__main__":
 
     json_rdd = sc.parallelize([dataJson])
    
+=======
+    """
+    #json_rdd = sc.parallelize([dataJson])          
+    json_rdd = sc.parallelize([jsonForces])
+
+>>>>>>> 36ae99d8d2beda4881357e4cc05d6b54b2394d56
     #data_df= pd.read_json(r.json(), lines=True)
     #print(data_df)
     
     #create df from JSON Content of UK Police API
     df = spark.read.json(json_rdd)
-    df.show()
     df.printSchema()
     df.show()
     df.describe()
     
     
     #Save data as Delta Table
-    df.write.format("delta").save("delta-table")
+    df.write.format("delta").save("s3a://delta-lake-mlops/data")
     
-   
-
     #Apply Transformations
 
     #Build Koalas DF
@@ -95,19 +120,19 @@ if __name__ == "__main__":
     #url = f"jdbc:postgresql://{os.environ['POSTGRES_HOST']}:{os.environ['POSTGRES_PORT']}/{os.environ['POSTGRES_DB_NAME']}"
     print("****************")
     #print(url)
-    url = f"jdbc:postgresql://localhost:5432/police-data"
+    url = f"jdbc:postgresql://postgres:5432/police-data"
     
     #Write to Postgres DB
     df.write.jdbc(url=url, table='data', mode="overwrite", properties=properties)
     
 
     #Read out History of Table
-    deltaTable = DeltaTable.forPath(spark,"delta-table")
+    #deltaTable = DeltaTable.forPath(spark,"./delta-table")
 
-    fullHistoryDF = deltaTable.history()    # get the full history of the table
-    print(fullHistoryDF)
-    lastOperationDF = deltaTable.history(1) # get the last operation
-    print(lastOperationDF)
+    #fullHistoryDF = deltaTable.history()    # get the full history of the table
+    #print(fullHistoryDF)
+    #lastOperationDF = deltaTable.history(1) # get the last operation
+    #print(lastOperationDF)
     
 
     spark.stop()
