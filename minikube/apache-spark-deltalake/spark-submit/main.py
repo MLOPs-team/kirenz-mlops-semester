@@ -48,10 +48,27 @@ if __name__ == "__main__":
     sc = spark.sparkContext
 
     #Load Data from UK Police API - Niklas
-    response = requests.get('https://data.police.uk/api/leicestershire/NC04/events')
-    data = response.json()
+    reqForces = requests.get('https://data.police.uk/api/crimes-street-dates')
+    jsonForces = reqForces.json()
 
-    json_rdd = sc.parallelize([data])
+    dataJson = []
+    for month in jsonForces:
+        if str(month['date']) > '2019-10':
+            print(month['date'])
+            for force in month['stop-and-search']:
+                reqStopandSearch = requests.get('https://data.police.uk/api/stops-force?force=' + str(force) + '&date=' + str(month['date']))
+                if reqStopandSearch.status_code == 200:
+                    djson = reqStopandSearch.json()
+                    for item in djson:
+                        item['force'] = force
+                        dataJson.append(item)
+                print('ok')
+
+    print(dataJson)
+    #response = requests.get('https://data.police.uk/api/leicestershire/NC04/events')
+    #data = response.json()
+
+    json_rdd = sc.parallelize([dataJson])
    
     #data_df= pd.read_json(r.json(), lines=True)
     #print(data_df)
