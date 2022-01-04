@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
     jsonForces = reqForces.json()
 
-    """
+    
     #Load Data from UK Police API - Pascal
     dataJson = []
     for month in jsonForces:
@@ -71,7 +71,9 @@ if __name__ == "__main__":
                     for item in djson:
                         item['force'] = force
                         dataJson.append(item)
-    """
+
+    print(dataJson)
+
     #json_rdd = sc.parallelize([dataJson])          
     json_rdd = sc.parallelize([jsonForces])
 
