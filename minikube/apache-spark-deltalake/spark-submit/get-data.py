@@ -110,6 +110,5 @@ collapsed_df.show()
 """                 overall_request_df = overall_request_df.unionByName(newdf, allowMissingColumns=True)
                 overall_request_df.select(col('execute.gender'),col(overall_request_df.outcome)) """
                 
-
             
 spark.stop()

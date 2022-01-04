@@ -50,6 +50,17 @@ if __name__ == "__main__":
     sc = spark.sparkContext
 
     #Load Data from UK Police API - Niklas
+<<<<<<< HEAD
+    reqForces = requests.get('https://data.police.uk/api/crimes-street-dates')
+    jsonForces = reqForces.json()
+
+    dataJson = []
+    for month in jsonForces:
+        if str(month['date']) > '2019-10':
+            print(month['date'])
+            for force in month['stop-and-search']:
+                reqStopandSearch = requests.get('https://data.police.uk/api/stops-force?force=' + str(force) + '&date=' + str(month['date']))
+=======
     #response = requests.get('https://data.police.uk/api/leicestershire/NC04/events')
     #data = response.json()
     #   
@@ -57,6 +68,7 @@ if __name__ == "__main__":
 
     jsonForces = reqForces.json()
 
+    """
     #Load Data from UK Police API - Pascal
     dataJson = []
     for month in jsonForces:
@@ -65,27 +77,39 @@ if __name__ == "__main__":
             for force in month['stop-and-search']:
                 reqStopandSearch = requests.get('https://data.police.uk/api/stops-force?force=' + str(force) + '&date=' + str(month['date']))
                 print('https://data.police.uk/api/stops-force?force=' + str(force) + '&date=' + str(month['date']))
+>>>>>>> 36ae99d8d2beda4881357e4cc05d6b54b2394d56
                 if reqStopandSearch.status_code == 200:
                     djson = reqStopandSearch.json()
                     for item in djson:
                         item['force'] = force
                         dataJson.append(item)
-    
-    json_rdd = sc.parallelize([dataJson])          
+<<<<<<< HEAD
+                print('ok')
+
+    print(dataJson)
+    #response = requests.get('https://data.police.uk/api/leicestershire/NC04/events')
+    #data = response.json()
+
+    json_rdd = sc.parallelize([dataJson])
    
+=======
+    """
+    #json_rdd = sc.parallelize([dataJson])          
+    json_rdd = sc.parallelize([jsonForces])
+
+>>>>>>> 36ae99d8d2beda4881357e4cc05d6b54b2394d56
     #data_df= pd.read_json(r.json(), lines=True)
     #print(data_df)
     
     #create df from JSON Content of UK Police API
     df = spark.read.json(json_rdd)
-    df.show()
     df.printSchema()
     df.show()
     df.describe()
     
     
     #Save data as Delta Table
-    #df.write.format("delta").save("./delta-table")
+    df.write.format("delta").save("s3a://delta-lake-mlops/data")
     
     #Apply Transformations
 
