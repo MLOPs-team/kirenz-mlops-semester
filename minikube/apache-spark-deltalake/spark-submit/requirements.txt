@@ -1,3 +1,6 @@
 delta-spark==1.0.0
 requests
 pyspark==3.1.1
+setuptools
+wheel
+scikit-learn==0.24.2

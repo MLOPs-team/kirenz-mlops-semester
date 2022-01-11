@@ -1,7 +1,7 @@
 import pyspark.pandas as ps
 labelEncoder = LabelEncoder()
 
-df = pd.read_json(filePath, orient='columns')
+df = pd.read_json("minikube/apache-spark-deltalake/dataForces_2.json", orient='columns')
 
 # drop columns in dataframe
 def drop_columns(df, columns):

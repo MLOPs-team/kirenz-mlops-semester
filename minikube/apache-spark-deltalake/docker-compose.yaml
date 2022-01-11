@@ -59,10 +59,14 @@ services:
   spark-submit:
       build:  
         context: ./spark-submit
+        dockerfile: Dockerfile
+        args: 
+          AWS_ACCESS_KEY: ${AWS_ACCESS_KEY}
+          AWS_SECRET_KEY: ${AWS_SECRET_KEY}
       container_name: spark-submit
       environment:
           - ENABLE_INIT_DAEMON=false
-          - PYSPARK_PYTHON=python3 
+          - PYSPARK_PYTHON=python3
       image: spark-app
       depends_on:
         - spark-worker   

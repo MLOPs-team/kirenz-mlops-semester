@@ -143,3 +143,6 @@ dmypy.json
 
 # OSX
 .DS_Store
+
+#ignore Data JSON due to size
+minikube/apache-spark-deltalake/spark-submit/dataForces_2.json
