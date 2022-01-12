@@ -142,8 +142,6 @@ Das gesamte Vorgehen ist von Delta Lake abgebildet. Deshalb hat er das auf jeden
 
 - http://www.feat.engineering/
 
-
-
 ## Meeting 22.12.2021
 
 - Delta Lake = realtive pfade können nicht gelesen werden
@@ -155,10 +153,118 @@ Das gesamte Vorgehen ist von Delta Lake abgebildet. Deshalb hat er das auf jeden
   
   - Json dann in DataFrame in Spark einlesen
 
-
-
 ### Schnittstelle DeltaLake/TFX
 
 Schnittstelle schwierig da nur bestimmte Dateiformate von TFX unterstützt werden. 
 
 **Lösung: ** CSV exportieren aus dem DeltaLake und lokal bereitstellen. Diese dann einfach in TFX einlesen und so weiterarbeiten. Harter Cut zwischen den zwei Technologien so i.O.
+
+
+
+## Meeting 12.01.2022
+
+### Feature Store
+
+Kein Unterschied zwischen Trainings und Serving Daten, daher wird Feature Store angewendet. Müsste in realer Welt eine Art Feedback Loop von dem bereitgestellten Model zu den Trainingsdaten geben. „Retrain Triggers“ in MLOps Prozess.
+
+
+Bsp. Saisonale Unterschiede bei Daten, Sommer vs Winter Daten im Kleidungshandel.
+Datenkatalog in unserem Fall ausreichend. Dies wird über Delta Lake realisiert. Nicht so sehr im Fokus. Beschriftung der Daten ausreichend.
+
+=> Kommentar Niklas: Kein weiterer Handlungsbedarf.
+
+In der Doku dokumentieren welche Daten wir verwendet haben etc.
+
+
+
+### Metadatenmanagement
+
+**Nur Metadaten in TFX? Nein beides, da zwei Welten:**
+
+- Delta Lake ist Spark basiert.
+
+- TFX kann damit nicht umgehen.
+
+- Spark MLib, wäre bei großen Daten dann einfacher.
+
+- Cut zw. Delta-Lake und MLOps „Logik“. TFX MLMD Meta Datastore, der lebt außerhalb vom Delta-Lake.
+
+- Delta Lake passt so wie wir es haben Daten. Einfach gold daten in eigene Tabelle. 
+
+
+
+**Graphische Oberfläche nötig oder reicht Metadaten-Management in einer DB?**
+
+Je nachdem wie das Artefakt aussieht dass ein Modul erstellt, ist der Zugriff eben unterschiedlich.
+
+Visualisierungen im Tensorboard + Visualisierung in der Data Validation => kann auch für die Präsentation dann verwendet werden
+
+Um alles nachvollziehbar zu halten, wann sind welche Daten angeliefert worden und wie sollen die Grenzwerte bspw. aussehen. 
+
+
+
+Überlegen was in Airflow und was in MLData geloggt wird und strategie erklären. Mögliches Szenario. Airflow sehr hohe FLughöhe des Loggins, da dies eher als Management tool genutzt wird und MLMD dann sehr granular, sodass die entwickler dies dann zum debuggen verwenden können
+
+=> Idee ausarbeiten und in Doku darstellen 
+
+
+
+### Wo Artifakte ablegen?
+
+Hier überlegen ob in einem eignen S3 Bucket oder zurück in Delta Lake schreiben. Eigener S3 Bucket für Kirenz ok. Vielleicht nochmals gedanken machen und in Doku begründen warum wir das so gemacht haben oder alternativen aufzeigen
+
+
+
+### Noch ausstehende Dinge:
+
+- Delta Lake so i.O. wie wir es haben. Müssen wir nichts mehr ergänzen
+
+- TFX Komponenten weitestgehend abgedeckt, das ist gut!
+
+- Zusätzlich noch Deployment, dann wärs mega:
+  
+  - Wie macht man das Serving?
+
+- Visualisierung in Form eines Dashboards ausreichend, vielleicht auch nur konzeptionell.
+
+Zusammengefast: Sind auf einem guten Weg. Wenn wir das so zu Ende bringen ok
+
+### Termin mit Bosch
+
+Können im Prinzip die gleichen Fragen stellen wie beim heutigen Termin. Hier nochmals die Fragen: 
+
+- Metadatenmanagement ([ML Metadata &nbsp;|&nbsp; TFX &nbsp;|&nbsp; TensorFlow](https://www.tensorflow.org/tfx/guide/mlmd "https://www.tensorflow.org/tfx/guide/mlmd"))
+  --> Wie am besten umsetzten? 
+  ---> Wo werden die Daten dann visualisiert (wäre das unser Dashboard)
+  --> Ergebnis des Models kann dann auch hieraus ausgelesen werden oder?
+- Wie sieht der Termin aus was sollen wir bis dahin vorbereiten?
+  --> Was sind die wichtigsten Punkte für Bosch (Metadatenmanagement)
+- Feature Store 
+  Wie viel Aufwand da investieren? Eigentlich ja das gleich wie unser "gold" standard den wir in einen 
+  extra table geschrieben haben 
+  ([Databricks Feature AWS Store Quickstart](https://examples.hopsworks.ai/master/featurestore/databricks/featurestorequickstartdatabricksaws/ "https://examples.hopsworks.ai/master/featurestore/databricks/featurestorequickstartdatabricksaws/"))
+- Delta Lake (soweit fertig - ggf. Feature Store)
+- tfx (bis Example Validator läuft --> voll fertigstellen)
+  --> Metadatenmanagement ( Wie viel müssen wir machen und was?) (Bearbeitet)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 
