@@ -21,12 +21,12 @@ def encode_year(df, column):
 
 # encode datetime month
 def encode_month(df, column):
-    df['month'] = df[column].dt.year
+    df['month'] = df[column].dt.month
     return df
 
 # encode datetime day
 def encode_day(df, column):
-    df['day'] = df[column].dt.year
+    df['day'] = df[column].dt.day
     return df
 
 # Normalize data set
