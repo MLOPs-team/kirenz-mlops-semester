@@ -58,7 +58,7 @@ def create_pipeline(
   statistics_gen = tfx.components.StatisticsGen(
       examples=example_gen.outputs['examples'])
   # TODO(step 5): Uncomment here to add StatisticsGen to the pipeline.
-  # components.append(statistics_gen)
+  components.append(statistics_gen)
 
   if schema_path is None:
     # Generates schema based on statistics files.
