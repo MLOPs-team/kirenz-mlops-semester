@@ -1,37 +1,16 @@
 version: '3.6'
 
 services:
-  postgres:
-    container_name: postgres
-    image: postgres:latest
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - PGDATA=/data/postgres
-      - POSTGRES_DB=police-data
-      - POSTGRES_HOST_AUTH_METHOD=trust
-    volumes:
-       - postgres:/data/postgres
-       - ./SQL/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
-    ports:
-      - "5432:5432"
-    networks:
-      - deltalake
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
   spark:
     container_name: spark
-    image: docker.io/bitnami/spark:3.1.1
+    image: docker.io/bitnami/spark:3.2.0
     environment:
       - SPARK_MODE=master
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
       - SPARK_RPC_ENCRYPTION_ENABLED=no
       - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
-      - SPARK_SSL_ENABLED=no
+      - SPARK_SSL_ENABLED=no     
+      - INIT_DAEMON_STEP=setup_spark
     ports:
       - '8080:8080'
       - '7077:7077'
@@ -46,7 +25,7 @@ services:
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark:7077
-      - SPARK_WORKER_MEMORY=4G
+      - SPARK_WORKER_MEMORY=2G
       - SPARK_WORKER_CORES=1
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
       - SPARK_RPC_ENCRYPTION_ENABLED=no
@@ -58,7 +37,7 @@ services:
       - spark 
   spark-submit:
       build:  
-        context: ./spark-submit
+        context: ./test-spark-submit
         dockerfile: Dockerfile
         args: 
           AWS_ACCESS_KEY: ${AWS_ACCESS_KEY}
@@ -71,10 +50,10 @@ services:
       depends_on:
         - spark-worker   
       networks:
-        - deltalake   
+        - deltalake  
+      volumes:
+      - $PWD:/app 
 networks:
     deltalake: 
       driver: bridge  
-volumes:
-    postgres:
     
