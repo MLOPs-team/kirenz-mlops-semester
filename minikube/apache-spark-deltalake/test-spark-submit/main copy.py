@@ -19,7 +19,7 @@ import json
 
 
 #blablab
-sparkClassPath = os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages io.delta:delta-core_2.12:1.0.0 pyspark-shell org.postgresql:postgresql:42.1.1 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog" '
+sparkClassPath = os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages io.delta:delta-core_2.12:1.1.0 pyspark-shell org.postgresql:postgresql:42.1.1 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog" '
 
 if __name__ == "__main__":
      # build spark session and enable sql extension & load sample data

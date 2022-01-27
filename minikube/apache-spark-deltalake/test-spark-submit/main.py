@@ -21,7 +21,7 @@ import json, shutil
 shutil.rmtree("/tmp/delta-table", ignore_errors=True)
 
 #blablab
-sparkClassPath = os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages io.delta:delta-core_2.12:1.1.0 pyspark-shell org.apache.hadoop:hadoop-aws:3.2.0 com.amazonaws:aws-java-sdk-bundle:1.11.375 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog" --conf spark.hadoop.fs.s3a.access.key=AKIA25EGWZIMKSJ37HWM'
+sparkClassPath = os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages io.delta:delta-core_2.12:1.1.0 pyspark-shell org.apache.hadoop:hadoop-aws:3.2.2 com.amazonaws:aws-java-sdk-bundle:1.11.375 --conf "spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension" --conf "spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog"'
 
 
 if __name__ == "__main__":

@@ -74,7 +74,7 @@ ENV SPARK_MASTER_NAME "spark"
 ENV SPARK_MASTER_PORT 7077
 ENV SPARK_APPLICATION_PYTHON_LOCATION /main.py
 ENV SPARK_APPLICATION_ARGS "/spark/README.md"
-ENV SPARK_SUBMIT_ARGS "--packages io.delta:delta-core_2.12:1.1.0,org.apache.hadoop:hadoop-aws:3.2.0,com.amazonaws:aws-java-sdk-bundle:1.11.375 --conf spark.hadoop.fs.s3a.access.key=AKIA25EGWZIMKSJ37HWM  --conf spark.hadoop.fs.s3a.secret.key=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"
+ENV SPARK_SUBMIT_ARGS "--packages io.delta:delta-core_2.12:1.1.0,org.apache.hadoop:hadoop-aws:3.2.2,com.amazonaws:aws-java-sdk-bundle:1.11.375"
 ENV PYSPARK_PYTHON python3
 
 CMD ["/bin/sh", "/submit.sh"]
