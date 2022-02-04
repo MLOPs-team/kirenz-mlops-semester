@@ -1,0 +1,29 @@
+{
+  "evalConfig": {
+    "modelSpecs": [
+      {
+        "labelKey": "age_range"
+      }
+    ],
+    "metricsSpecs": [
+      {
+        "modelNames": [
+          ""
+        ],
+        "thresholds": {
+          "accuracy": {
+            "valueThreshold": {
+              "lowerBound": 0.6
+            }
+          }
+        }
+      }
+    ]
+  },
+  "version": "0.34.1",
+  "dataLocation": "<user provided PCollection>",
+  "fileFormat": "<unknown>",
+  "modelLocations": {
+    "": "/usr/local/airflow/dags/police-uk-pipeline/pipeline/Trainer/model/5/Format-Serving"
+  }
+}
