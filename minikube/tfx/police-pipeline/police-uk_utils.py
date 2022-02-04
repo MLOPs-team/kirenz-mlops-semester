@@ -8,8 +8,6 @@ from tfx import v1 as tfx
 from tfx_bsl.public import tfxio
 from tensorflow_metadata.proto.v0 import schema_pb2
 
-sess = tf.InteractiveSession()
-
 _FEATURE_KEYS = ['action', 'involved_person',
        'self_defined_ethnicity_white', 'self_defined_ethnicity_black',
        'self_defined_ethnicity_asian', 'self_defined_ethnicity_other',
@@ -71,6 +69,9 @@ _LABEL_KEY = 'age_range'
 
 _TRAIN_BATCH_SIZE = 20
 _EVAL_BATCH_SIZE = 10
+
+writer = tf.summary.create_file_writer('/home/ec2-user/police/log')
+sess = tf.compat.v1.Session()
 
 # Since we're not generating or creating a schema, we will instead create
 # a feature spec.  Since there are a fairly small number of features this is
@@ -168,5 +169,4 @@ def run_fn(fn_args: tfx.components.FnArgs):
   # The result of the training should be saved in `fn_args.serving_model_dir`
   # directory.
   model.save(fn_args.serving_model_dir, save_format='tf')
-
-  tf.train.SummaryWriter('/home/ec2-user/tfx/pipelines/police-uk-pipeline/Trainer/log', sess.graph_def)
+  tf.summary.write('/home/ec2-user/police/log', sess.graph)

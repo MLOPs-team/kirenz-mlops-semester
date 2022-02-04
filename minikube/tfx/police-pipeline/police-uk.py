@@ -16,7 +16,6 @@
 import datetime
 import os
 from typing import List
-from taxi_utils import _LABEL_KEY
 
 import tensorflow_model_analysis as tfma
 from tfx.components import FileBasedExampleGen
@@ -28,9 +27,6 @@ from tfx.components import Pusher
 from tfx.components import SchemaGen
 from tfx.components import StatisticsGen
 from tfx.components import Trainer
-from tfx.components import Transform
-from tfx.components.trainer.executor import Executor
-from tfx.dsl.components.base import executor_spec
 from tfx.dsl.components.common import resolver
 from tfx.dsl.experimental import latest_blessed_model_resolver
 from tfx.orchestration import data_types
