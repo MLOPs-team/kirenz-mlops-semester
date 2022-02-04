@@ -1,6 +1,7 @@
 from typing import List
 from absl import logging
 import tensorflow as tf
+import datetime
 from tensorflow import keras
 from tensorflow_transform.tf_metadata import schema_utils
 
@@ -158,11 +159,15 @@ def run_fn(fn_args: tfx.components.FnArgs):
       batch_size=_EVAL_BATCH_SIZE)
 
   model = _build_keras_model()
+  log_dir = "/usr/local/airflow/dags/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+  tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
+
   model.fit(
       train_dataset,
       steps_per_epoch=fn_args.train_steps,
       validation_data=eval_dataset,
-      validation_steps=fn_args.eval_steps)
+      validation_steps=fn_args.eval_steps,
+      callbacks=[tensorboard_callback])
 
   # The result of the training should be saved in `fn_args.serving_model_dir`
   # directory.
