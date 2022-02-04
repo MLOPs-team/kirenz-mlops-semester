@@ -147,3 +147,6 @@ dmypy.json
 #ignore Data JSON due to size
 minikube/apache-spark-deltalake/spark-submit/dataForces_2.json
 minikube/apache-spark-deltalake/test-spark-submit/dataForces_2.json
+
+#ignore airflow-db
+aws-mwaa-local-runner/db-data
