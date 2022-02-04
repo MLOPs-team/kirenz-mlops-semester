@@ -30,3 +30,13 @@ Parameter sind Eingaben in Pipelines die vor der Ausführung bekannt sind.
 Parameter können Verhalten der Pipeline verändern ohne das man Code anpassen muss. Sie können beispielsweise Parameter verwenden, um eine Pipeline mit verschiedenen Hyperparametersätzen auszuführen, ohne den Code der Pipeline zu ändern.
 
 ## Komponente
+
+## Pipeline
+
+= tragbare Implementierung eines ML-Worklfows. Kann auf verschiedenen Orchestratoren wie z.B. Apache Airflow, Kubeflow ausgeührt werden.
+
+Basierend auf dieser Analyse führt ein Orchestrator Folgendes aus:
+
+- Die Datenaufnahme-, StatisticsGen- und SchemaGen-Komponenteninstanzen werden nacheinander ausgeführt.
+- Die Komponenten ExampleValidator und Transform können parallel ausgeführt werden, da sie Abhängigkeiten von Eingabeartefakten gemeinsam haben und nicht von der Ausgabe des anderen abhängen.
+- Nach Abschluss der Transformationskomponente werden die Instanzen der Trainer-, Evaluator- und benutzerdefinierten Deployer-Komponenten nacheinander ausgeführt.
