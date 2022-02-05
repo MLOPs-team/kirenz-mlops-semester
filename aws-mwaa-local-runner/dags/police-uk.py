@@ -50,15 +50,15 @@ load_dotenv()
 
 #Credentials aws
 AWS_ACCESS_KEY= os.getenv('AWS_ACCESS_KEY')
-AWS_SECERT_KEY= os.getenv('AWS_SECERT_KEY')
+AWS_SECRET_KEY= os.getenv('AWS_SECRET_KEY')
 
 # dowload file from s3 bucket
 bucket = 'delta-lake-mlops'
 object_name = 'Test/data.gzip'
-file_name = '/usr/local/airflow/data/data.gzip'
+file_name = 'aws-mwaa-local-runner/dags/data.gzip'
 
-s3_client = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY, aws_secret_access_key=AWS_SECERT_KEY)
-s3_client.download_file(bucket, object_name, file_name)
+#s3_client = boto3.client('s3', aws_access_key_id=AWS_ACCESS_KEY, aws_secret_access_key=AWS_SECRET_KEY)
+#s3_client.download_file(bucket, object_name, file_name)
 
 
 # TODO(jyzhao): rename to chicago_taxi_airflow.
