@@ -270,6 +270,22 @@ df['force'].value_counts()
 
 ---
 
+## Correlation
+
+We created a correlation matrix to show correlation coefficients between variables
+
+```python
+corrMatrix = df.corr()
+```
+
+Unfortunately, no correlation could be detected in our data set 
+
+
+
+
+
+
+
 ## Cleaning of the dataset
 
 After we have examined the dataset we will clean the dataset in the next step 
@@ -281,4 +297,108 @@ df_cleared = df[df.age_range.notna() & df.gender.notna() &
 df.officer_defined_ethnicity.notna() & df.self_defined_ethnicity.notna()
  & df.object_of_search.notna() & df.location.notna() & 
 df.legislation.notna()]
+```
+
+----------------------------------------------------------
+
+To see if there was an action when the person stopped or not we split the 'outcome' column into:
+
+- action = 1 => person is arrested, gets a ticket etc.
+
+- action = 0 => nothing happens 
+
+```python
+# Split the DataFrame into noAction = 0 and Action = 1
+
+df_noAction = df_cleared[df_cleared.outcome.isin(['A no further action disposal'])]
+df_noAction.insert(loc=1, column='action', value=0)
+
+df_Action = df_cleared[df_cleared.outcome.isin(['Arrest', 'Community resolution', 'Summons / charged by post', 'Penalty Notice for Disorder', 'Khat or Cannabis warning', 'Caution (simple or conditional)'])]
+df_Action.insert(loc=1, column='action', value=1)
+
+df_cleared = pd.concat([df_noAction, df_Action])
+```
+
+__________
+
+We divide the individuals according to their ethnicity into:
+
+- white
+
+- black
+
+- asian
+
+- other ethnicity
+
+- mixed ethnicity
+
+```python
+# Classify ethnic groups according to 5 groups: white, black, asian, other ethnic group, mixed/multiple ethnic groups
+
+df_clean['self_defined_ethnicity_white'] = df_clean.self_defined_ethnicity.apply(lambda x : x == "White - English/Welsh/Scottish/Northern Irish/British" or x == 'White - Any other White background' or x == 'White - Irish' or x == 'White - Gypsy or Irish Traveller' if isinstance(x, object) else 0)
+
+df_clean['self_defined_ethnicity_black'] = df_clean.self_defined_ethnicity.apply(lambda x : x == 'Black/African/Caribbean/Black British - Any other Black/African/Caribbean background' or x == 'Black/African/Caribbean/Black British - African' or x == 'Black/African/Caribbean/Black British - Caribbean' if isinstance(x, object) else 0)
+
+df_clean['self_defined_ethnicity_asian'] = df_clean.self_defined_ethnicity.apply(lambda x : x == 'Asian/Asian British - Any other Asian background' or x == 'Asian/Asian British - Pakistani' or x == 'Asian/Asian British - Bangladeshi' or x == 'Asian/Asian British - Indian' or x == 'Asian/Asian British - Chinese' if isinstance(x, object) else 0)
+
+df_clean['self_defined_ethnicity_other'] = df_clean.self_defined_ethnicity.apply(lambda x : x == 'Other ethnic group - Not stated' or x == 'Other ethnic group - Any other ethnic group' or x == 'Other ethnic group - Arab' if isinstance(x, object) else 0)
+
+df_clean['self_defined_ethnicity_mixed'] = df_clean.self_defined_ethnicity.apply(lambda x : x == 'Mixed/Multiple ethnic groups - Any other Mixed/Multiple ethnic background' or x == 'Mixed/Multiple ethnic groups - White and Black Caribbean' or x == 'Mixed/Multiple ethnic groups - White and Asian' or x == 'Mixed/Multiple ethnic groups - White and Black African' if isinstance(x, object) else 0)
+
+```
+
+__________________
+
+After that we changed the type of the colums
+
+```python
+# change type of columns 
+
+df_clean.involved_person = df_clean.involved_person.astype(int)
+df_clean.self_defined_ethnicity_white   = df_clean.self_defined_ethnicity_white.astype(int)
+df_clean.self_defined_ethnicity_black   = df_clean.self_defined_ethnicity_black.astype(int)
+df_clean.self_defined_ethnicity_asian   = df_clean.self_defined_ethnicity_asian.astype(int)
+df_clean.self_defined_ethnicity_other   = df_clean.self_defined_ethnicity_other.astype(int)
+df_clean.self_defined_ethnicity_mixed   = df_clean.self_defined_ethnicity_mixed.astype(int)
+
+df_clean = df_clean.drop('self_defined_ethnicity', axis=1)
+```
+
+____
+
+Now we can delete alls not needed columns 
+
+```python
+# delete columns not needed
+
+df_clean = df_cleared.drop(['outcome','outcome_linked_to_object_of_search', 'datetime', 'removal_of_more_than_outer_clothing', 'outcome_object', 'location'], axis=1)
+```
+
+_____
+
+In order to process the data in a model, the data must be encoded. For this we use the following methods: 
+
+- pd.get_dummies
+  - With this method all feature keys are encoded 
+- LabelEncoder  
+  - With this method the label key is encoded 
+
+
+
+```python
+df_dummies = pd.get_dummies(df_clean, columns=['gender', 'legislation', 'officer_defined_ethnicity', 'type', 'object_of_search', 'force' ])
+
+```
+
+
+
+```python
+from sklearn.preprocessing import LabelEncoder
+
+labelEncoder = LabelEncoder()
+
+labelEncoder.fit(['10-17', '25-34', 'over 34', '18-24', 'under 10'])
+df_encoded = df_dummies
+df_encoded.age_range = labelEncoder.fit_transform(df_dummies.age_range)
 ```
