@@ -1,0 +1,755 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aws-mwaa-local-runner &#8212; MLOPS</title>
+    
+  <link href="../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MLOPS</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../intro.html">
+   Welcome!
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Protocol
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../protocol/ideasPresentation.html">
+   Ideen für die Präsentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../protocol/protocolIntern.html">
+   Protokoll - Intern
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../protocol/protocolKirenz.html">
+   Protokoll - Sprechstunde Kirenz
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Learning diary
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../learningDiary/deltaLake.html">
+   Das ist ein Test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../learningDiary/jupyterBook.html">
+   Jupyter-Book good to know
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../learningDiary/requiredTheoryKirenz/theoryKirenz.html">
+   Notes: Required reading Kirenz
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../learningDiary/requiredTheoryKirenz/requiredQuestions.html">
+     Notes: Required questions - theory Kirenz
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../learningDiary/requiredTheoryKirenz/questionsCollection.html">
+     Notes: Questions for lecture on 17.11
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Technical documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../deltaLake.html">
+   Testseite
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../windows/startWindows.html">
+   Documentation of the problems with tfx on windows
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../windows/tfxPipeline.html">
+     TensorFlow extended on windows
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../_sources/docs/technicalDocumentation/tfx/aws-mwaa-local-runner/aws-mwaa-local-runner.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/technicalDocumentation/tfx/aws-mwaa-local-runner/aws-mwaa-local-runner.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-started">
+   Get Started
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-run-the-pipeline">
+   How to run the pipeline?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#start-the-dag-download-data-from-delta-lake">
+     Start the DAG Download-Data-from-Delta-Lake
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#start-the-dag-police-uk-pipeline">
+     Start the DAG police-uk-pipeline
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#open-challenges">
+       Open challenges
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#metrics">
+         Metrics
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Aws-mwaa-local-runner</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-started">
+   Get Started
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-to-run-the-pipeline">
+   How to run the pipeline?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#start-the-dag-download-data-from-delta-lake">
+     Start the DAG Download-Data-from-Delta-Lake
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#start-the-dag-police-uk-pipeline">
+     Start the DAG police-uk-pipeline
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#open-challenges">
+       Open challenges
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#metrics">
+         Metrics
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="aws-mwaa-local-runner">
+<h1>Aws-mwaa-local-runner<a class="headerlink" href="#aws-mwaa-local-runner" title="Permalink to this headline">¶</a></h1>
+<p>Due to cost reasons we used this docker container. This repository provides a command line interface (CLI) utility that replicates an Amazon Managed Workflows for Apache Airflow (MWAA) environment locally.</p>
+<p>You can find the repo at the following link: (<a class="reference external" href="https://github.com/aws/aws-mwaa-local-runner">GitHub - aws/aws-mwaa-local-runner: This repository provides a command line interface (CLI) utility that replicates an Amazon Managed Workflows for Apache Airflow (MWAA) environment locally.</a>)</p>
+<div class="section" id="get-started">
+<h2>Get Started<a class="headerlink" href="#get-started" title="Permalink to this headline">¶</a></h2>
+<p>Open the folder <a class="reference external" href="https://github.com/MLOPs-team/kirenz-mlops-semester/tree/main/aws-mwaa-local-runner">aws-mwaa-local-runner</a></p>
+<p>Activate your created conda environment:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">tfx</span>
+</pre></div>
+</div>
+<p>Build the docker image:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">mwaa</span><span class="o">-</span><span class="n">local</span><span class="o">-</span><span class="n">env</span> <span class="n">build</span><span class="o">-</span><span class="n">image</span>
+</pre></div>
+</div>
+<p>Start the docker container:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">./</span><span class="n">mwaa</span><span class="o">-</span><span class="n">local</span><span class="o">-</span><span class="n">env</span> <span class="n">start</span>
+</pre></div>
+</div>
+<p>Open the Apache Airflow UI:  <a class="reference external" href="http://localhost:8080/">http://localhost:8080/</a></p>
+<p>Credentials:</p>
+<ul class="simple">
+<li><p>Username: admin</p></li>
+<li><p>Password: test</p></li>
+</ul>
+<p>In Airflow you will now see the following 2 DAGS:</p>
+<ul class="simple">
+<li><p>Download-Data-from-Delta-Lake</p></li>
+<li><p>police-uk-pipeline</p></li>
+</ul>
+</div>
+<div class="section" id="how-to-run-the-pipeline">
+<h2>How to run the pipeline?<a class="headerlink" href="#how-to-run-the-pipeline" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Start the DAG Download-Data-from-Delta-Lake</p></li>
+<li><p>Start the DAG police-uk-pipeline</p></li>
+</ol>
+<div class="section" id="start-the-dag-download-data-from-delta-lake">
+<h3>Start the DAG Download-Data-from-Delta-Lake<a class="headerlink" href="#start-the-dag-download-data-from-delta-lake" title="Permalink to this headline">¶</a></h3>
+<p>To run the model we need the data from Delta Lake. For this we have written the DAG Download-Data-from-Delta-Lake. In this DAG the gold data is downloaded from Delta Lake and provided in csv format for the model. Since the parquet files loaded from Delta Lake are too large for our model the data set is reduced to 100,000 randomly selected rows.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;THIS IS A DAG TO DOWNLOAD THE DATA FROM THE DELTA LAKE&quot;</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
+
+<span class="kn">import</span> <span class="nn">airflow</span>
+<span class="kn">from</span> <span class="nn">airflow</span> <span class="kn">import</span> <span class="n">DAG</span>
+<span class="kn">from</span> <span class="nn">airflow.operators.python_operator</span> <span class="kn">import</span> <span class="n">PythonOperator</span>
+
+<span class="kn">import</span> <span class="nn">pyspark</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
+<span class="kn">from</span> <span class="nn">delta</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">default_args</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;owner&#39;</span><span class="p">:</span> <span class="s1">&#39;airflow&#39;</span><span class="p">,</span>    
+    <span class="s1">&#39;start_date&#39;</span><span class="p">:</span> <span class="n">airflow</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">dates</span><span class="o">.</span><span class="n">days_ago</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="c1"># &#39;end_date&#39;: datetime(2018, 12, 30),</span>
+    <span class="s1">&#39;depends_on_past&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s1">&#39;email_on_failure&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="s1">&#39;email_on_retry&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">my_func</span><span class="p">():</span>
+    <span class="n">builder</span> <span class="o">=</span> <span class="n">pyspark</span><span class="o">.</span><span class="n">sql</span><span class="o">.</span><span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&quot;MyApp&quot;</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.sql.extensions&quot;</span><span class="p">,</span> <span class="s2">&quot;io.delta.sql.DeltaSparkSessionExtension&quot;</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.sql.catalog.spark_catalog&quot;</span><span class="p">,</span> <span class="s2">&quot;org.apache.spark.sql.delta.catalog.DeltaCatalog&quot;</span><span class="p">)</span>
+
+    <span class="n">spark</span> <span class="o">=</span> <span class="n">configure_spark_with_delta_pip</span><span class="p">(</span><span class="n">builder</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;delta&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;/mnt/s3/dataForcesGold&quot;</span><span class="p">)</span>
+    <span class="n">pandas_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span>
+    <span class="n">pandas_df</span> <span class="o">=</span> <span class="n">pandas_df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+    <span class="n">pandas_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;/usr/local/airflow/data/data.csv&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">DAG</span><span class="p">(</span><span class="s1">&#39;Download-Data-from-Delta-Lake&#39;</span><span class="p">,</span> <span class="n">default_args</span><span class="o">=</span><span class="n">default_args</span><span class="p">)</span> <span class="k">as</span> <span class="n">dag</span><span class="p">:</span>
+    <span class="n">python_task</span>    <span class="o">=</span> <span class="n">PythonOperator</span><span class="p">(</span>
+        <span class="n">task_id</span><span class="o">=</span><span class="s1">&#39;python_task&#39;</span><span class="p">,</span>
+        <span class="n">python_callable</span><span class="o">=</span><span class="n">my_func</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+<p>After starting the pipeline, the progress can be tracked in Airflow. In the Tree view all components can be seen, which are passed through in this DAG.</p>
+<p><img alt="" src="docs/technicalDocumentation/tfx/aws-mwaa-local-runner/C:%5CUsers%5CPasca%5COneDrive%5CDesktop%5CMLOPS%5Ckirenz-mlops-semester%5Cjupyter-book%5Cassets%5Cimg%5C2022-02-06-22-20-54-image.png" /></p>
+<p>The data has now been downloaded to the docker container and the model can be started</p>
+</div>
+<div class="section" id="start-the-dag-police-uk-pipeline">
+<h3>Start the DAG police-uk-pipeline<a class="headerlink" href="#start-the-dag-police-uk-pipeline" title="Permalink to this headline">¶</a></h3>
+<p>In this DAG the tfx pipeline is executed. The previously provided data is read into the pipeline. In a DNN Keras model police data are classified. At the end of the pipeline the trained model is evaluated.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Copyright 2019 Google LLC. All Rights Reserved.</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">fileinput</span> <span class="kn">import</span> <span class="n">filename</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">boto3</span>
+<span class="kn">from</span> <span class="nn">botocore.exceptions</span> <span class="kn">import</span> <span class="n">ClientError</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">dotenv</span> <span class="kn">import</span> <span class="n">load_dotenv</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow_model_analysis</span> <span class="k">as</span> <span class="nn">tfma</span>
+<span class="kn">from</span> <span class="nn">tfx.components</span> <span class="kn">import</span> <span class="n">CsvExampleGen</span>
+<span class="kn">from</span> <span class="nn">tfx.components</span> <span class="kn">import</span> <span class="n">FileBasedExampleGen</span>
+<span class="kn">from</span> <span class="nn">tfx.components.base.executor_spec</span> <span class="kn">import</span> <span class="n">ExecutorClassSpec</span>
+<span class="kn">from</span> <span class="nn">tfx.components.example_gen.custom_executors</span> <span class="kn">import</span> <span class="n">parquet_executor</span>
+<span class="kn">from</span> <span class="nn">tfx.components</span> <span class="kn">import</span> <span class="n">Evaluator</span>
+<span class="kn">from</span> <span class="nn">tfx.components</span> <span class="kn">import</span> <span class="n">ExampleValidator</span>
+<span class="kn">from</span> <span class="nn">tfx.components</span> <span class="kn">import</span> <span class="n">Pusher</span>
+<span class="kn">from</span> <span class="nn">tfx.components</span> <span class="kn">import</span> <span class="n">SchemaGen</span>
+<span class="kn">from</span> <span class="nn">tfx.components</span> <span class="kn">import</span> <span class="n">StatisticsGen</span>
+<span class="kn">from</span> <span class="nn">tfx.components</span> <span class="kn">import</span> <span class="n">Trainer</span>
+<span class="kn">from</span> <span class="nn">tfx.dsl.components.common</span> <span class="kn">import</span> <span class="n">resolver</span>
+<span class="kn">from</span> <span class="nn">tfx.dsl.experimental</span> <span class="kn">import</span> <span class="n">latest_blessed_model_resolver</span>
+<span class="kn">from</span> <span class="nn">tfx.orchestration</span> <span class="kn">import</span> <span class="n">data_types</span>
+<span class="kn">from</span> <span class="nn">tfx.orchestration</span> <span class="kn">import</span> <span class="n">metadata</span>
+<span class="kn">from</span> <span class="nn">tfx.orchestration</span> <span class="kn">import</span> <span class="n">pipeline</span>
+<span class="kn">from</span> <span class="nn">tfx.orchestration.airflow.airflow_dag_runner</span> <span class="kn">import</span> <span class="n">AirflowDagRunner</span>
+<span class="kn">from</span> <span class="nn">tfx.orchestration.airflow.airflow_dag_runner</span> <span class="kn">import</span> <span class="n">AirflowPipelineConfig</span>
+<span class="kn">from</span> <span class="nn">tfx.proto</span> <span class="kn">import</span> <span class="n">pusher_pb2</span>
+<span class="kn">from</span> <span class="nn">tfx.proto</span> <span class="kn">import</span> <span class="n">trainer_pb2</span>
+<span class="kn">from</span> <span class="nn">tfx.types</span> <span class="kn">import</span> <span class="n">Channel</span>
+<span class="kn">from</span> <span class="nn">tfx.types.standard_artifacts</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">tfx.types.standard_artifacts</span> <span class="kn">import</span> <span class="n">ModelBlessing</span>
+<span class="kn">from</span> <span class="nn">google.protobuf.wrappers_pb2</span> <span class="kn">import</span> <span class="n">BoolValue</span>
+
+<span class="n">load_dotenv</span><span class="p">()</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TF_FORCE_GPU_ALLOW_GROWTH&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;true&#39;</span>
+
+<span class="c1"># TODO(jyzhao): rename to chicago_taxi_airflow.</span>
+<span class="n">_pipeline_name</span> <span class="o">=</span> <span class="s1">&#39;police-uk-pipeline&#39;</span>
+
+<span class="c1"># This example assumes that the taxi data is stored in ~/taxi/data and the</span>
+<span class="c1"># taxi utility function is in ~/taxi.  Feel free to customize this as needed.</span>
+<span class="n">_data_root</span> <span class="o">=</span> <span class="s2">&quot;/usr/local/airflow/data/&quot;</span>
+<span class="c1"># Python module file to inject customized logic into the TFX components. The</span>
+<span class="c1"># Transform and Trainer both require user-defined functions to run successfully.</span>
+<span class="n">_module_file</span> <span class="o">=</span> <span class="s1">&#39;/usr/local/airflow/dags/police-uk_utils.py&#39;</span>
+<span class="c1"># Path which can be listened to by the model server.  Pusher will output the</span>
+<span class="c1"># trained model here.</span>
+<span class="n">_serving_model_dir</span> <span class="o">=</span> <span class="s2">&quot;/usr/local/airflow/police-uk-pipeline/pipeline/model&quot;</span>
+
+<span class="c1"># Directory and data locations.  This example assumes all of the chicago taxi</span>
+<span class="c1"># example code and metadata library is relative to $HOME, but you can store</span>
+<span class="c1"># these files anywhere on your local filesystem.</span>
+<span class="n">_pipeline_root</span> <span class="o">=</span> <span class="s2">&quot;/usr/local/airflow/police-uk-pipeline/pipeline/&quot;</span>
+<span class="c1"># Sqlite ML-metadata db path.</span>
+<span class="n">_metadata_path</span> <span class="o">=</span> <span class="s2">&quot;/usr/local/airflow/police-uk-pipeline/metadata/metadata.db&quot;</span>
+
+<span class="c1"># Pipeline arguments for Beam powered Components.</span>
+<span class="n">_beam_pipeline_args</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;--direct_running_mode=multi_processing&#39;</span><span class="p">,</span>
+    <span class="c1"># 0 means auto-detect based on on the number of CPUs available</span>
+    <span class="c1"># during execution time.</span>
+    <span class="s1">&#39;--direct_num_workers=0&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Airflow-specific configs; these will be passed directly to airflow</span>
+<span class="n">_airflow_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;schedule_interval&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="s1">&#39;start_date&#39;</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2019</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">_create_pipeline</span><span class="p">(</span>
+    <span class="n">pipeline_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+    <span class="n">pipeline_root</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+    <span class="n">data_root</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">module_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> 
+    <span class="n">serving_model_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">metadata_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">beam_pipeline_args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">Pipeline</span><span class="p">:</span>
+  <span class="sd">&quot;&quot;&quot;Implements the chicago taxi pipeline with TFX.&quot;&quot;&quot;</span>
+  <span class="c1"># Parametrize data root so it can be replaced on runtime. See the</span>
+  <span class="c1"># &quot;Passing Parameters when triggering dags&quot; section of</span>
+  <span class="c1"># https://airflow.apache.org/docs/apache-airflow/stable/dag-run.html</span>
+  <span class="c1"># for more details.</span>
+  <span class="n">data_root_runtime</span> <span class="o">=</span> <span class="n">data_types</span><span class="o">.</span><span class="n">RuntimeParameter</span><span class="p">(</span>
+      <span class="s1">&#39;data_root&#39;</span><span class="p">,</span> <span class="n">ptype</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">data_root</span><span class="p">)</span>
+
+  <span class="c1"># Brings data into the pipeline or otherwise joins/converts training data</span>
+  <span class="n">example_gen</span> <span class="o">=</span> <span class="n">CsvExampleGen</span><span class="p">(</span><span class="n">input_base</span><span class="o">=</span><span class="n">data_root_runtime</span><span class="p">)</span>
+
+   <span class="c1">#executor_spec = ExecutorClassSpec(parquet_executor.Executor)</span>
+   <span class="c1">#example_gen = FileBasedExampleGen(input_base=data_root_runtime, custom_executor_spec=executor_spec)</span>
+
+  <span class="c1"># Computes statistics over data for visualization and example validation.</span>
+  <span class="n">statistics_gen</span> <span class="o">=</span> <span class="n">StatisticsGen</span><span class="p">(</span><span class="n">examples</span><span class="o">=</span><span class="n">example_gen</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;examples&#39;</span><span class="p">])</span>
+
+  <span class="c1"># Generates schema based on statistics files.</span>
+  <span class="n">schema_gen</span> <span class="o">=</span> <span class="n">SchemaGen</span><span class="p">(</span>
+      <span class="n">statistics</span><span class="o">=</span><span class="n">statistics_gen</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;statistics&#39;</span><span class="p">],</span>
+      <span class="n">infer_feature_shape</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+  <span class="c1"># Performs anomaly detection based on statistics and data schema.</span>
+  <span class="n">example_validator</span> <span class="o">=</span> <span class="n">ExampleValidator</span><span class="p">(</span>
+      <span class="n">statistics</span><span class="o">=</span><span class="n">statistics_gen</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;statistics&#39;</span><span class="p">],</span>
+      <span class="n">schema</span><span class="o">=</span><span class="n">schema_gen</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;schema&#39;</span><span class="p">])</span>
+
+
+  <span class="c1"># Uses user-provided Python function that implements a model.</span>
+  <span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span>
+      <span class="n">module_file</span><span class="o">=</span><span class="n">module_file</span><span class="p">,</span>
+      <span class="n">examples</span><span class="o">=</span><span class="n">example_gen</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;examples&#39;</span><span class="p">],</span>
+      <span class="n">schema</span><span class="o">=</span><span class="n">schema_gen</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;schema&#39;</span><span class="p">],</span>
+      <span class="n">train_args</span><span class="o">=</span><span class="n">trainer_pb2</span><span class="o">.</span><span class="n">TrainArgs</span><span class="p">(</span><span class="n">num_steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
+      <span class="n">eval_args</span><span class="o">=</span><span class="n">trainer_pb2</span><span class="o">.</span><span class="n">EvalArgs</span><span class="p">(</span><span class="n">num_steps</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+
+
+<span class="c1"># Get the latest blessed model for model validation.</span>
+  <span class="n">model_resolver</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="n">Resolver</span><span class="p">(</span>
+      <span class="n">strategy_class</span><span class="o">=</span><span class="n">latest_blessed_model_resolver</span><span class="o">.</span><span class="n">LatestBlessedModelResolver</span><span class="p">,</span>
+      <span class="n">model</span><span class="o">=</span><span class="n">Channel</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">Model</span><span class="p">),</span>
+      <span class="n">model_blessing</span><span class="o">=</span><span class="n">Channel</span><span class="p">(</span>
+          <span class="nb">type</span><span class="o">=</span><span class="n">ModelBlessing</span><span class="p">))</span><span class="o">.</span><span class="n">with_id</span><span class="p">(</span><span class="s1">&#39;latest_blessed_model_resolver&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Uses TFMA to compute a evaluation statistics over features of a model and</span>
+  <span class="c1"># perform quality validation of a candidate model (compared to a baseline).</span>
+  <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">tfma</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">ConfusionMatrixPlot</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;confusion_matrix_plot&#39;</span><span class="p">),</span>
+            <span class="n">tfma</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">BalancedAccuracy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;bac&#39;</span><span class="p">),</span>
+            <span class="n">tfma</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">MeanLabel</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;mean_label&#39;</span><span class="p">),</span>
+            <span class="n">tfma</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">MeanPrediction</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;mean_prediction&#39;</span><span class="p">),</span>
+            <span class="n">tfma</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Calibration</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;calibration&#39;</span><span class="p">),</span>
+            <span class="n">tfma</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">CalibrationPlot</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;calibration_plot&#39;</span><span class="p">),</span>
+        <span class="p">]</span>
+  <span class="n">eval_config</span> <span class="o">=</span> <span class="n">tfma</span><span class="o">.</span><span class="n">EvalConfig</span><span class="p">(</span>
+        <span class="n">model_specs</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">tfma</span><span class="o">.</span><span class="n">ModelSpec</span><span class="p">(</span><span class="n">label_key</span><span class="o">=</span><span class="s1">&#39;age_range&#39;</span><span class="p">)</span>
+        <span class="p">],</span>
+        <span class="n">metrics_specs</span> <span class="o">=</span> <span class="n">tfma</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">specs_from_metrics</span><span class="p">(</span><span class="n">metrics</span><span class="p">),</span>
+
+        <span class="n">slicing_specs</span><span class="o">=</span><span class="p">[</span>
+        <span class="c1"># An empty slice spec means the overall slice, i.e. the whole dataset.</span>
+            <span class="n">tfma</span><span class="o">.</span><span class="n">SlicingSpec</span><span class="p">()],</span>
+        <span class="n">options</span><span class="o">=</span><span class="n">tfma</span><span class="o">.</span><span class="n">Options</span><span class="p">(</span><span class="n">include_default_metrics</span><span class="o">=</span><span class="n">BoolValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>
+      <span class="p">)</span>
+
+  <span class="n">evaluator</span> <span class="o">=</span> <span class="n">Evaluator</span><span class="p">(</span>
+      <span class="n">examples</span><span class="o">=</span><span class="n">example_gen</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;examples&#39;</span><span class="p">],</span>
+      <span class="n">model</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">],</span>
+      <span class="n">baseline_model</span><span class="o">=</span><span class="n">model_resolver</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">],</span>
+      <span class="n">eval_config</span><span class="o">=</span><span class="n">eval_config</span><span class="p">)</span>
+
+  <span class="c1"># Checks whether the model passed the validation steps and pushes the model</span>
+  <span class="c1"># to a file destination if check passed.</span>
+  <span class="n">pusher</span> <span class="o">=</span> <span class="n">Pusher</span><span class="p">(</span>
+      <span class="n">model</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">],</span>
+      <span class="n">model_blessing</span><span class="o">=</span><span class="n">evaluator</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;blessing&#39;</span><span class="p">],</span>
+      <span class="n">push_destination</span><span class="o">=</span><span class="n">pusher_pb2</span><span class="o">.</span><span class="n">PushDestination</span><span class="p">(</span>
+          <span class="n">filesystem</span><span class="o">=</span><span class="n">pusher_pb2</span><span class="o">.</span><span class="n">PushDestination</span><span class="o">.</span><span class="n">Filesystem</span><span class="p">(</span>
+              <span class="n">base_directory</span><span class="o">=</span><span class="n">serving_model_dir</span><span class="p">)))</span>
+
+  <span class="k">return</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">Pipeline</span><span class="p">(</span>
+      <span class="n">pipeline_name</span><span class="o">=</span><span class="n">pipeline_name</span><span class="p">,</span>
+      <span class="n">pipeline_root</span><span class="o">=</span><span class="n">pipeline_root</span><span class="p">,</span>
+      <span class="n">components</span><span class="o">=</span><span class="p">[</span>
+          <span class="n">example_gen</span><span class="p">,</span>
+          <span class="n">statistics_gen</span><span class="p">,</span>
+          <span class="n">schema_gen</span><span class="p">,</span>
+          <span class="n">example_validator</span><span class="p">,</span>
+          <span class="n">trainer</span><span class="p">,</span>
+          <span class="n">model_resolver</span><span class="p">,</span>
+          <span class="n">evaluator</span><span class="p">,</span>
+          <span class="n">pusher</span>
+      <span class="p">],</span>
+      <span class="n">enable_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+      <span class="n">metadata_connection_config</span><span class="o">=</span><span class="n">metadata</span><span class="o">.</span><span class="n">sqlite_metadata_connection_config</span><span class="p">(</span>
+          <span class="n">metadata_path</span><span class="p">),</span>
+      <span class="n">beam_pipeline_args</span><span class="o">=</span><span class="n">beam_pipeline_args</span><span class="p">)</span>
+
+
+<span class="c1"># &#39;DAG&#39; below need to be kept for Airflow to detect dag.</span>
+<span class="n">DAG</span> <span class="o">=</span> <span class="n">AirflowDagRunner</span><span class="p">(</span><span class="n">AirflowPipelineConfig</span><span class="p">(</span><span class="n">_airflow_config</span><span class="p">))</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="n">_create_pipeline</span><span class="p">(</span>
+        <span class="n">pipeline_name</span><span class="o">=</span><span class="n">_pipeline_name</span><span class="p">,</span>
+        <span class="n">pipeline_root</span><span class="o">=</span><span class="n">_pipeline_root</span><span class="p">,</span>
+        <span class="n">data_root</span><span class="o">=</span><span class="n">_data_root</span><span class="p">,</span>
+        <span class="n">module_file</span><span class="o">=</span><span class="n">_module_file</span><span class="p">,</span>
+        <span class="n">serving_model_dir</span><span class="o">=</span><span class="n">_serving_model_dir</span><span class="p">,</span>
+        <span class="n">metadata_path</span><span class="o">=</span><span class="n">_metadata_path</span><span class="p">,</span>
+        <span class="n">beam_pipeline_args</span><span class="o">=</span><span class="n">_beam_pipeline_args</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>After starting the pipeline, the progress can be tracked in Airflow. In the Tree view all components can be seen, which are passed through in this DAG. Für jede Komponente wird ein Log file geschrieben und kann in airflow eingesehen werden.</p>
+<p><img alt="" src="docs/technicalDocumentation/tfx/aws-mwaa-local-runner/C:%5CUsers%5CPasca%5COneDrive%5CDesktop%5CMLOPS%5Ckirenz-mlops-semester%5Cjupyter-book%5Cassets%5Cimg%5C2022-02-06-23-11-47-image.png" /></p>
+<p>The output artifacts etc. are stored in the docker container under the following paths:</p>
+<ul class="simple">
+<li><p>Metadata - /usr/local/airflow/police-uk-pipeline/metadata/</p></li>
+<li><p>Artifacts etc. - /usr/local/airflow/police-uk-pipeline/pipeline/</p></li>
+</ul>
+<p>The generated outputs of the pipeline can be visualized and analyzed in the data validation, tensorboard, and tensorflow model analysis.</p>
+<div class="section" id="open-challenges">
+<h4>Open challenges<a class="headerlink" href="#open-challenges" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="metrics">
+<h5>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h5>
+<p>In addition to the metrics mentioned above, we also wanted metrics such as:</p>
+<ul class="simple">
+<li><p>tf.keras.metrics.BinaryCrossentropy(name=’binary_crossentropy’</p></li>
+<li><p>tf.keras.metrics.BinaryAccuracy(name=’accuracy’)</p></li>
+<li><p>tf.keras.metrics.AUC(name=’auc’, num_thresholds=10000)</p></li>
+<li><p>tf.keras.metrics.AUC(name=’auc_precision_recall’, curve=’PR’, num_thresholds=10000)</p></li>
+<li><p>tf.keras.metrics.Precision(name=’precision’)</p></li>
+<li><p>tf.keras.metrics.Recall(name=’recall’)</p></li>
+<li><p>tf.metrics.AUC(name=’auc’)</p></li>
+</ul>
+<p>However, we received the following error message:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">running</span> <span class="n">out</span> <span class="n">of</span> <span class="n">memory</span>
+</pre></div>
+</div>
+<p>We were able to fix this error message by adding a gpu to the training process.</p>
+<p>However, after that the next error message raised</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Task</span> <span class="n">exited</span> <span class="k">with</span> <span class="k">return</span> <span class="n">code</span> <span class="n">Negsignal</span><span class="o">.</span><span class="n">SIGABRT</span>
+</pre></div>
+</div>
+<p>Unfortunately, we could not fix this bug, so that we have now only calculated the metrics mentioned above in the source code.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/technicalDocumentation/tfx/aws-mwaa-local-runner"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By HdM Group 1<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

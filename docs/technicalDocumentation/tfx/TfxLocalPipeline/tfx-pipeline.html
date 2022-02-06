@@ -1,0 +1,727 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tfx-pipeline &#8212; MLOPS</title>
+    
+  <link href="../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/togglebutton.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">MLOPS</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../intro.html">
+   Welcome!
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Protocol
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../protocol/ideasPresentation.html">
+   Ideen für die Präsentation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../protocol/protocolIntern.html">
+   Protokoll - Intern
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../protocol/protocolKirenz.html">
+   Protokoll - Sprechstunde Kirenz
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Learning diary
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../learningDiary/deltaLake.html">
+   Das ist ein Test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../learningDiary/jupyterBook.html">
+   Jupyter-Book good to know
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../learningDiary/requiredTheoryKirenz/theoryKirenz.html">
+   Notes: Required reading Kirenz
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../learningDiary/requiredTheoryKirenz/requiredQuestions.html">
+     Notes: Required questions - theory Kirenz
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../learningDiary/requiredTheoryKirenz/questionsCollection.html">
+     Notes: Questions for lecture on 17.11
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Technical documentation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../deltaLake.html">
+   Testseite
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../windows/startWindows.html">
+   Documentation of the problems with tfx on windows
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../windows/tfxPipeline.html">
+     TensorFlow extended on windows
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../_sources/docs/technicalDocumentation/tfx/TfxLocalPipeline/tfx-pipeline.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/technicalDocumentation/tfx/TfxLocalPipeline/tfx-pipeline.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#local-prerequisites">
+   Local prerequisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-the-local-example-pipeline">
+   Run the local example pipeline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#customize-pipeline">
+   Customize pipeline
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trainer">
+     Trainer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluator">
+     Evaluator
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>tfx-pipeline</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#local-prerequisites">
+   Local prerequisites
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run-the-local-example-pipeline">
+   Run the local example pipeline
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#customize-pipeline">
+   Customize pipeline
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trainer">
+     Trainer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#evaluator">
+     Evaluator
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="tfx-pipeline">
+<h1>tfx-pipeline<a class="headerlink" href="#tfx-pipeline" title="Permalink to this headline">¶</a></h1>
+<p>Bei dem Bau der tfx-pipeline haben wir uns an den folgenden Beispielen orientiert:</p>
+<ul class="simple">
+<li><p>Penguin example [<a class="reference external" href="https://www.tensorflow.org/tfx/tutorials/tfx/penguin_simple">Simple TFX Pipeline Tutorial using Penguin dataset  |  TensorFlow</a>]</p></li>
+<li><p>taxi example [<a class="reference external" href="https://github.com/tensorflow/tfx/tree/master/tfx/examples/chicago_taxi_pipeline">tfx/tfx/examples/chicago_taxi_pipeline at master · tensorflow/tfx · GitHub</a>]</p></li>
+</ul>
+<p>Für die orchestrierung der Pipeline haben wir Apache Airflow verwendet.</p>
+<p>Als Basis haben wir die das taxi example verwendet. Wir haben das Projekt, wie in der beigefügten Readme [<a class="reference external" href="https://github.com/tensorflow/tfx/tree/master/tfx/examples/chicago_taxi_pipeline">tfx/tfx/examples/chicago_taxi_pipeline at master · tensorflow/tfx · GitHub</a>] beschrieben aufgesetzt.</p>
+<div class="section" id="local-prerequisites">
+<h2>Local prerequisites<a class="headerlink" href="#local-prerequisites" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://airflow.apache.org/">Apache Airflow</a> is used for pipeline orchestration.</p></li>
+<li><p><a class="reference external" href="https://beam.apache.org/">Apache Beam</a> is used for distributed processing.</p></li>
+<li><p><a class="reference external" href="https://tensorflow.org/">TensorFlow</a> is used for model training, evaluation and inference.(<a class="reference external" href="https://github.com/tensorflow/tfx/tree/master/tfx/examples/chicago_taxi_pipeline#install-dependencies">https://github.com/tensorflow/tfx/tree/master/tfx/examples/chicago_taxi_pipeline#install-dependencies</a>)Install dependencies</p></li>
+</ul>
+<p>Install tfx:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">tfx</span><span class="o">==</span><span class="mf">1.3.4</span>
+</pre></div>
+</div>
+<p>Create conda environment :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">tfx</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.6</span>
+</pre></div>
+</div>
+<p>Activate the conda environment:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">tfx</span>
+</pre></div>
+</div>
+<p>Configure common paths:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">AIRFLOW_HOME</span><span class="o">=~/</span><span class="n">airflow</span>
+<span class="n">export</span> <span class="n">TAXI_DIR</span><span class="o">=~/</span><span class="n">taxi</span>
+<span class="n">export</span> <span class="n">TFX_DIR</span><span class="o">=~/</span><span class="n">tfx</span>
+</pre></div>
+</div>
+<p>Next, install the dependencies required by the Chicago Taxi example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">apache</span><span class="o">-</span><span class="n">airflow</span><span class="o">==</span><span class="mf">1.10.9</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">tfx</span><span class="p">[</span><span class="n">examples</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Next, initialize Airflow:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">airflow</span> <span class="n">initdb</span>
+</pre></div>
+</div>
+<p>The benefit of the local example is that you can edit any part of the pipeline and experiment very quickly with various components. First let’s download the data for the example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>mkdir -p $TAXI_DIR/data/simple
+wget -O $TAXI_DIR/data/simple/data.csv https://github.com/tensorflow/tfx/blob/master/tfx/examples/chicago_taxi_pipeline/data/simple/data.csv?raw=true
+</pre></div>
+</div>
+<p>Next, copy the TFX pipeline definition to Airflow’s <code class="docutils literal notranslate"><span class="pre">DAGs</span> <span class="pre">directory</span></code> <code class="docutils literal notranslate"><span class="pre">($AIRFLOW_HOME/dags)</span></code> so it can run the pipeline. To find the location of your TFX installation, use this command:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">show</span> <span class="n">tfx</span>
+</pre></div>
+</div>
+<p>Use the location shown when setting the TFX_EXAMPLES path below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">TFX_EXAMPLES</span><span class="o">=~/</span><span class="n">taxi_pipeline</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.6</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">tfx</span><span class="o">/</span><span class="n">examples</span><span class="o">/</span><span class="n">chicago_taxi_pipeline</span>
+</pre></div>
+</div>
+<p>Copy the Chicago Taxi example pipeline into the Airflow DAG folder. Info: You have to execute this command again after each change before you start the pipeline.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span>mkdir -p $AIRFLOW_HOME/dags/
+cp $TFX_EXAMPLES/taxi_pipeline_simple.py $AIRFLOW_HOME/dags/
+</pre></div>
+</div>
+<p>The module file <code class="docutils literal notranslate"><span class="pre">taxi_utils.py</span></code> used by the Trainer and Transform components will reside in $TAXI_DIR. Copy it there. Info: You have to execute this command again after each change before you start the pipeline.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>cp $TFX_EXAMPLES/taxi_utils.py $TAXI_DIR
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-the-local-example-pipeline">
+<h2>Run the local example pipeline<a class="headerlink" href="#run-the-local-example-pipeline" title="Permalink to this headline">¶</a></h2>
+<p>Start the airflow webserver</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">airflow</span> <span class="n">webserver</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8082</span>
+</pre></div>
+</div>
+<p>Start the airflow scheduler in a new terminal:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">tfx</span>
+<span class="n">airflow</span> <span class="n">scheduler</span>
+</pre></div>
+</div>
+<p>Open your browser on localhost:8082</p>
+<p>Now you can see the airflow interface and start the pipeline</p>
+<p><img alt="" src="docs/technicalDocumentation/tfx/TfxLocalPipeline/C:%5CUsers%5CPasca%5COneDrive%5CDesktop%5CMLOPS%5Ckirenz-mlops-semester%5Cjupyter-book%5Cassets%5Cimg%5C2022-02-06-21-18-14-image.png" /></p>
+</div>
+<div class="section" id="customize-pipeline">
+<h2>Customize pipeline<a class="headerlink" href="#customize-pipeline" title="Permalink to this headline">¶</a></h2>
+<p>We customized the taxi example pipeline as follow:</p>
+<ul class="simple">
+<li><p>Example Gen -&gt; no changes</p></li>
+<li><p>Statistic Gen -&gt; no changes</p></li>
+<li><p>Schema Gen -&gt; no changes</p></li>
+<li><p>example Validator - no changes</p></li>
+<li><p>pusher - no changes</p></li>
+</ul>
+<div class="section" id="trainer">
+<h3>Trainer<a class="headerlink" href="#trainer" title="Permalink to this headline">¶</a></h3>
+<p>Since we want to perform a classification in our case, we have used the penguin example in the tfx documentation. We have customized this example in the current use case.</p>
+<p>Since we did not use the Transform component in our pipeline, we had to make some adjustments. In our case, we did not need the Transform component because the data could already be loaded from Delta Lake in the required form.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">trainer</span> <span class="o">=</span> <span class="n">Trainer</span><span class="p">(</span>
+      <span class="n">module_file</span><span class="o">=</span><span class="n">module_file</span><span class="p">,</span>
+      <span class="n">examples</span><span class="o">=</span><span class="n">example_gen</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;examples&#39;</span><span class="p">],</span>
+      <span class="n">schema</span><span class="o">=</span><span class="n">schema_gen</span><span class="o">.</span><span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;schema&#39;</span><span class="p">],</span>
+      <span class="n">train_args</span><span class="o">=</span><span class="n">trainer_pb2</span><span class="o">.</span><span class="n">TrainArgs</span><span class="p">(</span><span class="n">num_steps</span><span class="o">=</span><span class="mi">1000</span><span class="p">),</span>
+      <span class="n">eval_args</span><span class="o">=</span><span class="n">trainer_pb2</span><span class="o">.</span><span class="n">EvalArgs</span><span class="p">(</span><span class="n">num_steps</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The next step was to write the model training code. For this we used this example [<a class="reference external" href="https://www.tensorflow.org/tfx/tutorials/tfx/penguin_simple">Simple TFX Pipeline Tutorial using Penguin dataset  |  TensorFlow</a>].</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">absl</span> <span class="kn">import</span> <span class="n">logging</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span> <span class="nn">tensorflow_transform.tf_metadata</span> <span class="kn">import</span> <span class="n">schema_utils</span>
+
+<span class="kn">from</span> <span class="nn">tfx</span> <span class="kn">import</span> <span class="n">v1</span> <span class="k">as</span> <span class="n">tfx</span>
+<span class="kn">from</span> <span class="nn">tfx_bsl.public</span> <span class="kn">import</span> <span class="n">tfxio</span>
+<span class="kn">from</span> <span class="nn">tensorflow_metadata.proto.v0</span> <span class="kn">import</span> <span class="n">schema_pb2</span>
+
+<span class="n">_FEATURE_KEYS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">,</span> <span class="s1">&#39;involved_person&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;self_defined_ethnicity_white&#39;</span><span class="p">,</span> <span class="s1">&#39;self_defined_ethnicity_black&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;self_defined_ethnicity_asian&#39;</span><span class="p">,</span> <span class="s1">&#39;self_defined_ethnicity_other&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;self_defined_ethnicity_mixed&#39;</span><span class="p">,</span> <span class="s1">&#39;gender_Female&#39;</span><span class="p">,</span> <span class="s1">&#39;gender_Male&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;gender_Other&#39;</span><span class="p">,</span> <span class="s1">&#39;legislation_Aviation_Security_Act_1982__section_27_1&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Conservation_of_Seals_Act_1970__section_4&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Criminal_Justice_Act_1988__section_139B&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Criminal_Justice_and_Public_Order_Act_1994__section_60&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Crossbows_Act_1987__section_4&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Customs_and_Excise_Management_Act_1979__section_163&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Deer_Act_1991__section_12&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Environmental_Protection_Act_1990__section_34B_&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Firearms_Act_1968__section_47&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Hunting_Act_2004__section_8&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Misuse_of_Drugs_Act_1971__section_23&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Poaching_Prevention_Act_1862__section_2&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Police_and_Criminal_Evidence_Act_1984__section_1&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Police_and_Criminal_Evidence_Act_1984__section_6&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Protection_of_Badgers_Act_1992__section_11&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Psychoactive_Substances_Act_2016__s36_2&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Psychoactive_Substances_Act_2016__s37_2&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Public_Stores_Act_1875__section_6&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;legislation_Wildlife_and_Countryside_Act_1981__section_19&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;officer_defined_ethnicity_Asian&#39;</span><span class="p">,</span> <span class="s1">&#39;officer_defined_ethnicity_Black&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;officer_defined_ethnicity_Mixed&#39;</span><span class="p">,</span> <span class="s1">&#39;officer_defined_ethnicity_Other&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;officer_defined_ethnicity_White&#39;</span><span class="p">,</span> <span class="s1">&#39;type_Person_and_Vehicle_search&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;type_Person_search&#39;</span><span class="p">,</span> <span class="s1">&#39;type_Vehicle_search&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;object_of_search_Anything_to_threaten_or_harm_anyone&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;object_of_search_Article_for_use_in_theft&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;object_of_search_Articles_for_use_in_criminal_damage&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;object_of_search_Controlled_drugs&#39;</span><span class="p">,</span> <span class="s1">&#39;object_of_search_Crossbows&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;object_of_search_Detailed_object_of_search_unavailable&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;object_of_search_Evidence_of_offences_under_the_Act&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;object_of_search_Evidence_of_wildlife_offences&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;object_of_search_Firearms&#39;</span><span class="p">,</span> <span class="s1">&#39;object_of_search_Fireworks&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;object_of_search_Game_or_poaching_equipment&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;object_of_search_Goods_on_which_duty_has_not_been_paid_etc.&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;object_of_search_Offensive_weapons&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;object_of_search_Psychoactive_substances&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;object_of_search_Seals_or_hunting_equipment&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;object_of_search_Stolen_goods&#39;</span><span class="p">,</span> <span class="s1">&#39;object_of_search_dog&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;force_avon-and-somerset&#39;</span><span class="p">,</span> <span class="s1">&#39;force_bedfordshire&#39;</span><span class="p">,</span> <span class="s1">&#39;force_btp&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;force_cambridgeshire&#39;</span><span class="p">,</span> <span class="s1">&#39;force_cheshire&#39;</span><span class="p">,</span> <span class="s1">&#39;force_city-of-london&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;force_cleveland&#39;</span><span class="p">,</span> <span class="s1">&#39;force_cumbria&#39;</span><span class="p">,</span> <span class="s1">&#39;force_derbyshire&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;force_devon-and-cornwall&#39;</span><span class="p">,</span> <span class="s1">&#39;force_dorset&#39;</span><span class="p">,</span> <span class="s1">&#39;force_durham&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;force_dyfed-powys&#39;</span><span class="p">,</span> <span class="s1">&#39;force_essex&#39;</span><span class="p">,</span> <span class="s1">&#39;force_gloucestershire&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;force_hampshire&#39;</span><span class="p">,</span> <span class="s1">&#39;force_hertfordshire&#39;</span><span class="p">,</span> <span class="s1">&#39;force_humberside&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;force_kent&#39;</span><span class="p">,</span> <span class="s1">&#39;force_lancashire&#39;</span><span class="p">,</span> <span class="s1">&#39;force_leicestershire&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;force_lincolnshire&#39;</span><span class="p">,</span> <span class="s1">&#39;force_merseyside&#39;</span><span class="p">,</span> <span class="s1">&#39;force_metropolitan&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;force_norfolk&#39;</span><span class="p">,</span> <span class="s1">&#39;force_north-wales&#39;</span><span class="p">,</span> <span class="s1">&#39;force_north-yorkshire&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;force_northamptonshire&#39;</span><span class="p">,</span> <span class="s1">&#39;force_northumbria&#39;</span><span class="p">,</span> <span class="s1">&#39;force_staffordshire&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;force_suffolk&#39;</span><span class="p">,</span> <span class="s1">&#39;force_sussex&#39;</span><span class="p">,</span> <span class="s1">&#39;force_thames-valley&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;force_warwickshire&#39;</span><span class="p">,</span> <span class="s1">&#39;force_west-mercia&#39;</span><span class="p">,</span> <span class="s1">&#39;force_west-yorkshire&#39;</span><span class="p">,</span>
+       <span class="s1">&#39;force_wiltshire&#39;</span><span class="p">]</span>
+
+
+
+<span class="n">_LABEL_KEY</span> <span class="o">=</span> <span class="s1">&#39;age_range&#39;</span>
+
+<span class="n">_TRAIN_BATCH_SIZE</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">_EVAL_BATCH_SIZE</span> <span class="o">=</span> <span class="mi">10</span>
+
+
+<span class="c1"># Since we&#39;re not generating or creating a schema, we will instead create</span>
+<span class="c1"># a feature spec.  Since there are a fairly small number of features this is</span>
+<span class="c1"># manageable for this dataset.</span>
+<span class="n">_FEATURE_SPEC</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="o">**</span><span class="p">{</span>
+        <span class="n">feature</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">FixedLenFeature</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+           <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">_FEATURE_KEYS</span>
+       <span class="p">},</span>
+    <span class="n">_LABEL_KEY</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">FixedLenFeature</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span> <span class="nf">_input_fn</span><span class="p">(</span><span class="n">file_pattern</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+              <span class="n">data_accessor</span><span class="p">:</span> <span class="n">tfx</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">DataAccessor</span><span class="p">,</span>
+              <span class="n">schema</span><span class="p">:</span> <span class="n">schema_pb2</span><span class="o">.</span><span class="n">Schema</span><span class="p">,</span>
+              <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">200</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+  <span class="sd">&quot;&quot;&quot;Generates features and label for training.</span>
+
+<span class="sd">  Args:</span>
+<span class="sd">    file_pattern: List of paths or patterns of input tfrecord files.</span>
+<span class="sd">    data_accessor: DataAccessor for converting input to RecordBatch.</span>
+<span class="sd">    schema: schema of the input data.</span>
+<span class="sd">    batch_size: representing the number of consecutive elements of returned</span>
+<span class="sd">      dataset to combine in a single batch</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">    A dataset that contains (features, indices) tuple where features is a</span>
+<span class="sd">      dictionary of Tensors, and indices is a single Tensor of label indices.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="k">return</span> <span class="n">data_accessor</span><span class="o">.</span><span class="n">tf_dataset_factory</span><span class="p">(</span>
+      <span class="n">file_pattern</span><span class="p">,</span>
+      <span class="n">tfxio</span><span class="o">.</span><span class="n">TensorFlowDatasetOptions</span><span class="p">(</span>
+          <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">label_key</span><span class="o">=</span><span class="n">_LABEL_KEY</span><span class="p">),</span>
+      <span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_build_keras_model</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">:</span>
+  <span class="sd">&quot;&quot;&quot;Creates a DNN Keras model for classifying penguin data.</span>
+
+<span class="sd">  Returns:</span>
+<span class="sd">    A Keras Model.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+  <span class="c1"># The model below is built with Functional API, please refer to</span>
+  <span class="c1"># https://www.tensorflow.org/guide/keras/overview for all API options.</span>
+  <span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">name</span><span class="o">=</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">_FEATURE_KEYS</span><span class="p">]</span>
+  <span class="n">d</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">d</span><span class="p">)</span>
+  <span class="n">outputs</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">5</span><span class="p">)(</span><span class="n">d</span><span class="p">)</span>
+
+  <span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">outputs</span><span class="p">)</span>
+  <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+      <span class="n">optimizer</span><span class="o">=</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="mf">1e-2</span><span class="p">),</span>
+      <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">SparseCategoricalCrossentropy</span><span class="p">(</span><span class="n">from_logits</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+      <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">SparseCategoricalAccuracy</span><span class="p">()])</span>
+
+  <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">print_fn</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">model</span>
+
+
+<span class="c1"># TFX Trainer will call this function.</span>
+<span class="k">def</span> <span class="nf">run_fn</span><span class="p">(</span><span class="n">fn_args</span><span class="p">:</span> <span class="n">tfx</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="n">FnArgs</span><span class="p">):</span>
+  <span class="sd">&quot;&quot;&quot;Train the model based on given args.</span>
+
+<span class="sd">  Args:</span>
+<span class="sd">    fn_args: Holds args used to train the model as name/value pairs.</span>
+<span class="sd">  &quot;&quot;&quot;</span>
+
+  <span class="c1"># This schema is usually either an output of SchemaGen or a manually-curated</span>
+  <span class="c1"># version provided by pipeline author. A schema can also derived from TFT</span>
+  <span class="c1"># graph if a Transform component is used. In the case when either is missing,</span>
+  <span class="c1"># `schema_from_feature_spec` could be used to generate schema from very simple</span>
+  <span class="c1"># feature_spec, but the schema returned would be very primitive.</span>
+  <span class="n">schema</span> <span class="o">=</span> <span class="n">schema_utils</span><span class="o">.</span><span class="n">schema_from_feature_spec</span><span class="p">(</span><span class="n">_FEATURE_SPEC</span><span class="p">)</span>
+
+  <span class="n">train_dataset</span> <span class="o">=</span> <span class="n">_input_fn</span><span class="p">(</span>
+      <span class="n">fn_args</span><span class="o">.</span><span class="n">train_files</span><span class="p">,</span>
+      <span class="n">fn_args</span><span class="o">.</span><span class="n">data_accessor</span><span class="p">,</span>
+      <span class="n">schema</span><span class="p">,</span>
+      <span class="n">batch_size</span><span class="o">=</span><span class="n">_TRAIN_BATCH_SIZE</span><span class="p">)</span>
+  <span class="n">eval_dataset</span> <span class="o">=</span> <span class="n">_input_fn</span><span class="p">(</span>
+      <span class="n">fn_args</span><span class="o">.</span><span class="n">eval_files</span><span class="p">,</span>
+      <span class="n">fn_args</span><span class="o">.</span><span class="n">data_accessor</span><span class="p">,</span>
+      <span class="n">schema</span><span class="p">,</span>
+      <span class="n">batch_size</span><span class="o">=</span><span class="n">_EVAL_BATCH_SIZE</span><span class="p">)</span>
+
+  <span class="n">model</span> <span class="o">=</span> <span class="n">_build_keras_model</span><span class="p">()</span>
+  <span class="n">log_dir</span> <span class="o">=</span> <span class="s2">&quot;/usr/local/airflow/dags/fit/&quot;</span> <span class="o">+</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y%m</span><span class="si">%d</span><span class="s2">-%H%M%S&quot;</span><span class="p">)</span>
+  <span class="n">tensorboard_callback</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">(</span><span class="n">log_dir</span><span class="o">=</span><span class="n">log_dir</span><span class="p">,</span> <span class="n">histogram_freq</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+  <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+      <span class="n">train_dataset</span><span class="p">,</span>
+      <span class="n">steps_per_epoch</span><span class="o">=</span><span class="n">fn_args</span><span class="o">.</span><span class="n">train_steps</span><span class="p">,</span>
+      <span class="n">validation_data</span><span class="o">=</span><span class="n">eval_dataset</span><span class="p">,</span>
+      <span class="n">validation_steps</span><span class="o">=</span><span class="n">fn_args</span><span class="o">.</span><span class="n">eval_steps</span><span class="p">,</span>
+      <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">tensorboard_callback</span><span class="p">])</span>
+
+  <span class="c1"># The result of the training should be saved in `fn_args.serving_model_dir`</span>
+  <span class="c1"># directory.</span>
+  <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">fn_args</span><span class="o">.</span><span class="n">serving_model_dir</span><span class="p">,</span> <span class="n">save_format</span><span class="o">=</span><span class="s1">&#39;tf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The results can be viewed in the tensorboard. Please have a look at the chapter Tensorboard.</p>
+</div>
+<div class="section" id="evaluator">
+<h3>Evaluator<a class="headerlink" href="#evaluator" title="Permalink to this headline">¶</a></h3>
+<p>In the evaluator we used tfma to validate the model.</p>
+<p>Useful links here are the following:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.tensorflow.org/tfx/model_analysis/api_docs/python/tfma/metrics">Module: tfma.metrics  |  TFX  |  TensorFlow</a></p></li>
+<li><p>[Getting Started with TensorFlow Model Analysis  |  TFX](<a class="reference external" href="https://www.tensorflow.org/tfx/model_analysis/get_started">https://www.tensorflow.org/tfx/model_analysis/get_started</a></p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the latest blessed model for model validation.</span>
+  <span class="n">model_resolver</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="n">Resolver</span><span class="p">(</span>
+      <span class="n">strategy_class</span><span class="o">=</span><span class="n">latest_blessed_model_resolver</span><span class="o">.</span><span class="n">LatestBlessedModelResolver</span><span class="p">,</span>
+      <span class="n">model</span><span class="o">=</span><span class="n">Channel</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="n">Model</span><span class="p">),</span>
+      <span class="n">model_blessing</span><span class="o">=</span><span class="n">Channel</span><span class="p">(</span>
+          <span class="nb">type</span><span class="o">=</span><span class="n">ModelBlessing</span><span class="p">))</span><span class="o">.</span><span class="n">with_id</span><span class="p">(</span><span class="s1">&#39;latest_blessed_model_resolver&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Uses TFMA to compute a evaluation statistics over features of a model and</span>
+  <span class="c1"># perform quality validation of a candidate model (compared to a baseline).</span>
+  <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">tfma</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">ConfusionMatrixPlot</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;confusion_matrix_plot&#39;</span><span class="p">),</span>
+            <span class="n">tfma</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">BalancedAccuracy</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;bac&#39;</span><span class="p">),</span>
+            <span class="n">tfma</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">MeanLabel</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;mean_label&#39;</span><span class="p">),</span>
+            <span class="n">tfma</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">MeanPrediction</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;mean_prediction&#39;</span><span class="p">),</span>
+            <span class="n">tfma</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Calibration</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;calibration&#39;</span><span class="p">),</span>
+            <span class="n">tfma</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">CalibrationPlot</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;calibration_plot&#39;</span><span class="p">),</span>
+        <span class="p">]</span>
+  <span class="n">eval_config</span> <span class="o">=</span> <span class="n">tfma</span><span class="o">.</span><span class="n">EvalConfig</span><span class="p">(</span>
+        <span class="n">model_specs</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">tfma</span><span class="o">.</span><span class="n">ModelSpec</span><span class="p">(</span><span class="n">label_key</span><span class="o">=</span><span class="s1">&#39;age_range&#39;</span><span class="p">)</span>
+        <span class="p">],</span>
+        <span class="n">metrics_specs</span> <span class="o">=</span> <span class="n">tfma</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">specs_from_metrics</span><span class="p">(</span><span class="n">metrics</span><span class="p">),</span>
+
+        <span class="n">slicing_specs</span><span class="o">=</span><span class="p">[</span>
+        <span class="c1"># An empty slice spec means the overall slice, i.e. the whole dataset.</span>
+            <span class="n">tfma</span><span class="o">.</span><span class="n">SlicingSpec</span><span class="p">()],</span>
+        <span class="n">options</span><span class="o">=</span><span class="n">tfma</span><span class="o">.</span><span class="n">Options</span><span class="p">(</span><span class="n">include_default_metrics</span><span class="o">=</span><span class="n">BoolValue</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>
+      <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs/technicalDocumentation/tfx/TfxLocalPipeline"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By HdM Group 1<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -167,34 +167,12 @@
    Testseite
   </a>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../tfx.html">
-   TensorFlow Extended
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../dataPreprocessing/pandas/data.html">
-     Our Dataset
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../dataPreprocessing/pandas/pandas.html">
-     Data Preprocessing with pandas
-    </a>
-   </li>
-  </ul>
- </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="startWindows.html">
    Documentation of the problems with tfx on windows
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -374,7 +352,7 @@
 <ol class="simple">
 <li><p><strong>KeyError: ‘Home’ occured</strong></p></li>
 </ol>
-<img title="" src="\\wsl$\Ubuntu-20.04\home\pascal\dev\kirenz-mlops-semester\jupyter-book\assets\img\2021-12-15-17-54-05-image.png" alt="" data-align="inline">
+<img title="" src="file:///C:/Users/Pasca/OneDrive/Desktop/MLOPS/kirenz-mlops-semester/jupyter-book/assets/img/2021-12-15-17-54-05-image.png" alt="" data-align="inline">
 <p>This error occurs because Windows does not have Home. After some research we found a post on stackoverflow where we recommended to adjust the path in base_handler.py</p>
 <p>**Folder: ** C:\Users\anaconda3\envs\tf\Lib\site-packages\tfx\tools\cli\handler\base_handler.py</p>
 <p>In this file we changes the os.environ[‘HOME’] to os.path.expanduser(‘~’)</p>
@@ -382,7 +360,7 @@
 <ol class="simple">
 <li><p>**SyntaxError: (unicode error) ‘unicodescape codec can’t decode bytes in position 2-3: truncated \UXXXXXXXX escape **</p></li>
 </ol>
-<p><img alt="" src="docs/technicalDocumentation/tfx/windows/%5Cwsl%24%5CUbuntu-20.04%5Chome%5Cpascal%5Cdev%5Ckirenz-mlops-semester%5Cjupyter-book%5Cassets%5Cimg%5C2021-12-15-18-02-53-image.png" /></p>
+<p><img alt="" src="docs/technicalDocumentation/tfx/windows/C:%5CUsers%5CPasca%5COneDrive%5CDesktop%5CMLOPS%5Ckirenz-mlops-semester%5Cjupyter-book%5Cassets%5Cimg%5C2021-12-15-18-02-53-image.png" /></p>
 <p>The paths musst be written with double backslash</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Example</span><span class="p">:</span> 
 
@@ -396,9 +374,11 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tfx</span> <span class="n">run</span> <span class="n">create</span> <span class="o">--</span><span class="n">pipeline_name</span><span class="o">=</span><span class="n">pipeline</span><span class="o">-</span><span class="n">taxi</span>
 </pre></div>
 </div>
-<p>The following error occured:</p>
-<p><img alt="" src="docs/technicalDocumentation/tfx/windows/%5Cwsl%24%5CUbuntu-20.04%5Chome%5Cpascal%5Cdev%5Ckirenz-mlops-semester%5Cjupyter-book%5Cassets%5Cimg%5C2021-12-15-18-07-00-image.png" /></p>
-<p><img alt="" src="docs/technicalDocumentation/tfx/windows/%5Cwsl%24%5CUbuntu-20.04%5Chome%5Cpascal%5Cdev%5Ckirenz-mlops-semester%5Cjupyter-book%5Cassets%5Cimg%5C2021-12-15-18-07-13-image.png" /></p>
+<p><img alt="" src="docs/technicalDocumentation/tfx/windows/C:%5CUsers%5CPasca%5COneDrive%5CDesktop%5CMLOPS%5Ckirenz-mlops-semester%5Cjupyter-book%5Cassets%5Cimg%5C2021-12-15-18-07-00-image.png" /></p>
+<p><img alt="" src="docs/technicalDocumentation/tfx/windows/C:%5CUsers%5CPasca%5COneDrive%5CDesktop%5CMLOPS%5Ckirenz-mlops-semester%5Cjupyter-book%5Cassets%5Cimg%5C2021-12-15-18-07-13-image.png" /></p>
+<p>It was not possible to run the tfx pipeline on windows.</p>
+<p>After that we have decided to work in the wsl. Enclosed the docu for the [wsl](<a class="reference external" href="https://docs.microsoft.com/en-us/windows/wsl/install">Install WSL | Microsoft Docs</a>).</p>
+<p>After some timenhowever it has also become apparent that wsl is reaching its limits in this project. Again and again various errors occurred or certain modules could not be installed. Because of this we decided to work in a VM. In retrospect this was one of the best decisions in this project. We just should have made it earlier ;-)</p>
 </div>
 </div>
 </div>
