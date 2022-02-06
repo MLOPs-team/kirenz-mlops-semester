@@ -12,15 +12,21 @@ services:
                 max-file: "3"
         volumes:
             - "${PWD}/db-data:/var/lib/postgresql/data"
-
     local-runner:
         image: amazon/mwaa-local:2.0.2
         restart: always
+        runtime: nvidia
+        privileged: true
         depends_on:
             - postgres
+            - s3fs
         environment:
             - LOAD_EX=n
             - EXECUTOR=Local
+            - LD_LIBRARY_PATH=/usr/local/cuda-11/lib64
+            - NVIDIA_VISIBLE_DEVICES=all 
+            - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+            - TF_FORCE_GPU_ALLOW_GROWTH=true
         logging:
             options:
                 max-size: 10m
@@ -28,11 +34,21 @@ services:
         volumes:
             - ${PWD}/dags:/usr/local/airflow/dags
             - ${PWD}/plugins:/usr/local/airflow/plugins
+            - /usr/local/cuda-11/lib64:/usr/local/cuda-11/lib64
+            - /usr/lib64/:/usr/lib64/
+            - /usr/lib/libcuda.so.1:/usr/lib/libcuda.so.1
+            - /mnt/:/mnt/
         ports:
             - "8080:8080"
-        command: local-runner
+        command: local-runner 
         healthcheck:
             test: ["CMD-SHELL", "[ -f /usr/local/airflow/airflow-webserver.pid ]"]
             interval: 30s
             timeout: 30s
             retries: 3
+        deploy:
+            resources:
+                reservations:
+                    devices:
+                        - capabilities: [gpu]
+           

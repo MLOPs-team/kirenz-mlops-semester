@@ -27,6 +27,7 @@ RUN chmod u+x /bootstrap.sh && /bootstrap.sh
 COPY script/entrypoint.sh /entrypoint.sh
 COPY config/airflow.cfg ${AIRFLOW_USER_HOME}/airflow.cfg
 COPY config/webserver_config.py ${AIRFLOW_USER_HOME}/webserver_config.py
+RUN mkdir ${AIRFLOW_USER_HOME}/data 
 
 RUN chown -R airflow: ${AIRFLOW_USER_HOME}
 RUN chmod +x /entrypoint.sh

@@ -16,6 +16,7 @@
 import datetime
 import os
 from typing import List
+import tensorflow as tf
 
 import tensorflow_model_analysis as tfma
 from tfx.components import FileBasedExampleGen
@@ -39,6 +40,10 @@ from tfx.proto import trainer_pb2
 from tfx.types import Channel
 from tfx.types.standard_artifacts import Model
 from tfx.types.standard_artifacts import ModelBlessing
+from google.protobuf.wrappers_pb2 import BoolValue
+
+tf.keras.backend.clear_session()
+os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 
 # TODO(jyzhao): rename to chicago_taxi_airflow.
 _pipeline_name = 'police-uk-pipeline'
@@ -134,24 +139,55 @@ def _create_pipeline(
 
 # Uses TFMA to compute a evaluation statistics over features of a model and
   # perform quality validation of a candidate model (compared to a baseline).
+  metrics = [
+            #tfma.metrics.ExampleCount(name='example_count'),
+            #tf.keras.metrics.BinaryCrossentropy(name='binary_crossentropy'),
+            #tf.keras.metrics.BinaryAccuracy(name='accuracy'),
+            #tf.keras.metrics.AUC(name='auc', num_thresholds=10000),
+            #tf.keras.metrics.AUC(
+            #    name='auc_precision_recall', curve='PR', num_thresholds=10000),
+            #tf.keras.metrics.Precision(name='precision'),
+            #tf.keras.metrics.Recall(name='recall'),
+            #tf.metrics.AUC(name='auc'),
+            #tfma.metrics.ConfusionMatrixMetricBase(),
+            tfma.metrics.ConfusionMatrixPlot(name='confusion_matrix_plot'),
+            tfma.metrics.BalancedAccuracy(name='bac'),
+            #tfma.metrics.BinaryAccuracy(name='accuracy'),
+            #tfma.metrics.Recall(name='recall'),
+            #tfma.metrics.Precision(name='precision'),
+            #tfma.metrics.AUC(name='auc', curve='ROC'),
+            tfma.metrics.MeanLabel(name='mean_label'),
+            tfma.metrics.MeanPrediction(name='mean_prediction'),
+            tfma.metrics.Calibration(name='calibration'),
+            tfma.metrics.CalibrationPlot(name='calibration_plot'),
+            #tfma.metrics.PrecisionAtRecall(name='PAR')
+        ]
   eval_config = tfma.EvalConfig(
-      model_specs=[
-          tfma.ModelSpec(label_key='age_range')
-          ],
-      metrics_specs=[
-          tfma.MetricsSpec(
-              thresholds={
-                  'accuracy':
-                      tfma.MetricThreshold(
-                          value_threshold=tfma.GenericValueThreshold(
-                              lower_bound={'value': 0.6}),
-                          # Change threshold will be ignored if there is no
-                          # baseline model resolved from MLMD (first run).
-                          change_threshold=tfma.GenericChangeThreshold(
-                              direction=tfma.MetricDirection.HIGHER_IS_BETTER,
-                              absolute={'value': -1e-10}))
-              })
-      ])
+        model_specs=[
+            tfma.ModelSpec(label_key='age_range')
+        ],
+      #metrics_specs=[
+        #   tfma.MetricsSpec(
+        #       thresholds={
+        #           'accuracy':
+        #               tfma.MetricThreshold(
+        #                   value_threshold=tfma.GenericValueThreshold(
+        #                       lower_bound={'value': 0.6}),
+        #                   # Change threshold will be ignored if there is no
+        #                   # baseline model resolved from MLMD (first run).
+        #                   change_threshold=tfma.GenericChangeThreshold(
+        #                       direction=tfma.MetricDirection.HIGHER_IS_BETTER,
+        #                       absolute={'value': -1e-10}))
+        #       })
+        
+        metrics_specs = tfma.metrics.specs_from_metrics(metrics),
+  
+        slicing_specs=[
+        # An empty slice spec means the overall slice, i.e. the whole dataset.
+            tfma.SlicingSpec()],
+        options=tfma.Options(include_default_metrics=BoolValue(value=True)),
+      )
+
 
   evaluator = Evaluator(
       examples=example_gen.outputs['examples'],

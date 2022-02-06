@@ -72,6 +72,7 @@ _EVAL_BATCH_SIZE = 10
 
 writer = tf.summary.create_file_writer('/home/ec2-user/police/log')
 sess = tf.compat.v1.Session()
+tf.keras.backend.clear_session()
 
 # Since we're not generating or creating a schema, we will instead create
 # a feature spec.  Since there are a fairly small number of features this is
@@ -170,3 +171,4 @@ def run_fn(fn_args: tfx.components.FnArgs):
   # directory.
   model.save(fn_args.serving_model_dir, save_format='tf')
   tf.summary.write('/home/ec2-user/police/log', sess.graph)
+ 
