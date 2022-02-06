@@ -1,0 +1,76 @@
+{
+  "evalConfig": {
+    "modelSpecs": [
+      {
+        "labelKey": "age_range"
+      }
+    ],
+    "slicingSpecs": [
+      {}
+    ],
+    "metricsSpecs": [
+      {
+        "metrics": [
+          {
+            "className": "ExampleCount",
+            "config": "{\"name\": \"example_count\"}"
+          }
+        ],
+        "modelNames": [
+          ""
+        ]
+      },
+      {
+        "metrics": [
+          {
+            "className": "WeightedExampleCount",
+            "config": "{\"name\": \"weighted_example_count\"}"
+          }
+        ],
+        "modelNames": [
+          ""
+        ]
+      },
+      {
+        "metrics": [
+          {
+            "className": "ConfusionMatrixPlot",
+            "config": "{\"name\": \"confusion_matrix_plot\", \"num_thresholds\": 1000}"
+          },
+          {
+            "className": "BalancedAccuracy",
+            "config": "{\"name\": \"bac\", \"thresholds\": null}"
+          },
+          {
+            "className": "MeanLabel",
+            "config": "{\"name\": \"mean_label\"}"
+          },
+          {
+            "className": "MeanPrediction",
+            "config": "{\"name\": \"mean_prediction\"}"
+          },
+          {
+            "className": "Calibration",
+            "config": "{\"name\": \"calibration\"}"
+          },
+          {
+            "className": "CalibrationPlot",
+            "config": "{\"left\": null, \"name\": \"calibration_plot\", \"num_buckets\": 1000, \"right\": null}"
+          }
+        ],
+        "modelNames": [
+          ""
+        ]
+      }
+    ],
+    "options": {
+      "includeDefaultMetrics": true
+    }
+  },
+  "version": "0.34.1",
+  "dataLocation": "<user provided PCollection>",
+  "fileFormat": "<unknown>",
+  "modelLocations": {
+    "": "/usr/local/airflow/dags/police-uk-pipeline/pipeline/Trainer/model/211/Format-Serving"
+  }
+}
