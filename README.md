@@ -1,10 +1,10 @@
-# kirenz-mlops-semester
-Machine Learning Operations Wahlmodul 
+# MLOps-Project 
 
-## Unterlagen fetchen
-git fetch kirenz-unterlagen main
-git subtree pull --prefix kirenz-unterlagen kirenz-unterlagen main --squash
+We conducted this machine learning project as part of the MLOPS lifecycle. 
 
-## Documentation
+Technology stack:
+- Databricks 
+- TenserflowExtended (tfx)
+- Airflow (MWAA)
 
-MLOPs info https://github.com/visenger/awesome-mlops
+More detailed information and the documentation of the project can be found under the following link: https://mlops-team.github.io/kirenz-mlops-semester/intro.html
