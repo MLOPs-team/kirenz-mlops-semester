@@ -2,7 +2,7 @@
 
 We used a dataset of the police uk (England, Wales, Northern Ireland). 
 
-<img title="" src="\\wsl$\Ubuntu-20.04\home\pascal\dev\kirenz-mlops-semester\jupyter-book\assets\img\2021-12-15-17-19-20-image.png" alt="" data-align="center">
+<img title="" src="file:///C:/Users/Pasca/OneDrive/Desktop/MLOPS/kirenz-mlops-semester/jupyter-book/assets/img/2021-12-15-17-19-20-image.png" alt="" data-align="center">
 
 The API of the Police UK provides a rich data source of information, including: 
 
