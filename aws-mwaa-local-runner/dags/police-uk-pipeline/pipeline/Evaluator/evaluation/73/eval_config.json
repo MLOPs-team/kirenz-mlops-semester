@@ -1,0 +1,18 @@
+{
+  "evalConfig": {
+    "modelSpecs": [
+      {
+        "labelKey": "age_range"
+      }
+    ],
+    "slicingSpecs": [
+      {}
+    ]
+  },
+  "version": "0.34.1",
+  "dataLocation": "<user provided PCollection>",
+  "fileFormat": "<unknown>",
+  "modelLocations": {
+    "": "/usr/local/airflow/dags/police-uk-pipeline/pipeline/Trainer/model/72/Format-Serving"
+  }
+}
