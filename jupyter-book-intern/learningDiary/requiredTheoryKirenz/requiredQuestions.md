@@ -25,11 +25,9 @@ Notes on the video of AI pioneer Andrew Ng:"A Chat with Andrew on MLOps: From Mo
 
 - **AI-System** = Code (model/algorithm) + Data 
 
-- Data is food for AI  
-![image](../../../assets/img/dataIsFood.png)     
+- Data is food for AI   
 
 - It's very important especially for small data sets that the labels are consistencly  
-![image](../../../assets/img/smallDataAndLabelConsistency.png)  
 
     - **Noisy Dataset**: data that contains a large amount of additional meaningless information. E.g. corrupted data...all data that cannot be understood and interpreted  by a user system.
     
@@ -49,12 +47,9 @@ Notes on the video of AI pioneer Andrew Ng:"A Chat with Andrew on MLOps: From Mo
 :class: tip
 - **Describe the lifecycle of an ML project**
 
-    ![image](../../../assets/img/LifecycleMlProject.png)  
 
     - **Collect data**
         Define and collect the data. It's important that the data is labeled consistently. 
-
-         ![image](../../../assets/img/iguanaDetection.png)  
 
          All 3 options are fine, but we should label the whole dataset in one way. For example...we label all the data as in the first picture
 

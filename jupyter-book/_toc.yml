@@ -4,27 +4,24 @@
 format: jb-book
 root: intro
 parts:
-  - caption: Protocol
-    chapters:
-    - file: docs/protocol/ideasPresentation
-    - file: docs/protocol/protocolIntern
-    - file: docs/protocol/protocolKirenz
-  - caption: Learning diary
-    chapters:
-    - file: docs/learningDiary/deltaLake
-    - file: docs/learningDiary/jupyterBook
-    - file: docs/learningDiary/test
-    - file: docs/learningDiary/requiredTheoryKirenz/theoryKirenz
-      sections:
-      - file: docs/learningDiary/requiredTheoryKirenz/requiredQuestions
-      - file: docs/learningDiary/requiredTheoryKirenz/questionsCollection
   - caption: Technical documentation
     chapters:
-    - file: docs/technicalDocumentation/deltaLake
-    - file: docs/technicalDocumentation/tfx/tfx
+    - file: docs/technicalDocumentation/tfx/dataPreprocessing/pandas/pd
       sections:
       - file: docs/technicalDocumentation/tfx/dataPreprocessing/pandas/data
       - file: docs/technicalDocumentation/tfx/dataPreprocessing/pandas/pandas
-    - file: docs/technicalDocumentation/tfx/windows/startWindows
+    - file: docs/technicalDocumentation/aws/AWS
+      sections: 
+      - file: docs/technicalDocumentation/aws/AmazonEC2
+      - file: docs/technicalDocumentation/aws/AWSManagedWorkflowsinAirflow
+      - file: docs/technicalDocumentation/aws/Itisallaboutthecloud
+    - file: docs/technicalDocumentation/delta-lake/SettingupDelta-Lake
       sections:
+      - file: docs/technicalDocumentation/delta-lake/databricks/AboutDatabricks
+      - file: docs/technicalDocumentation/delta-lake/spark/DataExtractionfromAPI
+      - file: docs/technicalDocumentation/delta-lake/spark/SparkUsage
+    - file: docs/technicalDocumentation/tfx/tfx
+      sections: 
+      - file: docs/technicalDocumentation/tfx/aws-mwaa-local-runner/aws-mwaa-local-runner
+      - file: docs/technicalDocumentation/tfx/TfxLocalPipeline/tfx-pipeline
       - file: docs/technicalDocumentation/tfx/windows/tfxPipeline
