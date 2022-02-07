@@ -11,7 +11,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-"""Chicago taxi example using TFX."""
 
 import datetime
 from typing import List
@@ -24,6 +23,7 @@ from dotenv import load_dotenv
 import tensorflow as tf
 
 import tensorflow_model_analysis as tfma
+from tfx.components import CsvExampleGen
 from tfx.components import FileBasedExampleGen
 from tfx.components.base.executor_spec import ExecutorClassSpec
 from tfx.components.example_gen.custom_executors import parquet_executor
@@ -49,10 +49,6 @@ from google.protobuf.wrappers_pb2 import BoolValue
 
 load_dotenv()
 
-#Credentials aws
-AWS_ACCESS_KEY= os.getenv('AWS_ACCESS_KEY')
-AWS_SECRET_KEY= os.getenv('AWS_SECRET_KEY')
-
 os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 
 # TODO(jyzhao): rename to chicago_taxi_airflow.
@@ -66,14 +62,14 @@ _data_root = "/usr/local/airflow/data/"
 _module_file = '/usr/local/airflow/dags/police-uk_utils.py'
 # Path which can be listened to by the model server.  Pusher will output the
 # trained model here.
-_serving_model_dir = "/usr/local/airflow/dags/police-uk-pipeline/pipeline/model"
+_serving_model_dir = "/usr/local/airflow/police-uk-pipeline/pipeline/model"
 
 # Directory and data locations.  This example assumes all of the chicago taxi
 # example code and metadata library is relative to $HOME, but you can store
 # these files anywhere on your local filesystem.
-_pipeline_root = "/usr/local/airflow/dags/police-uk-pipeline/pipeline/"
+_pipeline_root = "/usr/local/airflow/police-uk-pipeline/pipeline/"
 # Sqlite ML-metadata db path.
-_metadata_path = "/usr/local/airflow/dags/police-uk-pipeline/metadata/metadata.db"
+_metadata_path = "/usr/local/airflow/police-uk-pipeline/metadata/metadata.db"
 
 # Pipeline arguments for Beam powered Components.
 _beam_pipeline_args = [
@@ -107,11 +103,11 @@ def _create_pipeline(
   data_root_runtime = data_types.RuntimeParameter(
       'data_root', ptype=str, default=data_root)
 
-  # Brings data into the pipeline or otherwise joins/converts training data.
-  # example_gen = CsvExampleGen(input_base=data_root_runtime)
+  # Brings data into the pipeline or otherwise joins/converts training data
+  example_gen = CsvExampleGen(input_base=data_root_runtime)
 
-  executor_spec = ExecutorClassSpec(parquet_executor.Executor)
-  example_gen = FileBasedExampleGen(input_base=data_root_runtime, custom_executor_spec=executor_spec)
+   #executor_spec = ExecutorClassSpec(parquet_executor.Executor)
+   #example_gen = FileBasedExampleGen(input_base=data_root_runtime, custom_executor_spec=executor_spec)
 
   # Computes statistics over data for visualization and example validation.
   statistics_gen = StatisticsGen(examples=example_gen.outputs['examples'])
