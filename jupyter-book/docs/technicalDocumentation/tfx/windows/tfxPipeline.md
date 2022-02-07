@@ -30,7 +30,7 @@ After that we run the above command again.
 
 2. **SyntaxError: (unicode error) 'unicodescape codec can't decode bytes in position 2-3: truncated \UXXXXXXXX escape **
 
-![](C:\Users\Pasca\OneDrive\Desktop\MLOPS\kirenz-mlops-semester\jupyter-book\assets\img\2021-12-15-18-02-53-image.png)
+![](C:/Users/Pasca/OneDrive/Desktop/MLOPS/kirenz-mlops-semester/jupyter-book/assets/img/2021-12-15-18-02-53-image.png)
 
 The paths musst be written with double backslash
 
@@ -51,9 +51,9 @@ In the next step we tried to run the pipeline
 tfx run create --pipeline_name=pipeline-taxi
 ```
 
-![](C:\Users\Pasca\OneDrive\Desktop\MLOPS\kirenz-mlops-semester\jupyter-book\assets\img\2021-12-15-18-07-00-image.png)
+![](C:/Users/Pasca/OneDrive/Desktop/MLOPS/kirenz-mlops-semester/jupyter-book/assets/img/2021-12-15-18-07-00-image.png)
 
-![](C:\Users\Pasca\OneDrive\Desktop\MLOPS\kirenz-mlops-semester\jupyter-book\assets\img\2021-12-15-18-07-13-image.png)
+![](C:/Users/Pasca/OneDrive/Desktop/MLOPS/kirenz-mlops-semester/jupyter-book/assets/img/2021-12-15-18-07-13-image.png)
 
 It was not possible to run the tfx pipeline on windows. 
 

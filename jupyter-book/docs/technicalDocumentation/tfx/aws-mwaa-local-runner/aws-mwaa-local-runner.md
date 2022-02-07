@@ -92,7 +92,7 @@ with DAG('Download-Data-from-Delta-Lake', default_args=default_args) as dag:
 
 After starting the pipeline, the progress can be tracked in Airflow. In the Tree view all components can be seen, which are passed through in this DAG.
 
-![](C:\Users\Pasca\OneDrive\Desktop\MLOPS\kirenz-mlops-semester\jupyter-book\assets\img\2022-02-06-22-20-54-image.png)
+![](../../../../assets/img/2022-02-06-22-20-54-image.png)
 
 The data has now been downloaded to the docker container and the model can be started
 
@@ -313,7 +313,7 @@ DAG = AirflowDagRunner(AirflowPipelineConfig(_airflow_config)).run(
 
 After starting the pipeline, the progress can be tracked in Airflow. In the Tree view all components can be seen, which are passed through in this DAG. Für jede Komponente wird ein Log file geschrieben und kann in airflow eingesehen werden. 
 
-![](C:\Users\Pasca\OneDrive\Desktop\MLOPS\kirenz-mlops-semester\jupyter-book\assets\img\2022-02-06-23-11-47-image.png)
+![](../../../../assets/img/2022-02-06-23-11-47-image.png)
 
 The output artifacts etc. are stored in the docker container under the following paths:
 
