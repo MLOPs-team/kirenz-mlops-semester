@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Using Spark and PySpark &#8212; MLOPS</title>
+    <title>Data extraction from API &#8212; MLOPS</title>
     
   <link href="../../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,6 +51,8 @@
     <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Using Spark and PySpark" href="SparkUsage.html" />
+    <link rel="prev" title="Databricks - A Lakehouse unicorn" href="../databricks/AboutDatabricks.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -90,51 +92,19 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../../../intro.html">
-   Welcome!
+   Machine Learning Operations Project - HdM x Bosch
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Protocol
+  Technical documentation
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../protocol/ideasPresentation.html">
-   Ideen für die Präsentation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../protocol/protocolIntern.html">
-   Protokoll - Intern
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../protocol/protocolKirenz.html">
-   Protokoll - Sprechstunde Kirenz
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Learning diary
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../learningDiary/deltaLake.html">
-   Das ist ein Test
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../learningDiary/jupyterBook.html">
-   Jupyter-Book good to know
-  </a>
- </li>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../../learningDiary/requiredTheoryKirenz/theoryKirenz.html">
-   Notes: Required reading Kirenz
+  <a class="reference internal" href="../../tfx/dataPreprocessing/pandas/pd.html">
+   Data
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -143,32 +113,20 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../../learningDiary/requiredTheoryKirenz/requiredQuestions.html">
-     Notes: Required questions - theory Kirenz
+    <a class="reference internal" href="../../tfx/dataPreprocessing/pandas/data.html">
+     Our Dataset
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../../learningDiary/requiredTheoryKirenz/questionsCollection.html">
-     Notes: Questions for lecture on 17.11
+    <a class="reference internal" href="../../tfx/dataPreprocessing/pandas/pandas.html">
+     Data Preprocessing with pandas
     </a>
    </li>
   </ul>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Technical documentation
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../deltaLake.html">
-   Testseite
-  </a>
- </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tfx/windows/startWindows.html">
-   Documentation of the problems with tfx on windows
+  <a class="reference internal" href="../../aws/AWS.html">
+   AWS
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -176,6 +134,70 @@
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../aws/AmazonEC2.html">
+     Development Environment based on AWS EC2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../aws/AWSManagedWorkflowsinAirflow.html">
+     AWS managed workflows in airflow (MWAA)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../aws/Itisallaboutthecloud.html">
+     It is all about the cloud
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../SettingupDelta-Lake.html">
+   Setting up Delta-Lake
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../databricks/AboutDatabricks.html">
+     Databricks - A Lakehouse unicorn
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Data extraction from API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="SparkUsage.html">
+     Using Spark and PySpark
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tfx/tfx.html">
+   TensorFlow Extended
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tfx/aws-mwaa-local-runner/aws-mwaa-local-runner.html">
+     Aws-mwaa-local-runner
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tfx/TfxLocalPipeline/tfx-pipeline.html">
+     tfx-pipeline
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../tfx/windows/tfxPipeline.html">
      TensorFlow extended on windows
@@ -224,7 +246,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../../_sources/docs/technicalDocumentation/delta-lake/spark/Spark Usage .md"><button type="button"
+        <a class="dropdown-buttons" href="../../../../_sources/docs/technicalDocumentation/delta-lake/spark/DataExtractionfromAPI.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -244,7 +266,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/technicalDocumentation/delta-lake/spark/Spark Usage .html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/technicalDocumentation/delta-lake/spark/DataExtractionfromAPI.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -271,21 +293,19 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-problem-with-pandas">
-   The Problem with Pandas
+  <a class="reference internal nav-link" href="#stage-1-basic-python-script">
+   Stage 1: Basic Python Script
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-the-advantage-of-using-spark">
-   What is the advantage of using Spark?
+  <a class="reference internal nav-link" href="#stage-2-apache-spark-with-basic-python-script">
+   Stage 2: Apache Spark with basic Python Script
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pyspark">
-     PySpark
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stage-3-apache-spark-with-user-defined-function">
+   Stage 3: Apache Spark with User-Defined Function
+  </a>
  </li>
 </ul>
 
@@ -297,7 +317,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Using Spark and PySpark</h1>
+                <h1>Data extraction from API</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -308,21 +328,19 @@
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-problem-with-pandas">
-   The Problem with Pandas
+  <a class="reference internal nav-link" href="#stage-1-basic-python-script">
+   Stage 1: Basic Python Script
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#what-is-the-advantage-of-using-spark">
-   What is the advantage of using Spark?
+  <a class="reference internal nav-link" href="#stage-2-apache-spark-with-basic-python-script">
+   Stage 2: Apache Spark with basic Python Script
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#pyspark">
-     PySpark
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stage-3-apache-spark-with-user-defined-function">
+   Stage 3: Apache Spark with User-Defined Function
+  </a>
  </li>
 </ul>
 
@@ -333,28 +351,35 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="using-spark-and-pyspark">
-<h1>Using Spark and PySpark<a class="headerlink" href="#using-spark-and-pyspark" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="the-problem-with-pandas">
-<h2>The Problem with Pandas<a class="headerlink" href="#the-problem-with-pandas" title="Permalink to this headline">¶</a></h2>
-<p>Lots of data scientists like to use Pandas for building and manipulating huge Datasets and this for good reason, its syntax is easy to pick up and it performs reasonably well.
-Due to its implementation is has one big draw back: Every DataFrame which is opened will be loaded directly into the Computers Memory.</p>
-<p>This is mostly difficult when working when working with huge Datasets, because it requires a huge amout of RAM. This problem can lead to general instability when running ML Pipelines.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="data-extraction-from-api">
+<h1>Data extraction from API<a class="headerlink" href="#data-extraction-from-api" title="Permalink to this headline">¶</a></h1>
+<p>Why Data Extraction is so important?</p>
+<p>In any Machine Learning Project the data acquisition is the starting point to then polish the data and build and train a model.</p>
+<p>APIs are prone to change and the data volume which needs to be extracted depending on the use-case.</p>
+<p>Our Use-Case</p>
+<p>For our Use-Case we wanted to extract Data from the UK Police API, which is fairly well documented and provided lots of data.</p>
+<p>Challenges:</p>
+<ul class="simple">
+<li><p>Multiple Requests to API need to be made</p></li>
+<li><p>APIs are prone to change</p></li>
+<li><p>Lots of data included which is not needed for our Use-Case</p></li>
+</ul>
+<div class="section" id="stage-1-basic-python-script">
+<h2>Stage 1: Basic Python Script<a class="headerlink" href="#stage-1-basic-python-script" title="Permalink to this headline">¶</a></h2>
+<p>First we tried to get Data via a simple Python Script just to check the data format.</p>
+<p>Then we realized we needed to loop through some requests to get all the data</p>
 </div>
-<div class="section" id="what-is-the-advantage-of-using-spark">
-<h2>What is the advantage of using Spark?<a class="headerlink" href="#what-is-the-advantage-of-using-spark" title="Permalink to this headline">¶</a></h2>
-<p>On to the stage comes Spark, built with distributed computing at its heart it seems like the perfect fit to manipulate huge datasets.</p>
-<p>The architecture of Spark consists of a Spark Executor, a central Cluster Manager and distributed computing nodes - so called Workers. As can be seens on the architecture overview below:</p>
-<p><img alt="Spark Architecture _ Edureka" src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2018/09/2018-09-28-18_12_51-Apache-Spark-Architecture-_-Understanding-the-Spark-Components-_-Edureka.png" /></p>
-<p></p>
-<p>In our relevant Use-Case we had more than 800.000 rows in our Data Frame and since Delta Lake is fully built around the Spark System, we were more or less forced to adapt this into our MLOps Ecosystem.</p>
-<p>Another thing very important to note is the Spark Context from with the Jobs run on the cluster get launched. In our case we implemented most of our code in Python, so we needed a Python driver: PySpark.</p>
-<div class="section" id="pyspark">
-<h3>PySpark<a class="headerlink" href="#pyspark" title="Permalink to this headline">¶</a></h3>
-<p>PySpark enables one to write python code to run workloads in a Spark cluster. This is definently a time saver, when it comes to MLOps. Most AI pipelines are coded in python anyways and so you dont have to know another language to use Spark.
-Still I want to point out, that there is a steep learning curve to it. When debugging commands in PySpark some minimal knowledge of Java is helpful.</p>
-<p>We will describe how to Setup Spark in combination with Delta-Lake in the next Chapter.</p>
+<div class="section" id="stage-2-apache-spark-with-basic-python-script">
+<h2>Stage 2: Apache Spark with basic Python Script<a class="headerlink" href="#stage-2-apache-spark-with-basic-python-script" title="Permalink to this headline">¶</a></h2>
+<p>We then tried to see how Apache Spark might help us solve this problem. We realized we were not taking advantage of Sparks full potential.</p>
 </div>
+<div class="section" id="stage-3-apache-spark-with-user-defined-function">
+<h2>Stage 3: Apache Spark with User-Defined Function<a class="headerlink" href="#stage-3-apache-spark-with-user-defined-function" title="Permalink to this headline">¶</a></h2>
+<p>To make full use of Sparks capabilities for distributed computing one needs to leverage the so called User Defined Functions. These make it possible to run large web requests on multiple worker nodes and speed up the progress off the data extraction.</p>
+<p>This solution would in a real world scenario be the way to go. For our approach this was overly complex.</p>
+<p>For our current MLOps Process we therfore decided to take a dump off the data in a basic CSV File and and skip the entire data extraction process. This CSV File is then converted into a DataFrame and loaded into the Delta-Lake which uses a AWS S3 Bucket for storage.</p>
+<p>Later on in this process we realized, that running a custom Spark Cluster was both tedious and also required loads of resources.
+We then made the decision to move from our own individual stack to the offerings of <a class="reference external" href="https://databricks.com/">Databricks</a></p>
 </div>
 </div>
 
@@ -382,7 +407,21 @@ Still I want to point out, that there is a steep learning curve to it. When debu
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../databricks/AboutDatabricks.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Databricks - A Lakehouse unicorn</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="SparkUsage.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Using Spark and PySpark</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

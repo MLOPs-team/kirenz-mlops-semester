@@ -89,69 +89,8 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Welcome!
+   Machine Learning Operations Project - HdM x Bosch
   </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Protocol
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="docs/protocol/ideasPresentation.html">
-   Ideen für die Präsentation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="docs/protocol/protocolIntern.html">
-   Protokoll - Intern
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="docs/protocol/protocolKirenz.html">
-   Protokoll - Sprechstunde Kirenz
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Learning diary
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="docs/learningDiary/deltaLake.html">
-   Das ist ein Test
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="docs/learningDiary/jupyterBook.html">
-   Jupyter-Book good to know
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="docs/learningDiary/requiredTheoryKirenz/theoryKirenz.html">
-   Notes: Required reading Kirenz
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="docs/learningDiary/requiredTheoryKirenz/requiredQuestions.html">
-     Notes: Required questions - theory Kirenz
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="docs/learningDiary/requiredTheoryKirenz/questionsCollection.html">
-     Notes: Questions for lecture on 17.11
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -160,14 +99,31 @@
  </span>
 </p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="docs/technicalDocumentation/deltaLake.html">
-   Testseite
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/pd.html">
+   Data
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/data.html">
+     Our Dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/technicalDocumentation/tfx/dataPreprocessing/pandas/pandas.html">
+     Data Preprocessing with pandas
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="docs/technicalDocumentation/tfx/windows/startWindows.html">
-   Documentation of the problems with tfx on windows
+  <a class="reference internal" href="docs/technicalDocumentation/aws/AWS.html">
+   AWS
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -175,6 +131,70 @@
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/technicalDocumentation/aws/AmazonEC2.html">
+     Development Environment based on AWS EC2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/technicalDocumentation/aws/AWSManagedWorkflowsinAirflow.html">
+     AWS managed workflows in airflow (MWAA)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/technicalDocumentation/aws/Itisallaboutthecloud.html">
+     It is all about the cloud
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="docs/technicalDocumentation/delta-lake/SettingupDelta-Lake.html">
+   Setting up Delta-Lake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/technicalDocumentation/delta-lake/databricks/AboutDatabricks.html">
+     Databricks - A Lakehouse unicorn
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/technicalDocumentation/delta-lake/spark/DataExtractionfromAPI.html">
+     Data extraction from API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/technicalDocumentation/delta-lake/spark/SparkUsage.html">
+     Using Spark and PySpark
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="docs/technicalDocumentation/tfx/tfx.html">
+   TensorFlow Extended
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/technicalDocumentation/tfx/aws-mwaa-local-runner/aws-mwaa-local-runner.html">
+     Aws-mwaa-local-runner
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="docs/technicalDocumentation/tfx/TfxLocalPipeline/tfx-pipeline.html">
+     tfx-pipeline
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="docs/technicalDocumentation/tfx/windows/tfxPipeline.html">
      TensorFlow extended on windows

@@ -38,7 +38,7 @@ If you would like to have a look on the json, run the following command
 jsonForces
 ```
 
-![](../../../../../assets\img\2021-12-15-16-51-52-image.png)
+![](../../../../../assets/img/2021-12-15-16-51-52-image.png)
 
 ---
 

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Development Environment based on AWS EC2 &#8212; MLOPS</title>
+    <title>It is all about the cloud &#8212; MLOPS</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,6 +51,8 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Setting up Delta-Lake" href="../delta-lake/SettingupDelta-Lake.html" />
+    <link rel="prev" title="AWS managed workflows in airflow (MWAA)" href="AWSManagedWorkflowsinAirflow.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -90,51 +92,19 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../../intro.html">
-   Welcome!
+   Machine Learning Operations Project - HdM x Bosch
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Protocol
+  Technical documentation
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../protocol/ideasPresentation.html">
-   Ideen für die Präsentation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../protocol/protocolIntern.html">
-   Protokoll - Intern
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../protocol/protocolKirenz.html">
-   Protokoll - Sprechstunde Kirenz
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Learning diary
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../learningDiary/deltaLake.html">
-   Das ist ein Test
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../learningDiary/jupyterBook.html">
-   Jupyter-Book good to know
-  </a>
- </li>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../learningDiary/requiredTheoryKirenz/theoryKirenz.html">
-   Notes: Required reading Kirenz
+  <a class="reference internal" href="../tfx/dataPreprocessing/pandas/pd.html">
+   Data
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -143,39 +113,91 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../learningDiary/requiredTheoryKirenz/requiredQuestions.html">
-     Notes: Required questions - theory Kirenz
+    <a class="reference internal" href="../tfx/dataPreprocessing/pandas/data.html">
+     Our Dataset
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../learningDiary/requiredTheoryKirenz/questionsCollection.html">
-     Notes: Questions for lecture on 17.11
+    <a class="reference internal" href="../tfx/dataPreprocessing/pandas/pandas.html">
+     Data Preprocessing with pandas
     </a>
    </li>
   </ul>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Technical documentation
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../deltaLake.html">
-   Testseite
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="AWS.html">
+   AWS
   </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../tfx/windows/startWindows.html">
-   Documentation of the problems with tfx on windows
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="AmazonEC2.html">
+     Development Environment based on AWS EC2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="AWSManagedWorkflowsinAirflow.html">
+     AWS managed workflows in airflow (MWAA)
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     It is all about the cloud
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../delta-lake/SettingupDelta-Lake.html">
+   Setting up Delta-Lake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../delta-lake/databricks/AboutDatabricks.html">
+     Databricks - A Lakehouse unicorn
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../delta-lake/spark/DataExtractionfromAPI.html">
+     Data extraction from API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../delta-lake/spark/SparkUsage.html">
+     Using Spark and PySpark
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tfx/tfx.html">
+   TensorFlow Extended
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tfx/aws-mwaa-local-runner/aws-mwaa-local-runner.html">
+     Aws-mwaa-local-runner
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tfx/TfxLocalPipeline/tfx-pipeline.html">
+     tfx-pipeline
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../tfx/windows/tfxPipeline.html">
      TensorFlow extended on windows
@@ -224,7 +246,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/docs/technicalDocumentation/aws/Amazon EC2.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/docs/technicalDocumentation/aws/Itisallaboutthecloud.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -244,7 +266,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/technicalDocumentation/aws/Amazon EC2.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/technicalDocumentation/aws/Itisallaboutthecloud.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -272,7 +294,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Development Environment based on AWS EC2</h1>
+                <h1>It is all about the cloud</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -283,49 +305,14 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="development-environment-based-on-aws-ec2">
-<h1>Development Environment based on AWS EC2<a class="headerlink" href="#development-environment-based-on-aws-ec2" title="Permalink to this headline">¶</a></h1>
-<p>We our team started out, we had very diverse individual computing stacks. We had a few Windows User, one Linux user and one on Mac OSX. While running virtualized worklaods one woud suspect this would not make much of a difference but in reality it dit.</p>
-<p>After getting access to credits, we decided to deploy a EC2 instance to be used by Pascal to develop there. We picked a Linux Image provied by Amazon a so called Amazon AMI Linux image. This utilizes the EC2 resources the best and comes preinstalled with the aws-cli and a bunch of other useful software.</p>
-<p>We installed a GUI for Pascal and he was able to use the Virtual Desktop Environment via SSH / VNC.</p>
-<p>The Instructions to install a GUI on AWS Linux can be found <a class="reference external" href="https://aws.amazon.com/premiumsupport/knowledge-center/ec2-linux-2-install-gui/">here</a></p>
-<p>This ingenious solution proved great over the entire project length and after adding more CPU Cores and Nvidia GPU to the instance we were able to train our model much faster.</p>
-<p>When training TensorFlow Models on the GPU loads of driver installations are required and some configuration steps need to be taken to make it work inside a Docker Container aswell.</p>
-<p>Some relevant guides for this are:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.tensorflow.org/install/gpu">Tensorflow</a></p></li>
-<li><p>[Install NVIDIA Drivers in AWS EC2]((<a class="reference external" href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-nvidia-driver.html">https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/install-nvidia-driver.html</a>)</p></li>
-</ul>
-<p>This can be quite a time extensive task, while this seems like a pretty standard approach in the machine learning world, managing dependencies between drivers / hardware can proof to be very frustrating</p>
-<p>Overall we rate this decision as one of the big success factors of our project, and for large scale enterprises having access to public or private cloud instances seems like a must nowadays.</p>
-<p>Our provsioned specification (very oversized):</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p></p></th>
-<th class="head"><p>Specs</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Instance Type</p></td>
-<td><p>G3.4Xlarge</p></td>
-</tr>
-<tr class="row-odd"><td><p>CPU</p></td>
-<td><p>16vCores</p></td>
-</tr>
-<tr class="row-even"><td><p>GPU</p></td>
-<td><p>Nvidia M40 8GB</p></td>
-</tr>
-<tr class="row-odd"><td><p>RAM</p></td>
-<td><p>122GB</p></td>
-</tr>
-<tr class="row-even"><td><p>SSD</p></td>
-<td><p>150GB</p></td>
-</tr>
-<tr class="row-odd"><td><p>Price/hr(Linux)</p></td>
-<td><p>1.14$ for US East</p></td>
-</tr>
-</tbody>
-</table>
+  <div class="tex2jax_ignore mathjax_ignore section" id="it-is-all-about-the-cloud">
+<h1>It is all about the cloud<a class="headerlink" href="#it-is-all-about-the-cloud" title="Permalink to this headline">¶</a></h1>
+<p>Developing, training and deploying Machine Learning Models is a very computing extensive task. Most non-gaming computers are not up to this task and training models and tuning for different hyperparameters will take forever. Also most MLOps Framworks are built with the cloud in mind. Most deployment guides are written for the big 3 cloud vendoers: Amazon Web Services, Microsoft Azure &amp; Google Plattform</p>
+<p>Google even developed an entire Software Plattform around the MLOps process, Kubeflow is basically the entire process in software form.</p>
+<p>When we started out with this project, we wanted to build everything local because we did not have access to cloud credits to run the workloads there. In hindsight this was probably a bad decision, most of the software is just not made for an average laptop. We ran into many issues when it came to Memory Issues but also just compatibility in general was quite bad.</p>
+<p>We were not able to run Tensorflow Extended on a Windows Host and also using the much famed Windows Subsystem for Linux didnt result in the desired effects.</p>
+<p>This led us to running a developing instance at aws to have a native linux system.</p>
+<p>We ran all of our workload in AWS, because we had access to cloud credits there. This needs to kept in mind when running any of our code. While AWS has many AI offerings aswell, most of the guide for TFX are written with Google in mind. This definetly made the implementation of our use-case a challenge at times.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -352,7 +339,21 @@
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="AWSManagedWorkflowsinAirflow.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">AWS managed workflows in airflow (MWAA)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../delta-lake/SettingupDelta-Lake.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Setting up Delta-Lake</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

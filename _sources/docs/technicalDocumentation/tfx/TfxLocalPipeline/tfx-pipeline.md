@@ -57,7 +57,7 @@ airflow initdb
 
 The benefit of the local example is that you can edit any part of the pipeline and experiment very quickly with various components. First let's download the data for the example:
 
-```python
+```
 mkdir -p $TAXI_DIR/data/simple
 wget -O $TAXI_DIR/data/simple/data.csv https://github.com/tensorflow/tfx/blob/master/tfx/examples/chicago_taxi_pipeline/data/simple/data.csv?raw=true
 ```
@@ -76,14 +76,14 @@ export TFX_EXAMPLES=~/taxi_pipeline/lib/python3.6/site-packages/tfx/examples/chi
 
 Copy the Chicago Taxi example pipeline into the Airflow DAG folder. Info: You have to execute this command again after each change before you start the pipeline.
 
-```py
+```
 mkdir -p $AIRFLOW_HOME/dags/
 cp $TFX_EXAMPLES/taxi_pipeline_simple.py $AIRFLOW_HOME/dags/
 ```
 
 The module file `taxi_utils.py` used by the Trainer and Transform components will reside in $TAXI_DIR. Copy it there. Info: You have to execute this command again after each change before you start the pipeline.
 
-```python
+```
 cp $TFX_EXAMPLES/taxi_utils.py $TAXI_DIR
 ```
 
@@ -106,7 +106,7 @@ Open your browser on localhost:8082
 
 Now you can see the airflow interface and start the pipeline
 
-![](C:\Users\Pasca\OneDrive\Desktop\MLOPS\kirenz-mlops-semester\jupyter-book\assets\img\2022-02-06-21-18-14-image.png)
+![](C:/Users/Pasca/OneDrive/Desktop/MLOPS/kirenz-mlops-semester/jupyter-book/assets/img/2022-02-06-21-18-14-image.png)
 
 ## Customize pipeline
 

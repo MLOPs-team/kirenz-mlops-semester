@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notes: Questions for lecture on 17.11 &#8212; MLOPS</title>
+    <title>Setting up Delta-Lake &#8212; MLOPS</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet">
   <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,8 +51,8 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Testseite" href="../../technicalDocumentation/deltaLake.html" />
-    <link rel="prev" title="Notes: Required questions - theory Kirenz" href="requiredQuestions.html" />
+    <link rel="next" title="Databricks - A Lakehouse unicorn" href="databricks/AboutDatabricks.html" />
+    <link rel="prev" title="It is all about the cloud" href="../aws/Itisallaboutthecloud.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -92,69 +92,8 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../../intro.html">
-   Welcome!
+   Machine Learning Operations Project - HdM x Bosch
   </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Protocol
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../protocol/ideasPresentation.html">
-   Ideen für die Präsentation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../protocol/protocolIntern.html">
-   Protokoll - Intern
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../protocol/protocolKirenz.html">
-   Protokoll - Sprechstunde Kirenz
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Learning diary
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../deltaLake.html">
-   Das ist ein Test
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../jupyterBook.html">
-   Jupyter-Book good to know
-  </a>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="theoryKirenz.html">
-   Notes: Required reading Kirenz
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="requiredQuestions.html">
-     Notes: Required questions - theory Kirenz
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Notes: Questions for lecture on 17.11
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -162,15 +101,32 @@
   Technical documentation
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../technicalDocumentation/deltaLake.html">
-   Testseite
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tfx/dataPreprocessing/pandas/pd.html">
+   Data
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tfx/dataPreprocessing/pandas/data.html">
+     Our Dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tfx/dataPreprocessing/pandas/pandas.html">
+     Data Preprocessing with pandas
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../technicalDocumentation/tfx/windows/startWindows.html">
-   Documentation of the problems with tfx on windows
+  <a class="reference internal" href="../aws/AWS.html">
+   AWS
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -179,7 +135,71 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../technicalDocumentation/tfx/windows/tfxPipeline.html">
+    <a class="reference internal" href="../aws/AmazonEC2.html">
+     Development Environment based on AWS EC2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../aws/AWSManagedWorkflowsinAirflow.html">
+     AWS managed workflows in airflow (MWAA)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../aws/Itisallaboutthecloud.html">
+     It is all about the cloud
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   Setting up Delta-Lake
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="databricks/AboutDatabricks.html">
+     Databricks - A Lakehouse unicorn
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spark/DataExtractionfromAPI.html">
+     Data extraction from API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spark/SparkUsage.html">
+     Using Spark and PySpark
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tfx/tfx.html">
+   TensorFlow Extended
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tfx/aws-mwaa-local-runner/aws-mwaa-local-runner.html">
+     Aws-mwaa-local-runner
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tfx/TfxLocalPipeline/tfx-pipeline.html">
+     tfx-pipeline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tfx/windows/tfxPipeline.html">
      TensorFlow extended on windows
     </a>
    </li>
@@ -224,12 +244,9 @@
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
-        <a class="dropdown-buttons"
-            href="../../../_sources/docs/learningDiary/requiredTheoryKirenz/questionsCollection.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download notebook file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+        
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/docs/learningDiary/requiredTheoryKirenz/questionsCollection.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/docs/technicalDocumentation/delta-lake/SettingupDelta-Lake.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -249,7 +266,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/learningDiary/requiredTheoryKirenz/questionsCollection.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdocs/technicalDocumentation/delta-lake/SettingupDelta-Lake.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -265,23 +282,6 @@
 
             <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/docs/learningDiary/requiredTheoryKirenz/questionsCollection.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
         </div>
 
         <!-- Table of contents -->
@@ -292,36 +292,19 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Notes: Questions for lecture on 17.11
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spark-delta-delta-lake">
+   Spark ? Delta ? Delta - Lake?
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-centric-ai">
-     Data-centric AI
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#common-mlops-realted-challenges">
-     Common MLOps realted challenges
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#frameworks">
-     Frameworks
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#asdijasdon">
-   asdijasdon
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#this-feels-like-magic-kind-of">
+   This feels like magic - kind of.
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#njasnjnd">
-     njasnjnd
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-still-needs-to-be-explored">
+     What still needs to be explored?
     </a>
    </li>
   </ul>
@@ -336,7 +319,7 @@
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Notes: Questions for lecture on 17.11</h1>
+                <h1>Setting up Delta-Lake</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -346,36 +329,19 @@
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Notes: Questions for lecture on 17.11
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spark-delta-delta-lake">
+   Spark ? Delta ? Delta - Lake?
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-centric-ai">
-     Data-centric AI
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#common-mlops-realted-challenges">
-     Common MLOps realted challenges
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#frameworks">
-     Frameworks
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#asdijasdon">
-   asdijasdon
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#this-feels-like-magic-kind-of">
+   This feels like magic - kind of.
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#njasnjnd">
-     njasnjnd
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-still-needs-to-be-explored">
+     What still needs to be explored?
     </a>
    </li>
   </ul>
@@ -389,43 +355,54 @@
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="notes-questions-for-lecture-on-17-11">
-<h1>Notes: Questions for lecture on 17.11<a class="headerlink" href="#notes-questions-for-lecture-on-17-11" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="data-centric-ai">
-<h2>Data-centric AI<a class="headerlink" href="#data-centric-ai" title="Permalink to this headline">¶</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="setting-up-delta-lake">
+<h1>Setting up Delta-Lake<a class="headerlink" href="#setting-up-delta-lake" title="Permalink to this headline">¶</a></h1>
+<p><img alt="Delta Lake" src="https://docs.delta.io/latest/_static/delta-lake-logo.png" /></p>
+<p>This is heavily inspired by the Delta-Lake [Quickstart Guide](<a class="reference external" href="https://docs.delta.io/latest/quick-start.html">Quickstart — Delta Lake Documentation</a>)</p>
+<div class="section" id="spark-delta-delta-lake">
+<h2>Spark ? Delta ? Delta - Lake?<a class="headerlink" href="#spark-delta-delta-lake" title="Permalink to this headline">¶</a></h2>
+<p>When reading up on the concept of the delta-lake, the concept seems easy to comprehend. But the separation between technology / naming conventions can be tough at times.</p>
+<p>Delta-Lake is built on top of Apache Spark, so for running your own Delta Lake you will need a Spark Shell in your programming language of choice (Scala or Python).</p>
+<p>This is not part of the official guide, but it is always good to start with a new virtual python environment. Use conda / virtualenv to setup a new one and start it.</p>
+<p>Then you will need to install the Pyspark Shell can be installed via this command:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyspark</span><span class="o">==&lt;</span><span class="n">compatible</span><span class="o">-</span><span class="n">spark</span><span class="o">-</span><span class="n">version</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Afterwards you can run Spark with the Delta-Lake Packages with this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyspark --packages io.delta:delta-core_2.12:1.1.0 --conf <span class="s2">&quot;spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension&quot;</span> --conf <span class="s2">&quot;spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog&quot;</span><span class="sb">`</span>
+</pre></div>
+</div>
+<p>Afterwards you can setup your Delta-Lake project from your python scripts by running these commands below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyspark</span>
+<span class="kn">from</span> <span class="nn">delta</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">builder</span> <span class="o">=</span> <span class="n">pyspark</span><span class="o">.</span><span class="n">sql</span><span class="o">.</span><span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&quot;MyApp&quot;</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.sql.extensions&quot;</span><span class="p">,</span> <span class="s2">&quot;io.delta.sql.DeltaSparkSessionExtension&quot;</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.sql.catalog.spark_catalog&quot;</span><span class="p">,</span> <span class="s2">&quot;org.apache.spark.sql.delta.catalog.DeltaCatalog&quot;</span><span class="p">)</span>
+
+<span class="n">spark</span> <span class="o">=</span> <span class="n">configure_spark_with_delta_pip</span><span class="p">(</span><span class="n">builder</span><span class="p">)</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>You can then start creating / modifying / deleting tables in Delta.
+In our situation we decided to save the Delta Tables in a central AWS S3 Bucket so we could later use the Delta Lake in our TFX Pipeline aswell.</p>
+<p>Further configuration options regarding storage and other setup tipps can be found <a class="reference external" href="https://docs.delta.io/latest/delta-storage.html">here</a>.</p>
+</div>
+<div class="section" id="this-feels-like-magic-kind-of">
+<h2>This feels like magic - kind of.<a class="headerlink" href="#this-feels-like-magic-kind-of" title="Permalink to this headline">¶</a></h2>
+<p>Delta Lake utilizes Parquet files to store its delta tables, while all ACID conform transactions are saved in a delta-log file. This allows one to time travel through the changes made to the table and keeps files access times really low.
+While the inital setup of the delta-lake is very straight forward it is not very easy to interact with it without having any prior knowledge in Spark.</p>
+<p>Also to make full usage of the capabilities of the Delta-Lake you will need to have proceesses in place and might need a data governance team and guidelines.</p>
+<div class="section" id="what-still-needs-to-be-explored">
+<h3>What still needs to be explored?<a class="headerlink" href="#what-still-needs-to-be-explored" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>12% of 500 Examples are noisy. How can we identify these 12%? Are there any frameworks or tools etc.?</p>
-<ul>
-<li><p>Tesnorflow extended - preprocessing ermöglicht genaut das. Hierbei kann man außreiser anzeigen. Bibliothek mit dieser man außreiser anzeigen kann</p></li>
-<li><p>Pandas oder Ceborn wäre auch möglich - ganz klassisch mit boxplots oder so arbeiten</p></li>
-<li><p>wenn man systematisch rangehen möchte: Tensorflow hat hierfür eine bib die example validator statistics gen kann man hierfür auch verwenden</p></li>
-<li><p>wie viele außreiser gibt es standardwerte und so…typische daten exploration</p></li>
-</ul>
-</li>
+<li><p>How does the delta-lake Streaming Data?</p></li>
+<li><p>How can the MLOps process make real use of the extra capabilities the delta approach provides. (-&gt; Time Travel, Schema Merging etc)</p></li>
+<li><p>What is the ideal solution to extracting data from the delta lake?</p></li>
+<li><p>How can we solve the pandas vs spark dataframe dilemma?</p></li>
 </ul>
 </div>
-<div class="section" id="common-mlops-realted-challenges">
-<h2>Common MLOps realted challenges<a class="headerlink" href="#common-mlops-realted-challenges" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Kedro - Wo fängt Kedro an und wo hört es auf? Verstehen den Zusammenhand noch nicht ganz</p>
-<ul>
-<li></li>
-</ul>
-</li>
-</ul>
 </div>
-<div class="section" id="frameworks">
-<h2>Frameworks<a class="headerlink" href="#frameworks" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Warum veruscht man MLOps so stark von DEVops abzugrenzen, wenn man sich doch an den Grundsätzen daran orintiert?</p></li>
-</ul>
-<p>in devops projekten hat man nicht die problematik mit daten. Datensichtugn, Datensammlung, Datenveredelung spielt bei devops kein Thema. Aber gerade das ist der Schwerpunkt von MLOPs. Weil Daten so wichtig sind ist das der zentrale Unterschied bei DEVops. Datensammlung, Datensicherung usw. spielt hier die zentrale Rolle und nimmt auch einen großen Raum im Prozess ein.</p>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="asdijasdon">
-<h1>asdijasdon<a class="headerlink" href="#asdijasdon" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="njasnjnd">
-<h2>njasnjnd<a class="headerlink" href="#njasnjnd" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -442,7 +419,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./docs/learningDiary/requiredTheoryKirenz"
+            path: "./docs/technicalDocumentation/delta-lake"
         },
         predefinedOutput: true
     }
@@ -454,17 +431,17 @@
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="requiredQuestions.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../aws/Itisallaboutthecloud.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Notes: Required questions - theory Kirenz</p>
+            <p class="prev-next-title">It is all about the cloud</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../../technicalDocumentation/deltaLake.html" title="next page">
+    <a class='right-next' id="next-link" href="databricks/AboutDatabricks.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Testseite</p>
+        <p class="prev-next-title">Databricks - A Lakehouse unicorn</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

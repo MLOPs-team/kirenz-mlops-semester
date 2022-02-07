@@ -1,3 +1,5 @@
+# Data extraction from API
+
 Why Data Extraction is so important?
 
 In any Machine Learning Project the data acquisition is the starting point to then polish the data and build and train a model. 

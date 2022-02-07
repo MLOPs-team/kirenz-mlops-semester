@@ -18,7 +18,7 @@ The presentation of code and result is also liked by many.
 
 Databricks has used this same approach for the ETL processes in Spark, as can be seen with this GUI screenshot, where we load our police dataset and transform it and then write it into the delta-lake:
 
-![](/Users/niklasdenneler/Development/kirenz-mlops-semester/jupyter-book/assets/img/2022-02-06-23-21-25-image.png)
+![](../../../../assets/img/2022-02-06-23-21-25-image.png)
 
 On the left hand side one can browse through his Git Repo, pick which file to work on or change the configuration of the Spark Cluster. 
 

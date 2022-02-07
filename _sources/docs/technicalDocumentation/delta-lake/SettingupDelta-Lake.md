@@ -1,10 +1,10 @@
-# Setting up Delta - Lake
+# Setting up Delta-Lake
 
 ![Delta Lake](https://docs.delta.io/latest/_static/delta-lake-logo.png)
 
 This is heavily inspired by the Delta-Lake [Quickstart Guide]([Quickstart &mdash; Delta Lake Documentation](https://docs.delta.io/latest/quick-start.html))
 
-# Spark ? Delta ? Delta - Lake?
+## Spark ? Delta ? Delta - Lake?
 
 When reading up on the concept of the delta-lake, the concept seems easy to comprehend. But the separation between technology / naming conventions can be tough at times.
 
@@ -42,7 +42,7 @@ In our situation we decided to save the Delta Tables in a central AWS S3 Bucket 
 
 Further configuration options regarding storage and other setup tipps can be found [here](https://docs.delta.io/latest/delta-storage.html).
 
-# This feels like magic - kind of.
+## This feels like magic - kind of.
 
 Delta Lake utilizes Parquet files to store its delta tables, while all ACID conform transactions are saved in a delta-log file. This allows one to time travel through the changes made to the table and keeps files access times really low. 
 While the inital setup of the delta-lake is very straight forward it is not very easy to interact with it without having any prior knowledge in Spark.

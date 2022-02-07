@@ -51,6 +51,8 @@
     <script async="async" src="../../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="tfx-pipeline" href="../TfxLocalPipeline/tfx-pipeline.html" />
+    <link rel="prev" title="TensorFlow Extended" href="../tfx.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -90,51 +92,19 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../../../intro.html">
-   Welcome!
+   Machine Learning Operations Project - HdM x Bosch
   </a>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Protocol
+  Technical documentation
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../protocol/ideasPresentation.html">
-   Ideen für die Präsentation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../protocol/protocolIntern.html">
-   Protokoll - Intern
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../protocol/protocolKirenz.html">
-   Protokoll - Sprechstunde Kirenz
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Learning diary
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../learningDiary/deltaLake.html">
-   Das ist ein Test
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../../learningDiary/jupyterBook.html">
-   Jupyter-Book good to know
-  </a>
- </li>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../../learningDiary/requiredTheoryKirenz/theoryKirenz.html">
-   Notes: Required reading Kirenz
+  <a class="reference internal" href="../dataPreprocessing/pandas/pd.html">
+   Data
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -143,32 +113,20 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../../learningDiary/requiredTheoryKirenz/requiredQuestions.html">
-     Notes: Required questions - theory Kirenz
+    <a class="reference internal" href="../dataPreprocessing/pandas/data.html">
+     Our Dataset
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../../learningDiary/requiredTheoryKirenz/questionsCollection.html">
-     Notes: Questions for lecture on 17.11
+    <a class="reference internal" href="../dataPreprocessing/pandas/pandas.html">
+     Data Preprocessing with pandas
     </a>
    </li>
   </ul>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Technical documentation
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../deltaLake.html">
-   Testseite
-  </a>
- </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../windows/startWindows.html">
-   Documentation of the problems with tfx on windows
+  <a class="reference internal" href="../../aws/AWS.html">
+   AWS
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -176,6 +134,70 @@
    </i>
   </label>
   <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../aws/AmazonEC2.html">
+     Development Environment based on AWS EC2
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../aws/AWSManagedWorkflowsinAirflow.html">
+     AWS managed workflows in airflow (MWAA)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../aws/Itisallaboutthecloud.html">
+     It is all about the cloud
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../delta-lake/SettingupDelta-Lake.html">
+   Setting up Delta-Lake
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../delta-lake/databricks/AboutDatabricks.html">
+     Databricks - A Lakehouse unicorn
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../delta-lake/spark/DataExtractionfromAPI.html">
+     Data extraction from API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../delta-lake/spark/SparkUsage.html">
+     Using Spark and PySpark
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../tfx.html">
+   TensorFlow Extended
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Aws-mwaa-local-runner
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../TfxLocalPipeline/tfx-pipeline.html">
+     tfx-pipeline
+    </a>
+   </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../windows/tfxPipeline.html">
      TensorFlow extended on windows
@@ -452,7 +474,7 @@
 </pre></div>
 </div>
 <p>After starting the pipeline, the progress can be tracked in Airflow. In the Tree view all components can be seen, which are passed through in this DAG.</p>
-<p><img alt="" src="docs/technicalDocumentation/tfx/aws-mwaa-local-runner/C:%5CUsers%5CPasca%5COneDrive%5CDesktop%5CMLOPS%5Ckirenz-mlops-semester%5Cjupyter-book%5Cassets%5Cimg%5C2022-02-06-22-20-54-image.png" /></p>
+<p><img alt="" src="../../../../_images/2022-02-06-22-20-54-image.png" /></p>
 <p>The data has now been downloaded to the docker container and the model can be started</p>
 </div>
 <div class="section" id="start-the-dag-police-uk-pipeline">
@@ -669,7 +691,7 @@
 </pre></div>
 </div>
 <p>After starting the pipeline, the progress can be tracked in Airflow. In the Tree view all components can be seen, which are passed through in this DAG. Für jede Komponente wird ein Log file geschrieben und kann in airflow eingesehen werden.</p>
-<p><img alt="" src="docs/technicalDocumentation/tfx/aws-mwaa-local-runner/C:%5CUsers%5CPasca%5COneDrive%5CDesktop%5CMLOPS%5Ckirenz-mlops-semester%5Cjupyter-book%5Cassets%5Cimg%5C2022-02-06-23-11-47-image.png" /></p>
+<p><img alt="" src="../../../../_images/2022-02-06-23-11-47-image.png" /></p>
 <p>The output artifacts etc. are stored in the docker container under the following paths:</p>
 <ul class="simple">
 <li><p>Metadata - /usr/local/airflow/police-uk-pipeline/metadata/</p></li>
@@ -730,7 +752,21 @@
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'>
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../tfx.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">TensorFlow Extended</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../TfxLocalPipeline/tfx-pipeline.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">tfx-pipeline</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             
         </div>

@@ -1,3 +1,5 @@
+# AWS managed workflows in airflow (MWAA)
+
 When embarking on our journey in the MLOps world, we first started out by deploying kubeflow on a private university cloud. The space and resources on the instance were very limited and thus we had to take a different direction, because we could not make kubeflow run stable.
 
 Our professor introduced the orchestrating tool Airflow to us. Which we ran locally with some success. We decided that for running our workloads in a realisitic setting we needed to deploy them to the cloud. Because the configuration of Airflow seemed daunting, we picked the SaaS offering by AWS, the so called: [Managed Workflow for Apache Airflow](https://aws.amazon.com/managed-workflows-for-apache-airflow/)
